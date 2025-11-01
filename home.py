@@ -1,5 +1,4 @@
-# Home.py
-# (File utama lo, ganti namanya jadi Home.py)
+# home.py
 
 import streamlit as st
 import yaml
@@ -7,20 +6,25 @@ from streamlit_authenticator import Authenticate
 from PIL import Image
 from streamlit_option_menu import option_menu
 import time
+import streamlit as st
+from navigation import make_sidebar
+
+# Simpan nama halaman ke session (buat tracking)
+st.session_state["_current_page"] = "Home"  # Ganti sesuai nama file halamannya
 
 # --- PAGE CONFIG (WAJIB PALING ATAS) ---
 st.set_page_config(
-    page_title="Exercise Recommendation App",
+    page_title="Personal Fitness Guide",
     page_icon="🏋️",
     layout="wide",
-    initial_sidebar_state="expanded" # Bikin sidebar kebuka by default
+    initial_sidebar_state="expanded"
+     # Bikin sidebar kebuka by default
 )
 
 # --- CSS STYLING ---
-# (Semua CSS lo yang lama + TAMBAHAN CSS buat sidebar gelap)
 st.markdown("""
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display.swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
         
         :root {
             /* Warna Gradasi Tema */
@@ -43,11 +47,11 @@ st.markdown("""
             --dark-purple-hover: #4A2E7E; /* Hover tombol logout */
         }
 
-        /* --- HALAMAN UTAMA & JUDUL GRADASI --- */
-        .stApp {
-            background: var(--cream-bg-light); 
-        }
-        .main .block-container { padding: 1rem 2rem; }
+        /* --- HALAMAN UTAMA & JUDUL GRADASI --- 
+         .stApp {
+             background: var(--cream-bg-light); 
+         }
+         .main .block-container { padding: 1rem 2rem; }*/
 
         .header-title {
             font-family: 'Poppins', sans-serif;
@@ -63,14 +67,14 @@ st.markdown("""
 
         /* --- SIDEBAR --- */
         [data-testid="stSidebar"] {
-            background-color: var(--cream-bg-dark); 
+           /* background-color: var(--cream-bg-dark);*/ 
             border-right: 1px solid #DCDCDC; 
         }
             
         [data-testid="stSidebarNav"] {
             display: none !important;
         }       
-                 
+            
         [data-testid="stSidebar"] .stSuccess {
              color: var(--dark-text); 
         }
@@ -127,9 +131,9 @@ st.markdown("""
 
         /* --- LOGOUT BUTTON (FIXED) --- */
         [data-testid="stSidebar"] .stButton {
-            position: absolute;
+            position: flex;
             bottom: 20px;
-            width: 90%;
+            width: 200%;
             margin: 0 5%;
         }
         [data-testid="stSidebar"] .stButton button {
@@ -146,10 +150,24 @@ st.markdown("""
             padding: 8px 0 !important; /* Paksa padding vertikal */
             line-height: 1.5; /* Jaga teks tetap di tengah */
         }
-        [data-testid="stSidebar"] .stButton button:hover {
-             background: var(--dark-purple-hover); 
-             transform: translateY(-2px);
-             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            [data-testid="stSidebar"] .stButton button:hover {
+                 background: var(--dark-purple-hover); 
+                 transform: translateY(-2px);
+                 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+            [data-testid="stSidebar"] button[kind="secondary"] {
+            width: 70% !important;           /* Lebar tombol */
+            display: block !important;
+            background-color: var(--dark-purple-solid);
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        [data-testid="stSidebar"] button[kind="secondary"]:hover {
+            background-color: var(--dark-purple-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
     </style>
 """, unsafe_allow_html=True)
@@ -173,78 +191,44 @@ authenticator = Authenticate(
     config["cookie"]["expiry_days"]
 )
 
-# --- FUNGSI SIDEBAR (VERSI GUEST MODE) ---
-def show_sidebar(default_index=0):
-    with st.sidebar:
-        try:
-            logo = Image.open("logo.jpg") 
-            st.image(logo, width=100) 
-        except FileNotFoundError:
-            st.sidebar.title("🏋️ Exercise App")
+from navigation import make_sidebar
 
-        # Cek status
-        if st.session_state.get("authentication_status"):
-            # --- TAMPILAN LOGGED IN ---
-            st.success(f"Welcome, {st.session_state['name']} 👋")
-            selected = option_menu(
-                menu_title="Menu Bar",
-                options=["Home", "Recommendation", "Profile", "About"], # Tampilkan Profile
-                icons=["house-fill", "clipboard-data-fill", "person-fill", "info-circle-fill"],
-                menu_icon="list-task",
-                default_index=default_index,
-                orientation="vertical",
-                key="sidebar_menu"
-            )
-            authenticator.logout("Logout", "sidebar", key="logout_sidebar") 
-            return selected 
-        else:
-            # --- TAMPILAN GUEST ---
-            st.info("Mode: 👤 Guest")
-            selected = option_menu(
-                menu_title="Menu Bar",
-                options=["Home", "Recommendation", "About"], # Sembunyikan Profile
-                icons=["house-fill", "clipboard-data-fill", "info-circle-fill"],
-                menu_icon="list-task",
-                default_index=default_index,
-                orientation="vertical",
-                key="sidebar_menu"
-            )
-            st.warning("Silakan Login untuk mengakses Profile.")
-            return selected
+# (setelah authenticator diinisialisasi)
+make_sidebar(authenticator)
 
-selected_page = show_sidebar(default_index=0) # Index 0 untuk Home
+# --- KONTEN HALAMAN UTAMA (BAHASA "AKU-KAMU") ---
 
-# --- KONTEN HALAMAN UTAMA (DIGANTI) ---
-
-# Konten ini SELALU tampil, baik guest maupun login
 # Hero Section
-st.markdown("<h1 class='header-title'>🏋️‍♀️ Welcome to the Exercise Recommendation App</h1>", unsafe_allow_html=True)
+st.markdown("<h1 class='header-title'>🏋️‍♀️ Your Personal Fitness Guide</h1>", unsafe_allow_html=True)
 st.write("""
-Selamat datang di **Exercise Recommendation App**, tempat lo bisa dapetin rekomendasi olahraga yang cocok banget buat kebutuhan lo!  
-Aplikasi ini bantu lo tetep aktif, sehat, dan termotivasi buat jaga lifestyle lo 💪
+Selamat datang di **Exercise Recommendation App**! Lupakan bingung mau latihan apa atau makan apa hari ini.
+Aplikasi ini adalah *coach* digital kamu, ngasih rekomendasi olahraga dan nutrisi yang dibuat khusus buat kamu. 
+*No more guesswork, just results*. 💪
 """)
 
 st.markdown("---")
 
-# --- FEATURE HIGHLIGHTS ---
-st.subheader("✨ Apa yang Bisa Lo Lakuin di Sini?")
+# --- FEATURE HIGHLIGHTS (BAHASA "AKU-KAMU") ---
+st.subheader("✨ Apa yang Bisa Kamu Lakuin di Sini?")
 
 col1, col2, col3 = st.columns(3)
 with col1:
-    st.markdown("### 🤖 Rekomendasi Personal")
-    st.write("Dapetin saran latihan berdasarkan kondisi tubuh dan tujuan lo — biar hasilnya maksimal tanpa overtraining.")
+    st.markdown("### ⚙️ Rekomendasi Personal")
+    st.write("Dapetin saran latihan berdasarkan kondisi tubuh (BMI), tujuan, dan riwayat kesehatan kamu. *Pure science*, bukan kira-kira.")
 
 with col2:
-    st.markdown("### 📈 Pantau Progress")
-    st.write("Lihat perkembangan latihan lo dari waktu ke waktu, biar makin semangat dan konsisten.")
+    st.markdown("### 🥗 Panduan Asupan")
+    st.write("Bukan cuma latihan, aplikasi ini juga ngasih panduan makanan **'Isi Piringku'** yang sudah divalidasi ahli. *Eat smart, train smart*.")
 
 with col3:
-    st.markdown("### 👤 Profile & Tracking")
-    st.write("Atur data pribadi, target, dan preferensi latihan lo di satu tempat yang simpel dan rapi.")
+    st.markdown("### 💾 Simpan Rencana Kamu")
+    st.write("Nemu *workout plan* yang kamu suka? Simpen ke Profile. Favoritin *exercise* atau makanan spesifik biar gampang di-cek lagi nanti.")
 
 st.markdown("---")
+# --- AKHIR PERUBAHAN ---
 
-# --- CTA / MOTIVATIONAL SECTION ---
+
+# --- CTA / MOTIVATIONAL SECTION (BAHASA "AKU-KAMU") ---
 with st.container():
     st.markdown("""
     <div style="
@@ -255,39 +239,39 @@ with st.container():
         box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     ">
         <h2 style="color: var(--soft-purple-text); font-family: 'Poppins', sans-serif;">🔥 “Your body can stand almost anything. It’s your mind you have to convince.” 🔥</h2>
-        <p style="font-size: 1.1rem; color: #555;">Mulai dari langkah kecil hari ini — klik tab <b>Recommendation</b> di sidebar dan dapetin latihan terbaik buat lo.</p>
+        <p style="font-size: 1.1rem; color: #555;">Mulai dari langkah kecil hari ini — klik tab <b>Recommendation</b> di sidebar dan dapetin latihan terbaik buat kamu.</p>
     </div>
     """, unsafe_allow_html=True)
 
 st.markdown("<br>", unsafe_allow_html=True)
 
 # Tampilkan form login HANYA JIKA BELUM LOGIN
-if not st.session_state.get("authentication_status"):
-    st.markdown("---")
-    st.subheader("Login atau Daftar untuk Mengakses Fitur Profile")
+# if not st.session_state.get("authentication_status"):
+#     st.markdown("---")
+#     st.subheader("Login atau Daftar untuk Mengakses Fitur Profile")
     
-    login_tab, signup_tab = st.tabs(["🔐 Login", "📝 Sign Up"])
+#     login_tab, signup_tab = st.tabs(["🔐 Login", "📝 Sign Up"])
     
-    with login_tab:
-        authenticator.login("main", key="login_form")
-        auth_state = st.session_state.get("authentication_status")
-        if auth_state:
-            st.success("Login berhasil! 🚀")
-            time.sleep(1)
-            st.rerun() 
-        elif auth_state is False:
-            st.error("Username / password salah.")
-        # (Gak perlu 'elif auth_state is None')
+#     with login_tab:
+#         authenticator.login("main", key="login_form")
+#         auth_state = st.session_state.get("authentication_status")
+#         if auth_state:
+#             st.success("Login berhasil! 🚀")
+#             time.sleep(1)
+#             st.rerun() 
+#         elif auth_state is False:
+#             st.error("Username / password salah.")
+#         # (Gak perlu 'elif auth_state is None')
             
-    with signup_tab:
-        try:
-            registered = authenticator.register_user(location="main", key="signup_form")
-            if registered:
-                st.success("Pendaftaran berhasil! Menyimpan config...")
-                with open("config.yaml", "w") as file:
-                    yaml.dump(config, file, default_flow_style=False)
-                st.info("✅ Pendaftaran sukses! Silakan pindah ke tab 'Login'.")
-        except Exception as e:
-            st.error(f"Terjadi error waktu daftar: {e}")
+#     with signup_tab:
+#         try:
+#             registered = authenticator.register_user(location="main", key="signup_form")
+#             if registered:
+#                 st.success("Pendaftaran berhasil! Menyimpan config...")
+#                 with open("config.yaml", "w") as file:
+#                     yaml.dump(config, file, default_flow_style=False)
+#                 st.info("✅ Pendaftaran sukses! Silakan pindah ke tab 'Login'.")
+#         except Exception as e:
+#             st.error(f"Terjadi error waktu daftar: {e}")
 
 # Kalo udah login, bagian ini gak akan tampil

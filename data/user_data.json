@@ -25,6 +25,56 @@
           "Diet": "Karbohidrat: (Nasi, Kentang, Roti Gandum, Jagung, Singkong, Ubi); Mineral & Serat: (Bayam, Kangkung, Wortel, Tomat, Brokoli, Jeruk, Apel, Pisang, Pepaya); Protein: (Tahu, Tempe, Kacang-kacangan, Ikan, Ayam Tanpa Kulit, Telur, Daging Tanpa Lemak, Susu Rendah Lemak)"
         }
       }
+    ],
+    "qwqw": [
+      {
+        "timestamp": 1762004738.9126585,
+        "pred_label": "Muscular Fitness",
+        "level": "Normal",
+        "goal": "Weight Gain",
+        "bmi": 22.093170054286073,
+        "best_row": {
+          "Exercises": "Squats, Deadlifts, Bench Presses, Overhead Presses",
+          "Equipment": "Dumbbells, Barbells",
+          "Diet": "Karbohidrat: (Nasi, Kentang, Roti Gandum, Jagung, Singkong, Ubi); Mineral & Serat: (Bayam, Kangkung, Wortel, Tomat, Brokoli, Jeruk, Apel, Pisang, Pepaya); Protein: (Tahu, Tempe, Kacang-kacangan, Ikan, Ayam Tanpa Kulit, Telur, Daging Tanpa Lemak, Susu Rendah Lemak)"
+        }
+      },
+      {
+        "timestamp": 1762004847.3687654,
+        "pred_label": "Muscular Fitness",
+        "level": "Normal",
+        "goal": "Weight Gain",
+        "bmi": 20.761245674740486,
+        "best_row": {
+          "Exercises": "Squats, Deadlifts, Bench Presses, Overhead Presses",
+          "Equipment": "Dumbbells, Barbells",
+          "Diet": "Karbohidrat: (Nasi, Kentang, Roti Gandum, Jagung, Singkong, Ubi); Mineral & Serat: (Bayam, Kangkung, Wortel, Tomat, Brokoli, Jeruk, Apel, Pisang, Pepaya); Protein: (Tahu, Tempe, Kacang-kacangan, Ikan, Ayam Tanpa Kulit, Telur, Daging Tanpa Lemak, Susu Rendah Lemak)"
+        }
+      },
+      {
+        "timestamp": 1762004847.3687654,
+        "pred_label": "Muscular Fitness",
+        "level": "Normal",
+        "goal": "Weight Gain",
+        "bmi": 20.761245674740486,
+        "best_row": {
+          "Exercises": "Squats, Deadlifts, Bench Presses, Overhead Presses",
+          "Equipment": "Dumbbells, Barbells",
+          "Diet": "Karbohidrat: (Nasi, Kentang, Roti Gandum, Jagung, Singkong, Ubi); Mineral & Serat: (Bayam, Kangkung, Wortel, Tomat, Brokoli, Jeruk, Apel, Pisang, Pepaya); Protein: (Tahu, Tempe, Kacang-kacangan, Ikan, Ayam Tanpa Kulit, Telur, Daging Tanpa Lemak, Susu Rendah Lemak)"
+        }
+      },
+      {
+        "timestamp": 1762005032.574104,
+        "pred_label": "Muscular Fitness",
+        "level": "Normal",
+        "goal": "Weight Gain",
+        "bmi": 24.221453287197235,
+        "best_row": {
+          "Exercises": "Squats, Deadlifts, Bench Presses, Overhead Presses",
+          "Equipment": "Dumbbells, Barbells",
+          "Diet": "Karbohidrat: (Nasi, Kentang, Roti Gandum, Jagung, Singkong, Ubi); Mineral & Serat: (Bayam, Kangkung, Wortel, Tomat, Brokoli, Jeruk, Apel, Pisang, Pepaya); Protein: (Tahu, Tempe, Kacang-kacangan, Ikan, Ayam Tanpa Kulit, Telur, Daging Tanpa Lemak, Susu Rendah Lemak)"
+        }
+      }
     ]
   },
   "favorites": {
@@ -32,6 +82,9 @@
       "Squats",
       "Bench Presses",
       "Deadlifts",
+      "Kentang"
+    ],
+    "qwqw": [
       "Kentang"
     ]
   }

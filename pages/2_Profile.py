@@ -2,13 +2,73 @@
 import streamlit as st
 
 # --- HARUS DI PALING ATAS ---
-st.set_page_config(page_title="Profil Pengguna", layout="wide")
+
 
 import os
 import yaml
 from PIL import Image
 import json
 from streamlit_authenticator import Authenticate
+from navigation import make_sidebar, hide_default_sidebar
+
+st.set_page_config(page_title="Profile", page_icon="👤", layout="wide")
+
+hide_default_sidebar()
+
+st.markdown("""
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display.swap');
+        :root {
+            /* Warna Gradasi Tema */
+            --theme-blue: #6495ED; 
+            --theme-purple: #9370DB; 
+            --theme-pink: #FF69B4; 
+            --theme-gradient: linear-gradient(to right, var(--theme-blue), var(--theme-purple), var(--theme-pink));
+
+            /* Warna Krem Latar */
+            --cream-bg-light: #FAF9F6;  /* Halaman */
+            --cream-bg-dark: #F0EFEA;   /* Sidebar */
+            --dark-text: #333333;       
+            --hover-cream: #E0DFD9;     
+            
+            /* Warna Baru (Soft Purple Theme) */
+            --soft-purple-bg: #E8E2F7;    /* Latar tombol aktif */
+            --soft-purple-text: #5D3B9C; /* Teks tombol aktif */
+            --soft-purple-hover: #D8CCF2;  
+            --dark-purple-solid: #5D3B9C; /* Tombol logout */
+            --dark-purple-hover: #4A2E7E; /* Hover tombol logout */
+        }
+        .header-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 2.75rem;
+            margin-bottom: 1rem;
+            background: var(--theme-gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-fill-color: transparent;
+        }
+        [data-testid="stSidebar"] .stButton {
+            position: flex;
+            bottom: 20px;
+            width: 200%;
+            margin: 0 5%;
+        }
+        [data-testid="stSidebar"] .stButton button {
+            background: var(--dark-purple-solid); 
+            color: white;
+            width: 100%;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            transition: all 0.2s ease;
+            height: 45px; /* Set tinggi manual */
+            padding: 8px 0 !important; /* Paksa padding vertikal */
+            line-height: 1.5; /* Jaga teks tetap di tengah */
+        }
+    </style>
+""", unsafe_allow_html=True)
 
 # --- PATH SETUP ---
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -34,6 +94,8 @@ authenticator = Authenticate(
     config["cookie"]["expiry_days"]
 )
 
+make_sidebar(authenticator)
+
 # --- JUDUL HALAMAN ---
 st.markdown("<h1 class='header-title'>👤 Profil Pengguna</h1>", unsafe_allow_html=True)
 
@@ -57,11 +119,11 @@ def save_user_data(data):
         print("Error saving user data:", e)
 
 # --- SIDEBAR ---
-try:
-    logo = Image.open(os.path.join(ROOT_DIR, "logo.jpg"))
-    st.sidebar.image(logo, width=100)
-except FileNotFoundError:
-    st.sidebar.title("🏋️ Exercise App")
+# try:
+#     logo = Image.open(os.path.join(ROOT_DIR, "logo.png"))
+#     st.sidebar.image(logo, width=100)
+# except FileNotFoundError:
+#     st.sidebar.title("🏋️ Exercise App")
 
 # --- AUTH CHECK ---
 if not st.session_state.get("authentication_status"):
@@ -95,23 +157,6 @@ st.markdown(f"""
     </div>
 </div>
 """, unsafe_allow_html=True)
-
-# --- SECTION: UBAH PASSWORD ---
-st.subheader("🔐 Ubah Password")
-st.write("Ganti password kamu di sini biar akun makin aman 🔒")
-
-try:
-    if authenticator.reset_password(username, location="main"):
-        st.success("Password berhasil diubah! Menyimpan konfigurasi...")
-        with open(CONFIG_PATH, "w") as file:
-            yaml.dump(config, file, default_flow_style=False)
-        st.info("Silakan login kembali dengan password baru kamu.")
-        authenticator.logout("Logout", "main", key="logout_after_reset")
-        st.rerun()
-except Exception as e:
-    st.error(f"Terjadi error saat ubah password: {e}")
-
-st.markdown("---")
 
 # --- SECTION: REKOMENDASI DISIMPAN ---
 st.subheader("💾 Rekomendasi yang Kamu Simpan")
@@ -156,7 +201,24 @@ else:
 
 st.markdown("---")
 
+# --- SECTION: UBAH PASSWORD ---
+st.subheader("🔐 Ubah Password")
+st.write("Ganti password kamu di sini biar akun makin aman 🔒")
+
+try:
+    if authenticator.reset_password(username, location="main"):
+        st.success("Password berhasil diubah! Menyimpan konfigurasi...")
+        with open(CONFIG_PATH, "w") as file:
+            yaml.dump(config, file, default_flow_style=False)
+        st.info("Silakan login kembali dengan password baru kamu.")
+        authenticator.logout("Logout", "main", key="logout_after_reset")
+        st.rerun()
+except Exception as e:
+    st.error(f"Terjadi error saat ubah password: {e}")
+
+st.markdown("---")
+
 # --- LOGOUT BUTTON ---
-if st.button("Logout"):
-    authenticator.logout("Logout", "main", key="logout_main")
-    st.rerun()
+# if st.button("Logout"):
+#     authenticator.logout("Logout", "main", key="logout_main")
+#     st.rerun()

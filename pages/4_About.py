@@ -1,4 +1,4 @@
-# pages/3_About.py
+# pages/4_About.py
 
 import streamlit as st
 import yaml
@@ -9,12 +9,19 @@ import time
 import os
 
 # --- PAGE CONFIG ---
-st.set_page_config(layout="wide")
+from navigation import make_sidebar, hide_default_sidebar
+
+st.set_page_config(page_title="About", page_icon="ℹ️", layout="wide")
+
+hide_default_sidebar()
+
+ 
+
 
 # --- CSS (Copy-paste dari Home.py) ---
 st.markdown("""
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display.swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
         
         :root {
             /* Warna Gradasi Tema */
@@ -38,9 +45,9 @@ st.markdown("""
         }
 
         /* --- HALAMAN UTAMA & JUDUL GRADASI --- */
-        .stApp {
+        /*.stApp {
             background: var(--cream-bg-light); 
-        }
+        }*/
         .main .block-container { padding: 1rem 2rem; }
 
         .header-title {
@@ -57,7 +64,7 @@ st.markdown("""
 
         /* --- SIDEBAR --- */
         [data-testid="stSidebar"] {
-            background-color: var(--cream-bg-dark); 
+          /* background-color: var(--cream-bg-dark);*/ 
             border-right: 1px solid #DCDCDC; 
         }
         [data-testid="stSidebar"] .stSuccess {
@@ -114,9 +121,9 @@ st.markdown("""
 
         /* --- LOGOUT BUTTON (FIXED) --- */
         [data-testid="stSidebar"] .stButton {
-            position: absolute;
+            position: flex;
             bottom: 20px;
-            width: 90%;
+            width: 200%;
             margin: 0 5%;
         }
         [data-testid="stSidebar"] .stButton button {
@@ -128,7 +135,6 @@ st.markdown("""
             border: none;
             transition: all 0.2s ease;
             
-            /* --- INI FIX-NYA --- */
             height: 45px; /* Set tinggi manual */
             padding: 8px 0 !important; /* Paksa padding vertikal */
             line-height: 1.5; /* Jaga teks tetap di tengah */
@@ -138,6 +144,36 @@ st.markdown("""
              transform: translateY(-2px);
              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
+            [data-testid="stSidebar"] button[kind="secondary"] {
+        width: 70% !important;           /* Lebar tombol */
+        display: block !important;
+        background-color: var(--dark-purple-solid);
+        color: white;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.2s ease;
+    }
+    [data-testid="stSidebar"] button[kind="secondary"]:hover {
+        background-color: var(--dark-purple-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    /* Box untuk Tech Stack */
+    .tech-stack-box {
+        background-color: var(--soft-purple-bg);
+        padding: 1.5rem;
+        border-radius: 12px;
+        /* text-align: center; */ /* Kita buat rata kiri */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        height: 100%; /* Bikin tingginya sama */
+    }
+    .tech-stack-box p {
+        font-size: 1.05rem; 
+        color: #333;
+        line-height: 1.7;
+    }
+
     </style>
 """, unsafe_allow_html=True)
 
@@ -158,7 +194,6 @@ except Exception as e:
     st.stop()
 
 # Inisialisasi ulang authenticator di SETIAP rerun
-# Ini adalah cara library-nya membaca cookie & me-refresh session state
 authenticator = Authenticate(
     config["credentials"],
     config["cookie"]["name"],
@@ -166,124 +201,101 @@ authenticator = Authenticate(
     config["cookie"]["expiry_days"]
 )
 
-# --- FUNGSI SIDEBAR (Sekarang GAK PERLU argumen lagi) ---
-def show_sidebar():
-    with st.sidebar:
-        try:
-            # --- FIX PATH UNTUK LOGO ---
-            LOGO_PATH = os.path.join(ROOT_DIR, 'logo.jpg') 
-            logo = Image.open(LOGO_PATH)
-            st.image(logo, width=100)
-        except FileNotFoundError:
-            st.sidebar.title("🏋️ Exercise App")
+make_sidebar(authenticator)
 
-        # Cek status login (library sudah me-refresh-nya)
-        if st.session_state.get("authentication_status"):
-            st.success(f"Welcome, {st.session_state['name']} 👋")
-            selected = option_menu(
-                menu_title="Menu Bar",
-                options=["Home", "Recommendation", "Profile", "About"],
-                icons=["house-fill", "clipboard-data-fill", "person-fill", "info-circle-fill"],
-                menu_icon="list-task",
-                default_index=3, # <-- INDEX 1
-                orientation="vertical",
-                key="sidebar_menu"
-            )
-            # Panggil logout di object 'authenticator' yang baru
-            authenticator.logout("Logout", "sidebar", key="logout_sidebar") 
-            return selected
-        else:
-            st.info("Please login to access the menu.")
-            return None
+# --- KONTEN HALAMAN ABOUT (DIPERBARUI) ---
 
-# Panggil sidebar (tanpa argumen)
-selected_page = show_sidebar()
+# --- HEADER DENGAN LOGO ---
 
 
-# --- KONTEN HALAMAN ABOUT ---
+st.markdown("<h1 class='header-title'>🖥️ Tentang Aplikasi Ini</h1>", unsafe_allow_html=True)
 
-# --- KONTEN HALAMAN ABOUT (DIPERBARUI & BISA DIAKSES SEMUA USER) ---
 
-st.markdown("<h1 class='header-title'>About This App</h1>", unsafe_allow_html=True)
-
-# --- INTRO SECTION ---
+# --- INTRO SECTION (BAHASA "AKU-KAMU") ---
 st.markdown("""
 <div style='font-size:17px; line-height:1.8;'>
-    Halo! 👋 <br>
-    Ini adalah <b>Exercise Recommendation App</b> — aplikasi yang dirancang buat bantu lo dapetin <b>rekomendasi olahraga</b> yang sesuai sama kebutuhan tubuh lo.  
-    Kami percaya setiap orang punya ritme dan tujuan kebugarannya masing-masing 💪  
-    Makanya, aplikasi ini dibikin buat bantu lo latihan lebih <b>cerdas, konsisten, dan efisien</b>.
+    Selamat Datang! 👋 <br>
+    Ini adalah <b>Exercise Recommendation App</b> — sebuah aplikasi yang <b>aku</b> rancang untuk membantu <b>kamu</b> mendapatkan <b>rekomendasi olahraga dan nutrisi</b> yang personal dan sesuai dengan kebutuhan tubuhmu.
+    Aku percaya setiap orang punya ritme dan tujuan kebugaran yang unik. 💪<br>
+    Oleh karena itu, aplikasi ini aku bangun untuk membantumu berlatih secara lebih <b>cerdas, konsisten, dan efisien</b>.
 </div>
 """, unsafe_allow_html=True)
 
 st.markdown("---")
 
-# --- FEATURE GRID / VISI MISI ---
-st.subheader("🎯 Apa Tujuan Kami?")
+# --- FEATURE GRID / VISI MISI (DISESUAIKAN DENGAN FITUR ASLI) ---
+st.subheader("🎯 Apa Tujuan Aplikasi Ini?")
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.markdown("### 💡 Simpel Tapi Powerful")
-    st.write("Tampilan minimalis, hasil maksimal. Semua fitur dibuat biar user gak ribet tapi tetap dapet insight penting.")
+    st.markdown("### 🤖 Rekomendasi Cerdas")
+    st.write("Memberikan rekomendasi latihan yang dipersonalisasi menggunakan **Machine Learning**, berdasarkan data tubuh, tujuan, dan riwayat kesehatanmu.")
 
 with col2:
-    st.markdown("### 🤖 Rekomendasi Cerdas")
-    st.write("Model machine learning bantu nentuin latihan terbaik berdasarkan preferensi dan kondisi tiap pengguna.")
+    st.markdown("### 🥗 Panduan Gizi Tervalidasi")
+    st.write("Menyajikan panduan nutrisi 'Isi Piringku' (Kemenkes & UNICEF) yang telah divalidasi oleh **Ahli Gizi** dan **Personal Trainer** profesional.")
 
 with col3:
-    st.markdown("### 🧠 Edukatif & Motivasional")
-    st.write("Bukan cuma rekomendasi — kami juga bantu lo paham kenapa latihan tertentu cocok buat lo.")
+    st.markdown("### 💾 Rencana Personal Kamu")
+    st.write("Membantumu menyimpan rencana latihan ke profil dan mem-favoritkan item-item spesifik (latihan/makanan) agar mudah diakses kembali.")
 
 st.markdown("---")
 
-# --- TECH STACK / DEVELOPMENT SECTION ---
-st.subheader("🛠️ Dibangun Dengan")
-st.markdown("""
-<div style='
-    background-color: var(--soft-purple-bg);
-    padding: 1.5rem;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-'>
-    <p style='font-size: 1.05rem; color: #333;'>
-        🚀 <b>Streamlit</b> untuk antarmuka interaktif <br>
-        🧠 <b>Python + Scikit-learn / TensorFlow</b> untuk sistem rekomendasi <br>
-        🎨 <b>Custom CSS</b> buat nuansa UI yang lembut & clean <br>
-        🔐 <b>streamlit-authenticator</b> buat sistem login & registrasi
-    </p>
-</div>
-""", unsafe_allow_html=True)
+# --- LAYOUT BARU (2 KOLOM: PENGEMBANG & TEKNOLOGI) ---
+st.subheader("👨‍💻 Tentang Perancang & Teknologi di Baliknya")
+col_dev, col_tech = st.columns(2)
 
-st.markdown("---")
+# --- KIRI: TENTANG PENGEMBANG (KATA "AKU" DIUBAH JADI "PERANCANG") ---
+with col_dev:
+    st.markdown("#### **Perancang**")
+    col_img, col_text = st.columns([1, 2]) # Kolom internal buat foto & teks
+    
+    with col_img:
+        try:
+            dev_img = Image.open(os.path.join(ROOT_DIR, "profile.jpg"))
+            st.image(dev_img, width=150)
+        except FileNotFoundError:
+            st.image("https://cdn-icons-png.flaticon.com/512/3135/3135715.png", width=150)
 
-# --- TEAM / DEVELOPER SECTION ---
-st.subheader("👨‍💻 Tentang Pengembang")
-col1, col2 = st.columns([1, 3])
-
-with col1:
-    try:
-        dev_img = Image.open(os.path.join(ROOT_DIR, "profile.jpg"))
-        st.image(dev_img, width=180)
-    except FileNotFoundError:
-        st.image("https://cdn-icons-png.flaticon.com/512/3135/3135715.png", width=180)
-
-with col2:
+    with col_text:
+        st.markdown("""
+        <div style='font-size:16px; line-height:1.7;'>
+            Hai! Aku <b>Khansa Maritza</b> — perancang dari aplikasi ini. 
+<br>
+            Saat ini, aku adalah <b>mahasiswa semester 7</b> yang mengembangkan aplikasi ini sebagai proyek skripsi.        </div>
+        """, unsafe_allow_html=True)
+    
+    # Teks di bawah foto & nama
     st.markdown("""
-    <div style='font-size:16px; line-height:1.7;'>
-        Hai! Aku <b>[NAMA LO]</b> — pengembang dari aplikasi ini.  
-        Aku tertarik sama <b>data analysis</b> & <b>machine learning</b>, dan lewat project ini, 
-        aku pengen nunjukin gimana teknologi bisa bantu gaya hidup sehat.  
+    <div style='font-size:16px; line-height:1.7; margin-top: 10px;'>
+        Lewat proyek ini, aku (sebagai perancang) ingin menunjukkan bagaimana teknologi bisa mendukung gaya hidup sehat. 
         <br><br>
-        Kalau lo punya ide atau saran buat ngembangin app ini, feel free buat reach out 🙌  
-        <br><br>
-        <a href='mailto:your.email@example.com' style='color: var(--soft-purple-text); font-weight:600;'>📩 your.email@example.com</a>
+        Jika <b>kamu</b> punya ide atau saran, jangan ragu untuk menghubungi email di bawah ya! 🙌 
+        <br>
+        <a href='mailto:khansamaritzaar@gmail.com' style='color: var(--soft-purple-text); font-weight:600;'>📩 khansamaritzaar@gmail.com</a>
+    </div>
+    """, unsafe_allow_html=True) # Catatan: Aku tetep pake "aku" di sini biar personal, tapi "perancang" di judul
+
+# --- KANAN: TEKNOLOGI (DIUBAH SESUAI REQUEST) ---
+with col_tech:
+    st.markdown("#### **Teknologi**")
+    st.markdown("""
+    <div class='tech-stack-box'>
+        <p>
+            Aplikasi ini dibangun menggunakan:<br><br>
+            🐍 <b>Python</b><br>
+            (Bahasa pemrograman utama)<br><br>
+            🚀 <b>Streamlit</b><br>
+            (Untuk membangun antarmuka web interaktif)<br><br>
+            🧠 <b>KNN dan Content-Based Filtering</b><br>
+            (Untuk model Machine Learning)
+        </p>
     </div>
     """, unsafe_allow_html=True)
 
 st.markdown("---")
 
-# --- FUN FACT / QUOTE SECTION ---
+# --- FUN FACT / QUOTE SECTION (TETAP SAMA) ---
 st.markdown("""
 <div style="
     background: var(--theme-gradient);

@@ -53,6 +53,14 @@ credentials:
       password: $2b$12$1er2nH3GCeBdbh6RnNWd/OWtdajmR1ztdc4XNAqVSBizZAy0EtKMi
       password_hint: Test@12345
       roles: null
+    testlagi:
+      email: testlagi@gmail.com
+      first_name: testlagi
+      last_name: lagi
+      logged_in: false
+      password: $2b$12$qdXs6nSrfwKtAd8/7wwiB.wdPjIRLIbQBwENhjm/FxlqAVzni2dTq
+      password_hint: Testlagi@123
+      roles: null
 preauthorized:
   emails:
   - melsby@gmail.com
