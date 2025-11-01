@@ -1,0 +1,58 @@
+cookie:
+  expiry_days: 30
+  key: some_random_signature_key
+  name: some_cookie_name
+credentials:
+  usernames:
+    aqaqw:
+      email: aaa@gmail.com
+      first_name: aaa
+      last_name: qqqq
+      logged_in: false
+      password: $2b$12$8C7yJT/n7EK6phN2qAdEouasU9jCXN41WunPsX/vHKST9aXOQ2yo6
+      password_hint: Aduh123@
+      roles: null
+    jsmith:
+      email: jsmith@gmail.com
+      name: John Smith
+      password: $2b$12$BkVjh6sUcvinpfzcMwyDvO0YJb8jv5wjsiCMye5LntcMndQDqNw2m
+    laaaa:
+      email: tes@gmail.com
+      first_name: alamak
+      last_name: ala
+      logged_in: false
+      password: $2b$12$J5tUL4C3JMHl13bHdiK/YOgEq0WM4w48PO3t7vydAr63127IsicqK
+      password_hint: angka
+      roles: null
+    qwqw:
+      email: qwqw@gmail.com
+      first_name: qwqwqw
+      last_name: qwqw
+      logged_in: false
+      password: $2b$12$QWsjBSq.MPIxxkvQzvb1iuhFCNBySPKqa4QX7uMQ6GAGS04k1QrvK
+      password_hint: aaaa
+      roles: null
+    qwqw1:
+      email: qwqw1@gmail.com
+      first_name: test
+      last_name: qwqw
+      logged_in: false
+      password: $2b$12$hzk5aLyxwpWIRNUxhEGxNeD0GkW4tL7Nr8k8Ku9H.asY/kAT64h.u
+      password_hint: aaaa
+      roles: null
+    rbriggs:
+      email: rbriggs@gmail.com
+      name: Rebecca Briggs
+      password: $2b$12$.jC6AB04KZa0BB3PgJJ5dO.PQ04QTTAOwEKXLSuGmz4raVyRXvD/y
+    test:
+      email: test@gmail.com
+      failed_login_attempts: 1
+      first_name: Test
+      last_name: ting
+      logged_in: false
+      password: $2b$12$1er2nH3GCeBdbh6RnNWd/OWtdajmR1ztdc4XNAqVSBizZAy0EtKMi
+      password_hint: Test@12345
+      roles: null
+preauthorized:
+  emails:
+  - melsby@gmail.com

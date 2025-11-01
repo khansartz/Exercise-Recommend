@@ -1,1 +1,12 @@
 streamlit
+PyYAML
+streamlit-authenticator
+Pillow
+streamlit-extras
+streamlit-option-menu
+streamlit-authenticator
+pandas
+joblib
+Pillow
+requests
+scikit-learn
