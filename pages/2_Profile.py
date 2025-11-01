@@ -130,7 +130,7 @@ if not st.session_state.get("authentication_status"):
     st.error("Login dulu biar bisa liat profil kamu 😎")
     st.info("Kembali ke Home untuk login.")
     if st.button("Kembali ke Home"):
-        st.switch_page("Home.py")
+        st.switch_page("home.py")
     st.stop()
 
 # --- LOAD USER DATA ---

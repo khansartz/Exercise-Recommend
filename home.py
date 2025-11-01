@@ -10,7 +10,7 @@ import streamlit as st
 from navigation import make_sidebar
 
 # Simpan nama halaman ke session (buat tracking)
-st.session_state["_current_page"] = "Home"  # Ganti sesuai nama file halamannya
+st.session_state["_current_page"] = "home"  # Ganti sesuai nama file halamannya
 
 # --- PAGE CONFIG (WAJIB PALING ATAS) ---
 st.set_page_config(
