@@ -22,8 +22,8 @@ def make_sidebar(authenticator=None):
             )
 
             st.page_link("home.py", label="🏠 Home")
-            st.page_link("pages/1_recommendation.py", label="📋 Recommendation")
-            st.page_link("pages/2_profile.py", label="👤 Profile")
+            st.page_link("pages/1_Recommendation.py", label="📋 Recommendation")
+            st.page_link("pages/2_Profile.py", label="👤 Profile")
             st.page_link("pages/3_Works.py", label="✨ How it works")
             st.page_link("pages/4_About.py", label="ℹ️ About")
 
@@ -35,7 +35,7 @@ def make_sidebar(authenticator=None):
         else:
             st.info("Mode: 👤 Guest")
             st.page_link("home.py", label="🏠 Home")
-            st.page_link("pages/1_recommendation.py", label="📋 Recommendation")
+            st.page_link("pages/1_Recommendation.py", label="📋 Recommendation")
             st.page_link("pages/3_Works.py", label="✨ How it works")
             st.page_link("pages/4_About.py", label="ℹ️ About")
 
