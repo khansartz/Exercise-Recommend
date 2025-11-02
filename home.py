@@ -9,9 +9,6 @@ import time
 import streamlit as st
 from navigation import make_sidebar
 
-# Simpan nama halaman ke session (buat tracking)
-st.session_state["_current_page"] = "home"  # Ganti sesuai nama file halamannya
-
 # --- PAGE CONFIG (WAJIB PALING ATAS) ---
 st.set_page_config(
     page_title="Personal Fitness Guide",
@@ -20,6 +17,11 @@ st.set_page_config(
     initial_sidebar_state="expanded"
      # Bikin sidebar kebuka by default
 )
+
+# Simpan nama halaman ke session (buat tracking)
+st.session_state["_current_page"] = "home"  # Ganti sesuai nama file halamannya
+
+
 
 # --- CSS STYLING ---
 st.markdown("""
@@ -133,7 +135,7 @@ st.markdown("""
         [data-testid="stSidebar"] .stButton {
             position: flex;
             bottom: 20px;
-            width: 200%;
+            width: 150%;
             margin: 0 5%;
         }
         [data-testid="stSidebar"] .stButton button {
@@ -155,15 +157,7 @@ st.markdown("""
                  transform: translateY(-2px);
                  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             }
-            [data-testid="stSidebar"] button[kind="secondary"] {
-            width: 70% !important;           /* Lebar tombol */
-            display: block !important;
-            background-color: var(--dark-purple-solid);
-            color: white;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
+
         [data-testid="stSidebar"] button[kind="secondary"]:hover {
             background-color: var(--dark-purple-hover);
             transform: translateY(-2px);
@@ -202,7 +196,7 @@ make_sidebar(authenticator)
 st.markdown("<h1 class='header-title'>🏋️‍♀️ Your Personal Fitness Guide</h1>", unsafe_allow_html=True)
 st.write("""
 Selamat datang di **Exercise Recommendation App**! Lupakan bingung mau latihan apa atau makan apa hari ini.
-Aplikasi ini adalah *coach* digital kamu, ngasih rekomendasi olahraga dan nutrisi yang dibuat khusus buat kamu. 
+Aplikasi ini adalah *coach* digital kamu, memberikan rekomendasi olahraga dan nutrisi yang dibuat khusus buat kamu. 
 *No more guesswork, just results*. 💪
 """)
 
@@ -214,15 +208,15 @@ st.subheader("✨ Apa yang Bisa Kamu Lakuin di Sini?")
 col1, col2, col3 = st.columns(3)
 with col1:
     st.markdown("### ⚙️ Rekomendasi Personal")
-    st.write("Dapetin saran latihan berdasarkan kondisi tubuh (BMI), tujuan, dan riwayat kesehatan kamu. *Pure science*, bukan kira-kira.")
+    st.write("Dapetkan saran latihan berdasarkan kondisi tubuh (BMI), tujuan, dan riwayat kesehatan kamu. *Pure science*, bukan kira-kira.")
 
 with col2:
     st.markdown("### 🥗 Panduan Asupan")
-    st.write("Bukan cuma latihan, aplikasi ini juga ngasih panduan makanan **'Isi Piringku'** yang sudah divalidasi ahli. *Eat smart, train smart*.")
+    st.write("Bukan cuma latihan, aplikasi ini juga memberikan panduan makanan yang sudah divalidasi ahli. *Eat smart, train smart*.")
 
 with col3:
     st.markdown("### 💾 Simpan Rencana Kamu")
-    st.write("Nemu *workout plan* yang kamu suka? Simpen ke Profile. Favoritin *exercise* atau makanan spesifik biar gampang di-cek lagi nanti.")
+    st.write("Nemu *workout plan* yang kamu suka? Simpen ke Profile. Favoritin *exercise* atau makanan spesifik agar gampang di-cek lagi nanti.")
 
 st.markdown("---")
 # --- AKHIR PERUBAHAN ---
@@ -274,4 +268,4 @@ st.markdown("<br>", unsafe_allow_html=True)
 #         except Exception as e:
 #             st.error(f"Terjadi error waktu daftar: {e}")
 
-# Kalo udah login, bagian ini gak akan tampil
+# Kalo sudah login, bagian ini gak akan tampil

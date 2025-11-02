@@ -81,7 +81,7 @@ authenticator = Authenticate(
 make_sidebar(authenticator)
 
 st.title("🔐 Login / Sign Up")
-st.write("Masuk ke akun lo buat akses semua fitur! 🚀")
+st.write("Masuk ke akun kamu buat akses semua fitur! 🚀")
 
 login_tab, signup_tab = st.tabs(["Login", "Sign Up"])
 

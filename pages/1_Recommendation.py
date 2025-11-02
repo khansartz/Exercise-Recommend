@@ -50,7 +50,7 @@ st.markdown("""
         [data-testid="stSidebar"] .stButton {
             position: flex;
             bottom: 20px;
-            width: 200%;
+            width: 150%;
             margin: 0 5%;
         }
         [data-testid="stSidebar"] .stButton button {
@@ -65,15 +65,13 @@ st.markdown("""
             padding: 8px 0 !important; /* Paksa padding vertikal */
             line-height: 1.5; /* Jaga teks tetap di tengah */
         }
-            [data-testid="stSidebar"] button[kind="secondary"] {
-            width: 70% !important;           /* Lebar tombol */
-            display: block !important;
-            background-color: var(--dark-purple-solid);
-            color: white;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
+
+        
+                    [data-testid="stSidebar"] .stButton button:hover {
+                 background: var(--dark-purple-hover); 
+                 transform: translateY(-2px);
+                 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
         /* --- Kustomisasi Tombol Primary & Secondary --- */
 
         /* Ini buat ngatur tombol PRIMARY (Tombol "Hapus" kamu) */
@@ -163,7 +161,7 @@ def save_user_data():
 load_user_data()
 
 # -------------------------
-# Imports model & helpers (lo udah punya fungsi-fungsi lama)
+# Imports model & helpers (lo sudah punya fungsi-fungsi lama)
 # -------------------------
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -421,7 +419,7 @@ def render_recommendation_section(title, items_list, media_dictionary):
                             st.button(
                                 button_text,
                                 key=f"fav_btn_{key_safe}",
-                                on_click=add_to_favorites, # Fungsinya tetep sama, tapi logikanya udah toggle
+                                on_click=add_to_favorites, # Fungsinya tetep sama, tapi logikanya sudah toggle
                                 args=(item,),
                                 use_container_width=True,
                                 type=button_type # Terapin style dinamis

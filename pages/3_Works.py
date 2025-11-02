@@ -23,7 +23,6 @@ hide_default_sidebar()
 # --- CSS (PENAMBAHAN CSS BARU) ---
 st.markdown("""
     <style>
-        /* --- SEMUA CSS LAMA KAMU --- */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
         
         :root {
@@ -64,18 +63,37 @@ st.markdown("""
         [data-testid="stSidebar"] {
             border-right: 1px solid #DCDCDC; 
         }
-        /* ... (CSS Sidebar kamu yang lain tetep di sini) ... */
 
+        [data-testid="stSidebar"] .stButton {
+            position: flex;
+            bottom: 20px;
+            width: 150%;
+            margin: 0 5%;
+        }
+        
 
-        /* +++ CSS BARU UNTUK HALAMAN 'HOW IT WORKS' +++ */
+        [data-testid="stSidebar"] .stButton button {
+            background: var(--dark-purple-solid); 
+            color: white;
+            width: 100%;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            transition: all 0.2s ease;
+            height: 45px; /* Set tinggi manual */
+            padding: 8px 0 !important;
+            line-height: 1.5; 
+        }
+        
+
         
         /* Kartu untuk setiap langkah */
         .step-card {
-            background: var(--cream-bg-dark); /* Pake warna krem dari tema kamu */
+            background: var(--cream-bg-dark); 
             border-radius: 12px;
             padding: 1.5rem 2rem;
-            margin-bottom: 0.5rem; /* Jarak antara judul & konten */
-            border-left: 5px solid var(--theme-purple); /* Aksen ungu keren */
+            margin-bottom: 0.5rem; 
+            border-left: 5px solid var(--theme-purple); 
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
@@ -83,9 +101,9 @@ st.markdown("""
         .step-card h3 {
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
-            color: var(--dark-purple-solid); /* Pake warna ungu dari tema kamu */
-            margin-bottom: 0rem; /* Hapus margin bawah h3 */
-            margin-top: 0rem; /* Hapus margin atas h3 */
+            color: var(--dark-purple-solid); 
+            margin-bottom: 0rem;
+            margin-top: 0rem; 
             display: flex;
             align-items: center;
             justify-content: flex-start;
@@ -96,13 +114,12 @@ st.markdown("""
             background: var(--dark-purple-solid);
             color: white;
             border-radius: 50%;
-            padding: 4px 12px; /* Bikin buletan */
+            padding: 4px 12px; 
             margin-right: 12px;
             font-size: 1.1rem;
             line-height: 1.5rem;
         }
         
-        /* Konten di dalem step (biar paddingnya pas) */
         .step-content {
             padding: 1rem 0rem 0rem 0.5rem;
         }
@@ -112,23 +129,22 @@ st.markdown("""
             color: var(--dark-text);
         }
         .step-content img {
-            border-radius: 10px; /* Bikin gambar gak kaku */
+            border-radius: 10px; 
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         
-        /* Garis pemisah antar step */
         .step-divider {
             border-top: 2px solid var(--cream-bg-dark);
             margin: 2rem 0;
         }
 
-        /* Kotak validasi di akhir */
+        /* Kotak validasi */
         .validation-box {
             background: var(--soft-purple-bg);
             border: 2px solid var(--dark-purple-solid);
             border-radius: 12px;
             padding: 1.5rem 2rem;
-            /* text-align: center; */ /* Kita buat rata kiri */
+            /* text-align: center; */ 
             margin-top: 2rem;
         }
         .validation-box h3 {
@@ -187,7 +203,7 @@ st.markdown("""
 <p style='font-size: 1.1rem; line-height: 1.7;'>
 Kamu mungkin penasaran, "Kok aplikasi ini bisa 'nebak' latihan dan makanan yang pas buat aku?"
 <br>
-Jawabannya: Ini bukan sihir, tapi teknologi! 🤖 Aplikasi ini menggunakan <b>dua lapisan Model Machine Learning</b> untuk mengubah data mentah kamu (kayak tinggi dan berat badan) menjadi sebuah rencana yang spesifik dan personal.
+Jawabannya: Ini bukan sihir, tapi teknologi! 🤖 Aplikasi ini menggunakan <b>dua lapisan Model Machine Learning</b> untuk mengubah data mentah kamu (seperti tinggi dan berat badan) menjadi sebuah rencana yang spesifik dan personal.
 </p>
 """, unsafe_allow_html=True)
 
@@ -210,7 +226,7 @@ col1_1, col1_2 = st.columns([2, 1])
 with col1_1:
     st.markdown("""
     <div class="step-content">
-        <p>Semua dimulai dari form di halaman Rekomendasi. Kamu masukin data kayak:</p>
+        <p>Semua dimulai dari form di halaman Rekomendasi. Kamu masukin data seperti:</p>
         <ul>
             <li>Usia, Tinggi, dan Berat Badan (buat ngitung BMI kamu)</li>
             <li>Jenis Kelamin</li>
@@ -243,8 +259,8 @@ with col2_2:
     <div class="step-content">
         <p>Setelah kamu klik submit, data kamu (terutama BMI dan tujuan umummu) langsung dikirim ke <b>Model Cerdas 1 (Klasifikasi KNN)</b>.</p>
         <ul>
-            <li><b>Analoginya:</b> Anggap aja model ini kayak resepsionis di gym.</li>
-            <li><b>Tugasnya:</b> Dia nggak milih latihan, tapi dia nge-analisis profil kamu dan nentuin kamu itu masuk <b>"Tipe Kebutuhan"</b> yang mana.</li>
+            <li><b>Analoginya:</b> Anggap aja model ini seperti resepsionis di gym.</li>
+            <li><b>Tugasnya:</b> Dia nggak milih latihan, tapi dia menganalisis profil kamu dan nentuin kamu itu masuk <b>"Tipe Kebutuhan"</b> yang mana.</li>
             <li><b>Contoh:</b> Dia bakal bilang, "Oke, kamu masuk grup <b>'Program Penurunan Berat Badan'</b>."</li>
         </ul>
     </div>
@@ -263,7 +279,7 @@ col3_1, col3_2 = st.columns([2, 1])
 with col3_1:
     st.markdown("""
     <div class="step-content">
-        <p>Sekarang kita tau "Tipe Kebutuhan" kamu. Tapi, orang di grup 'Weight Loss' yang punya hipertensi, latihannya pasti beda sama yang nggak. Di sinilah <b>Model Cerdas 2 (Content-Based Filtering)</b> masuk.</p>
+        <p>Sekarang kita tahu "Tipe Kebutuhan" kamu. Tapi, orang di grup 'Weight Loss' yang punya hipertensi, latihannya pasti beda sama yang nggak. Di sinilah <b>Model Cerdas 2 (Content-Based Filtering)</b> masuk.</p>
         <ul>
             <li><b>Analoginya:</b> Kalo tadi resepsionis, yang ini adalah <b>Personal Trainer</b>-nya.</li>
             <li><b>Tugasnya:</b> Dia ngambil Tipe Kebutuhan kamu (dari Langkah 2) DAN data riwayat kesehatanmu.</li>
@@ -298,7 +314,6 @@ with col4_2:
             <li>Rekomendasi Latihan (Squats, Push-up, dll.)</li>
             <li>Rekomendasi Alat (Dumbbell, Matras, dll.)</li>
             <li>Panduan Diet (Karbohidrat, Protein, dll.)</li>
-            <li>Plus, visualisasi <i>pie chart</i> <b>'Isi Piringku'</b>!</li>
         </ul>
     </div>
     """, unsafe_allow_html=True)
@@ -312,22 +327,22 @@ st.markdown(textwrap.dedent("""
         <h4>Dari Mana Datanya?</h4>
         <p>
             Model Machine Learning ini nggak "ngarang". Perancang aplikasi ini dapetin 
-            <b>dataset latihan dari  Mendeley data dengan DOI:   <a href='https://data.mendeley.com/datasets/zw8mtbm5b9/1' style='color: var(--soft-purple-text); font-weight:600;'>
+            <b>dataset latihan dari  National Institute of Allergy and Infectious Diseases (NIAID) data dengan DOI:   <a href='https://data.mendeley.com/datasets/zw8mtbm5b9/1' style='color: var(--soft-purple-text); font-weight:600;'>
         10.17632/zw8mtbm5b9.1</a>
         </b>, yang merupakan sumber terpercaya. 
             Tugas perancang adalah mengolah dan "melatih" model ML untuk bisa mengenali pola dari data tersebut.
         </p>
         <h4>Validasi Latihan oleh Personal Trainer (PT)</h4>
         <p>
-            Semua data latihan dan <b>pemilihan</b> di baliknya (termasuk pemilihan latihan, alat, dan kecocokannya dengan riwayat kesehatan) <b>bukan</b> cuma diambil mentah-mentah dari <b>dataset</b>. 
+            Semua data latihan dan <b>pemilihan</b> di baliknya (termasuk pemilihan latihan, alat, dan kecocokannya dengan riwayat kesehatan) <b>bukan</b> cuma diambil  <b>mentah-mentah</b> dari dataset. 
             <br><br>
-            Seluruh datanya udah di-review dan disesuaikan oleh <b>Personal Trainer (PT) profesional</b> untuk memastikan semua program latihannya efektif, aman, dan cocok untuk tiap level kebugaran.
+            Seluruh datanya sudah di-review dan disesuaikan oleh <b>Personal Trainer (PT) profesional</b> untuk memastikan semua program latihannya efektif, aman, dan cocok untuk tiap level kebugaran.
         </p>
         <h4>Validasi Diet oleh Ahli Gizi (Studi Kasus)</h4>
         <p>
-            Sebagai bukti kalo proses validasi ini beneran dilakuin, ini ada cerita kecil:
+            Sebagai bukti kalo proses validasi ini beneran dilakukan, ini ada cerita kecil:
             <br><br>
-            Awalnya perancang udah bikin sistem rekomendasi makanan yang super spesifik dan kompleks. Tapi, setelah divalidasi, <b>Ahli Gizi</b> kami memberikan </b>insight</b> penting: "Ini terlalu rumit. Daripada ngasih rekomendasi spesifik yang belum tentu cocok, jauh lebih aman dan efektif kalo kita pake panduan <b>'Isi Piringku' dari Kemenkes</b>."
+            Awalnya perancang sudah bikin sistem rekomendasi makanan yang super spesifik dan kompleks. Tapi, setelah divalidasi, <b>Ahli Gizi</b> kami memberikan </b>insight</b> penting: "Ini terlalu rumit. Daripada ngasih rekomendasi spesifik yang belum tentu cocok, jauh lebih aman dan efektif kalo kita pake panduan <b>'Isi Piringku' dari Kemenkes</b>."
             <br><br>
             <b>Dan kami setuju.</b>
             <br>

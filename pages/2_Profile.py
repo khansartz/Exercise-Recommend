@@ -67,6 +67,11 @@ st.markdown("""
             padding: 8px 0 !important; /* Paksa padding vertikal */
             line-height: 1.5; /* Jaga teks tetap di tengah */
         }
+            [data-testid="stSidebar"] .stButton button:hover {
+            background: var(--dark-purple-hover); 
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
     </style>
 """, unsafe_allow_html=True)
 

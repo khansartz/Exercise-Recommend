@@ -14,10 +14,10 @@ def make_sidebar(authenticator=None):
         st.markdown("## 🏋️ Exercise Recommendation App")
         st.markdown("---")
 
-        # Kalau udah login
+        # Kalau sudah login
         if st.session_state.get("authentication_status"):
             st.markdown(
-                f"<div style='font-size:1.3rem;font-weight:600;color:#4A2E7E;'>Halo, {st.session_state['name']} 👋</div>",
+                f"<div style='font-size:1.3rem;font-weight:600;color:#4A2E7E;'>Halo, {st.session_state['name']} 👋</div> <br>",
                 unsafe_allow_html=True
             )
 
@@ -40,7 +40,7 @@ def make_sidebar(authenticator=None):
             st.page_link("pages/4_About.py", label="ℹ️ About")
 
             st.markdown("---")
-            if st.button("🔐 Login / Sign Up"):
+            if st.button("🔐 Login/Sign Up"):
                 st.switch_page("pages/login.py")
 
 st.markdown("""

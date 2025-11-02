@@ -46,11 +46,11 @@ credentials:
       password: $2b$12$.jC6AB04KZa0BB3PgJJ5dO.PQ04QTTAOwEKXLSuGmz4raVyRXvD/y
     test:
       email: test@gmail.com
-      failed_login_attempts: 1
+      failed_login_attempts: 0
       first_name: Test
       last_name: ting
       logged_in: false
-      password: $2b$12$1er2nH3GCeBdbh6RnNWd/OWtdajmR1ztdc4XNAqVSBizZAy0EtKMi
+      password: $2b$12$Q4vyTPAVlp580EsdYkXpF.T/UYb0AmgvYF5qQ8L0O5WddKLcNCl8C
       password_hint: Test@12345
       roles: null
     testlagi:

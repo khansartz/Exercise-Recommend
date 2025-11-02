@@ -123,7 +123,7 @@ st.markdown("""
         [data-testid="stSidebar"] .stButton {
             position: flex;
             bottom: 20px;
-            width: 200%;
+            width: 150%;
             margin: 0 5%;
         }
         [data-testid="stSidebar"] .stButton button {
@@ -134,7 +134,6 @@ st.markdown("""
             font-weight: 600;
             border: none;
             transition: all 0.2s ease;
-            
             height: 45px; /* Set tinggi manual */
             padding: 8px 0 !important; /* Paksa padding vertikal */
             line-height: 1.5; /* Jaga teks tetap di tengah */
@@ -144,15 +143,7 @@ st.markdown("""
              transform: translateY(-2px);
              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-            [data-testid="stSidebar"] button[kind="secondary"] {
-        width: 70% !important;           /* Lebar tombol */
-        display: block !important;
-        background-color: var(--dark-purple-solid);
-        color: white;
-        border-radius: 8px;
-        font-weight: 600;
-        transition: all 0.2s ease;
-    }
+
     [data-testid="stSidebar"] button[kind="secondary"]:hover {
         background-color: var(--dark-purple-hover);
         transform: translateY(-2px);
@@ -215,7 +206,7 @@ st.markdown("<h1 class='header-title'>🖥️ Tentang Aplikasi Ini</h1>", unsafe
 st.markdown("""
 <div style='font-size:17px; line-height:1.8;'>
     Selamat Datang! 👋 <br>
-    Ini adalah <b>Exercise Recommendation App</b> — sebuah aplikasi yang <b>aku</b> rancang untuk membantu <b>kamu</b> mendapatkan <b>rekomendasi olahraga dan nutrisi</b> yang personal dan sesuai dengan kebutuhan tubuhmu.
+    Ini adalah <b>Exercise Recommendation App</b>, sebuah aplikasi yang <b>aku</b> rancang untuk membantu <b>kamu</b> mendapatkan <b>rekomendasi olahraga dan nutrisi</b> yang personal dan sesuai dengan kebutuhan tubuhmu.
     Aku percaya setiap orang punya ritme dan tujuan kebugaran yang unik. 💪<br>
     Oleh karena itu, aplikasi ini aku bangun untuk membantumu berlatih secara lebih <b>cerdas, konsisten, dan efisien</b>.
 </div>
@@ -260,7 +251,7 @@ with col_dev:
     with col_text:
         st.markdown("""
         <div style='font-size:16px; line-height:1.7;'>
-            Hai! Aku <b>Khansa Maritza</b> — perancang dari aplikasi ini. 
+            Hai! Aku <b>Khansa Maritza</b> sebagai perancang dari aplikasi ini. 
 <br>
             Saat ini, aku adalah <b>mahasiswa semester 7</b> yang mengembangkan aplikasi ini sebagai proyek skripsi.        </div>
         """, unsafe_allow_html=True)
