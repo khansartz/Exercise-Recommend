@@ -793,9 +793,9 @@ if st.session_state.get("recommendation_data"):
         st.markdown("---")
         st.subheader("⚠️ Catatan Penting:")
         if data["diabetes"] == "Yes":
-            st.warning("**Penderita Diabetes:** Batasi atau hindari makanan/minuman manis.")
+            st.warning("**Penderita Diabetes:** Batasi atau hindari makanan/minuman manis (gula, madu, sirup, kue manis, minuman kemasan manis, susu kental manis, buah kalengan)")
         if data["hypertension"] == "Yes":
-            st.warning("**Penderita Hipertensi:** Batasi garam/natrium dan makanan olahan.")
+            st.warning("**Penderita Hipertensi:** Batasi garam/natrium. Hindari makanan olahan/kalengan (sosis, kornet, sarden), ikan asin, telur asin, keju olahan, saus/kecap asin berlebih, camilan asin.")
         if data["diabetes"] == "No" and data["hypertension"] == "No":
             st.info("Jaga pola makan seimbang, batasi gula, garam, dan lemak berlebih untuk kesehatan optimal.")
 

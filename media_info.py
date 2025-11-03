@@ -2,29 +2,30 @@
 
 def get_media_info():
     return {
-        # 💪 BAGIAN LATIHAN (EXERCISES)
 
-        "squats": {
-            "description": "Squat adalah latihan fundamental untuk membangun kekuatan kaki, pinggul, dan otot inti (core).",
+        # BAGIAN EXERCISES (TOTAL 47)
+
+        "squat": {
+            "description": "Squats adalah latihan fundamental untuk membangun kekuatan kaki, pinggul, dan otot inti (core).",
             "tips": [
                 "Jaga punggung tetap lurus, dada membusung, pandangan ke depan.",
                 "Turun seolah-olah Anda akan duduk di kursi, pastikan lutut tidak melewati ujung jari kaki secara berlebihan.",
                 "Pindahkan berat badan ke tumit saat turun.",
                 "Tarik napas saat turun, buang napas dengan kuat saat mendorong naik."
             ],
-            "youtube": "https://www.youtube.com/watch?v=aclHkVaku9U"
+            "youtube": "https://youtu.be/irfw1gQ0foQ?si=7K8rNTbKg_0VvLDJ"
         },
         "yoga": {
             "description": "Yoga menggabungkan postur, pernapasan, dan relaksasi untuk meningkatkan fleksibilitas, keseimbangan, dan fokus mental.",
             "tips": [
-                "Fokus pada pernapasan dalam dan teratur (misal: Ujjayi breath).",
+                "Fokus pada pernapasan dalam dan teratur",
                 "Dengarkan tubuh Anda, jangan memaksakan pose hingga terasa sakit.",
                 "Gunakan matras yoga untuk kenyamanan dan cengkeraman.",
                 "Modifikasi pose sesuai kemampuan (gunakan balok atau tali jika perlu)."
             ],
             "youtube": "https://www.youtube.com/watch?v=Eml2xnoLpYE"
         },
-        "deadlifts": {
+        "deadlift": {
             "description": "Deadlift melatih seluruh posterior chain (rantai otot belakang), terutama punggung bawah, glutes (bokong), dan hamstring.",
             "tips": [
                 "Jaga tulang belakang tetap netral (lurus alami) sepanjang gerakan, hindari membungkuk atau melengkung berlebihan.",
@@ -34,7 +35,7 @@ def get_media_info():
             ],
             "youtube": "https://www.youtube.com/watch?v=ytGaGIn3SjE"
         },
-        "bench_presses": {
+        "bench_press": {
             "description": "Bench press melatih otot dada (pectorals), bahu depan (anterior deltoids), dan trisep secara dominan.",
             "tips": [
                 "Pastikan 5 titik kontak: kepala, bahu atas, bokong di bangku, dan kedua kaki menapak kuat di lantai.",
@@ -48,7 +49,7 @@ def get_media_info():
             "description": "Latihan untuk membangun kekuatan bahu (deltoids), trisep, dan stabilitas otot inti (core).",
             "tips": [
                 "Kencangkan otot perut (core) dan bokong (glutes) untuk menjaga stabilitas batang tubuh.",
-                "Dorong barbel lurus vertikal ke atas kepala, sedikit ke belakang agar sejajar telinga di puncak gerakan.",
+                "Dorong barbel lurus vertikal ke atas kepala, sedikit ke belakang untuk sejajar telinga di puncak gerakan.",
                 "Hindari melengkungkan punggung bawah secara berlebihan.",
                 "Kembalikan barbel ke posisi awal (sekitar bahu/dada atas) secara terkendali."
             ],
@@ -73,16 +74,16 @@ def get_media_info():
                 "Pertahankan kecepatan yang membuat Anda sedikit terengah-engah tapi masih bisa berbicara."
             ],
             "youtube": "https://youtu.be/AdqrTg_hpEQ?si=wE_xU2CKXqp4snrc"
-        },       
-        "cycling": {
+        },
+        "outdoor_cycling": {
             "description": "Bersepeda (baik di luar ruangan atau stasioner) adalah latihan kardio yang sangat baik yang berfokus pada kaki dan kesehatan kardiovaskular.",
             "tips": [
-                "Atur tinggi sadel agar lutut sedikit tertekuk (sekitar 25-30 derajat) saat pedal di posisi terendah.",
+                "Atur tinggi sadel untuk lutut sedikit tertekuk (sekitar 25-30 derajat) saat pedal di posisi terendah.",
                 "Jaga punggung relatif lurus, hindari membungkuk berlebihan.",
                 "Pertahankan irama kayuhan (cadence) yang efisien (sekitar 80-100 RPM untuk sepeda stasioner).",
                 "Gunakan resistensi/gigi yang sesuai untuk tantangan yang diinginkan."
             ],
-            "youtube": "https://youtu.be/ZiGE3-L4vyg?si=WnLbuqZ_9UQSvqLY"
+            "youtube": "https://youtu.be/DBUJg6hngs0?si=UKjG0nXGkGQL7elV"
         },
         "running": {
             "description": "Lari adalah latihan kardio high-impact yang efektif untuk membakar kalori, meningkatkan kesehatan paru-paru, dan melepaskan endorfin.",
@@ -104,7 +105,7 @@ def get_media_info():
             ],
             "youtube": "https://youtu.be/P5sPzI6ME0E?si=UabFCfhyDCeV3_As"
         },
-        "dancing": {
+        "cardio_dance": {
             "description": "Menari adalah latihan kardio menyenangkan untuk koordinasi, ritme, pembakaran kalori, dan ekspresi diri.",
             "tips": [
                 "Pilih jenis tarian atau kelas yang Anda nikmati (Zumba, hip hop, salsa, dll.).",
@@ -114,11 +115,372 @@ def get_media_info():
             ],
             "youtube": "https://youtu.be/y2HJ0Iq6R8A?si=X-3JiXBPB63t8a6U"
         },
+        "push_up": {
+            "description": "Push-up adalah latihan bodyweight klasik yang melatih dada, bahu, trisep, dan core.",
+            "tips": [
+                "Tangan sejajar bahu, tubuh lurus dari kepala sampai tumit.",
+                "Turunkan tubuh hingga dada hampir menyentuh lantai.",
+                "Buang napas saat mendorong tubuh kembali ke atas.",
+                "Jaga siku sekitar 45 derajat dari tubuh, jangan terlalu melebar."
+            ],
+            "youtube": "https://www.youtube.com/watch?v=_l3ySVKYVJ8"
+        },
+        "plank": {
+            "description": "Plank memperkuat otot inti, punggung bawah, dan bahu dengan menahan posisi statis.",
+            "tips": [
+                "Pastikan tubuh lurus dari kepala ke tumit.",
+                "Jangan biarkan pinggul turun atau naik terlalu tinggi.",
+                "Kencangkan otot perut dan bokong selama posisi plank.",
+                "Bernapaslah perlahan dan stabil."
+            ],
+            "youtube": "https://www.youtube.com/watch?v=pSHjTRCQxIw"
+        },
+        "side_plank": {
+            "description": "Side plank melatih core bagian samping (obliques) serta bahu dan panggul.",
+            "tips": [
+                "Jaga garis lurus dari kepala hingga kaki.",
+                "Tumpu tubuh pada siku dan sisi kaki bawah.",
+                "Kencangkan otot core dan bokong.",
+                "Variasi: angkat kaki atas untuk tantangan ekstra."
+            ],
+            "youtube": "https://www.youtube.com/watch?v=K2VljzCC16g"
+        },
+        "wall_plank": {
+            "description": "Wall plank adalah versi plank dengan tumpuan di dinding, cocok untuk pemula.",
+            "tips": [
+                "Letakkan tangan di dinding setinggi bahu.",
+                "Langkahkan kaki ke belakang hingga tubuh miring lurus.",
+                "Kencangkan perut dan bokong.",
+                "Tahan posisi selama 20–60 detik."
+            ],
+            "youtube": "https://youtu.be/T-bfBQXfL-I?si=pfnmKKtrrkq9XjU9"
+        },
+        "wall_squat": {
+            "description": "Wall squat melatih paha depan dan glutes sambil menstabilkan core.",
+            "tips": [
+                "Bersandar di dinding dengan kaki sekitar 60 cm dari dinding.",
+                "Turun hingga lutut membentuk sudut 90 derajat.",
+                "Tahan posisi 20–60 detik.",
+                "Jangan angkat tumit dari lantai."
+            ],
+            "youtube": "https://www.youtube.com/watch?v=-cdph8hv0O0"
+        },
+        "chair_squat": {
+            "description": "Chair squat cocok untuk pemula, membantu membangun kekuatan kaki dan keseimbangan.",
+            "tips": [
+                "Berdiri di depan kursi, kaki selebar bahu.",
+                "Turun perlahan hingga bokong menyentuh kursi ringan, lalu berdiri lagi.",
+                "Jaga dada tetap tegap.",
+                "Gunakan kursi stabil dan tidak licin."
+            ],
+            "youtube": "https://www.youtube.com/watch?v=aclHkVaku9U"
+        },
+        "goblet_squat": {
+            "description": "Goblet squat menggunakan dumbbell atau kettlebell di depan dada untuk meningkatkan stabilitas core.",
+            "tips": [
+                "Pegang beban di depan dada dengan siku mengarah ke bawah.",
+                "Turunkan tubuh seperti squat biasa.",
+                "Pastikan lutut sejajar arah jari kaki.",
+                "Dorong tumit untuk berdiri kembali."
+            ],
+            "youtube": "https://youtu.be/gm4ln6PO4rc?si=UIS5iA4xsQWlcIpH"
+        },
+        "lunges": {
+            "description": "Lunge melatih paha depan, paha belakang, dan glutes serta meningkatkan keseimbangan.",
+            "tips": [
+                "Langkahkan satu kaki ke depan dan turunkan tubuh hingga kedua lutut membentuk sudut 90 derajat.",
+                "Jaga punggung tetap tegap.",
+                "Dorong kembali ke posisi awal menggunakan tumit depan.",
+                "Variasi: lakukan dengan beban untuk tantangan lebih."
+            ],
+            "youtube": "https://www.youtube.com/watch?v=QOVaHwm-Q6U"
+        },
+        "hip_bridge": {
+            "description": "Hip bridge menargetkan glutes, hamstring, dan core.",
+            "tips": [
+                "Berbaring telentang dengan lutut ditekuk dan kaki di lantai.",
+                "Angkat pinggul hingga tubuh membentuk garis lurus dari lutut ke bahu.",
+                "Kencangkan glutes di puncak gerakan.",
+                "Turunkan perlahan tanpa menyentuh lantai sepenuhnya."
+            ],
+            "youtube": "https://www.youtube.com/watch?v=wPM8icPu6H8"
+        },
+        "hip_hinge": {
+            "description": "Hip hinge adalah gerakan dasar untuk latihan seperti deadlift dan kettlebell swing.",
+            "tips": [
+                "Jaga punggung tetap netral dan dorong pinggul ke belakang.",
+                "Sedikit tekuk lutut tanpa menggeser berat badan ke depan.",
+                "Fokus pada gerakan dari pinggul, bukan punggung.",
+                "Latih dengan tongkat di punggung untuk menjaga postur."
+            ],
+            "youtube": "https://youtu.be/lPOdTeASiyY?si=O03QXcGfmCS27LQ_"
+        },
+        "kettlebell_swing": {
+            "description": "Kettlebell swing membangun kekuatan eksplosif di pinggul, glutes, dan hamstring.",
+            "tips": [
+                "Gunakan gerakan hip hinge, bukan squat.",
+                "Dorong pinggul ke depan dengan kuat untuk mengayunkan kettlebell.",
+                "Jaga punggung tetap netral.",
+                "Ayunan tidak perlu terlalu tinggi — bahu sejajar sudah cukup."
+            ],
+            "youtube": "https://youtu.be/sSESeQAir2M?si=7J-JnKCK2AHHknFD"
+        },
+        "russian_twist": {
+            "description": "Russian twist memperkuat obliques dan meningkatkan rotasi core.",
+            "tips": [
+                "Duduk dengan lutut ditekuk dan punggung sedikit miring ke belakang.",
+                "Putar torso dari sisi ke sisi sambil memegang beban (opsional).",
+                "Jaga pernapasan stabil.",
+                "Bisa tambah tantangan dengan mengangkat kaki dari lantai."
+            ],
+            "youtube": "https://www.youtube.com/watch?v=wkD8rjkodUI"
+        },
+        "reverse_crunch": {
+            "description": "Reverse crunch menargetkan otot perut bagian bawah.",
+            "tips": [
+                "Berbaring telentang dan angkat kaki dengan lutut 90 derajat.",
+                "Angkat pinggul dari lantai menggunakan otot perut, bukan momentum.",
+                "Turunkan perlahan tanpa menjatuhkan kaki.",
+                "Jaga leher rileks."
+            ],
+            "youtube": "https://www.youtube.com/watch?v=hyv14e2QDq0"
+        },
+        "front_plank": {
+            "description": "Front plank memperkuat core secara keseluruhan dengan menahan posisi statis.",
+            "tips": [
+                "Letakkan siku tepat di bawah bahu.",
+                "Kencangkan perut dan bokong.",
+                "Jaga tubuh lurus dari kepala ke tumit.",
+                "Bernapaslah stabil, jangan menahan napas."
+            ],
+            "youtube": "https://www.youtube.com/watch?v=BQu26ABuVS0"
+        },
+        "farmers_walk": {
+            "description": "Farmer’s walk membangun kekuatan grip, bahu, core, dan kaki dengan membawa beban berat.",
+            "tips": [
+                "Pegang dumbbell atau kettlebell di sisi tubuh.",
+                "Jaga postur tegap, bahu ke belakang.",
+                "Langkahkan kaki mantap dan stabil.",
+                "Jangan biarkan beban membuat tubuh miring."
+            ],
+            "youtube": "https://youtu.be/NH7Xv-7NQNQ?si=sztXXuxxCuy4PKJy"
+        },
+        "elliptical": {
+            "description": "Elliptical machine memberi latihan kardio low-impact sambil melatih kaki dan lengan.",
+            "tips": [
+                "Gunakan seluruh gerakan kaki dan lengan secara ritmis.",
+                "Jaga punggung tegap dan pandangan ke depan.",
+                "Atur resistensi untuk intensitas sesuai target.",
+                "Pertahankan kecepatan konstan."
+            ],
+            "youtube": "https://youtu.be/be97tD_ufe0?si=pLNzZW-NxX6hx4MX"
+        },
+        "stair_climber": {
+            "description": "Stair climber melatih kaki dan glutes dengan simulasi menaiki tangga.",
+            "tips": [
+                "Jaga postur tegap dan tangan ringan di pegangan.",
+                "Langkahkan kaki penuh di setiap anak tangga.",
+                "Gunakan gerakan stabil, hindari terburu-buru.",
+                "Fokus pada gerakan dari pinggul dan paha."
+            ],
+            "youtube": "https://youtu.be/Zn1O9LcKW9E?si=gSP8QdvG3kDe_h1b"
+        },
+        "treadmill": {
+            "description": "Treadmill memberikan latihan kardio fleksibel — bisa jalan cepat, joging, atau sprint.",
+            "tips": [
+                "Mulai dengan pemanasan 5 menit.",
+                "Jaga langkah ringan dan ritmis.",
+                "Gunakan kemiringan (incline) untuk variasi.",
+                "Akhiri dengan pendinginan perlahan."
+            ],
+            "youtube": "https://youtu.be/vdsaHSr1H_E?si=Q_x78eFtmZzSokLX"
+        },
+        "stationary_bike": {
+            "description": "Sepeda stasioner melatih daya tahan dan kekuatan kaki dengan beban sendi rendah.",
+            "tips": [
+                "Atur ketinggian sadel dan setang untuk nyaman.",
+                "Pertahankan cadence sekitar 80–100 RPM.",
+                "Gunakan resistensi sesuai kemampuan.",
+                "Fokus pada gerakan halus tanpa hentakan."
+            ],
+            "youtube": "https://youtu.be/rEqRmKAQ5xM?si=Ukzb6rYw1MKV3e_f"
+        },
+        "aqua_jogging": {
+            "description": "Aqua jogging memberikan latihan kardio tanpa tekanan pada sendi karena dilakukan di air.",
+            "tips": [
+                "Gunakan sabuk pelampung untuk menjaga posisi tegak.",
+                "Gerakkan kaki seperti berlari normal.",
+                "Pertahankan ritme dan pernapasan teratur.",
+                "Latihan ini ideal untuk pemulihan cedera."
+            ],
+            "youtube": "https://youtu.be/fiUzT-s93sg?si=QKBWnjFPJsIzRzkD"
+        },
+        "assisted_pull_up": {
+            "description": "Assisted pull-up membantu lo bangun kekuatan punggung dan lengan sebelum bisa pull-up penuh.",
+            "tips": [
+                "Gunakan resistance band atau mesin dengan beban bantuan yang sesuai.",
+                "Tarik tubuh ke atas sampai dagu melewati palang.",
+                "Turunkan perlahan, jangan lepas kontrol.",
+                "Kencangkan otot punggung, bukan cuma lengan."
+            ],
+            "youtube": "https://youtu.be/vKpqOpjJt18?si=lk750ekndmulQtM4"
+        },
+        "assisted_lat_pull_down": {
+            "description": "Assisted lat pull-down menargetkan otot punggung atas (latissimus dorsi) dengan bantuan beban yang lebih ringan.",
+            "tips": [
+                "Pegang palang selebar bahu atau sedikit lebih lebar.",
+                "Tarik palang ke arah dada bagian atas.",
+                "Jaga punggung tegap, hindari membungkuk ke belakang berlebihan.",
+                "Kendalikan gerakan saat palang kembali ke atas."
+            ],
+            "youtube": "https://youtu.be/VWwhqJ5slis?si=i5a2vq47vmtKqG_3"
+        },
+        "lat_pull_down": {
+            "description": "Lat pull-down memperkuat otot punggung atas, terutama latissimus dorsi.",
+            "tips": [
+                "Pegang palang lebih lebar dari bahu.",
+                "Tarik palang ke dada bagian atas dengan gerakan terkendali.",
+                "Jaga siku mengarah ke bawah dan ke belakang.",
+                "Hindari mengayunkan tubuh saat menarik."
+            ],
+            "youtube": "https://www.youtube.com/watch?v=CAwf7n6Luuc"
+        },
+        "pull_up": {
+            "description": "Pull-up melatih punggung, bahu, dan bisep, menggunakan berat badan sendiri.",
+            "tips": [
+                "Pegang palang selebar bahu atau sedikit lebih lebar.",
+                "Tarik tubuh hingga dagu melewati palang.",
+                "Turunkan perlahan tanpa menjatuhkan diri.",
+                "Kencangkan otot core selama gerakan."
+            ],
+            "youtube": "https://www.youtube.com/watch?v=eGo4IYlbE5g"
+        },
+        "band_row": {
+            "description": "Band row adalah latihan punggung menggunakan resistance band untuk memperkuat otot punggung tengah.",
+            "tips": [
+                "Pasang resistance band di permukaan yang stabil setinggi dada.",
+                "Tarik band ke arah tubuh sambil jaga siku dekat sisi tubuh.",
+                "Kencangkan punggung atas di akhir gerakan.",
+                "Kembalikan perlahan tanpa kehilangan ketegangan."
+            ],
+            "youtube": "https://youtu.be/JP2xq33lNF0?si=0ewmoJYVzQJJz3sS"
+        },
+        "resistance_band_row": {
+            "description": "Resistance band row membantu melatih otot punggung dengan beban elastis dan mudah diatur.",
+            "tips": [
+                "Pastikan posisi duduk stabil atau berdiri tegap.",
+                "Tarik band ke arah perut, bukan dada.",
+                "Jaga bahu tetap rileks tapi terkunci di belakang.",
+                "Kendalikan band saat kembali ke posisi awal."
+            ],
+            "youtube": "https://youtu.be/LSkyinhmA8k?si=1IHml3k4M-vpaVGz"
+        },
+        "seated_cable_row": {
+            "description": "Seated cable row melatih otot punggung tengah, bisep, dan core dengan gerakan menarik horizontal.",
+            "tips": [
+                "Duduk tegak dan pegang handle dengan kedua tangan.",
+                "Tarik handle ke arah perut sambil kencangkan punggung.",
+                "Jangan membungkuk ke depan terlalu jauh.",
+                "Kendalikan beban saat kembali ke posisi awal."
+            ],
+            "youtube": "https://www.youtube.com/watch?v=GZbfZ033f74"
+        },
+        "seated_row": {
+            "description": "Seated row melatih otot punggung tengah, bisep, dan core dengan gerakan menarik horizontal.",
+            "tips": [
+                "Duduk tegak dan pegang handle dengan kedua tangan.",
+                "Tarik handle ke arah perut sambil kencangkan punggung.",
+                "Jangan membungkuk ke depan terlalu jauh.",
+                "Kendalikan beban saat kembali ke posisi awal."
+            ],
+            "youtube": "https://youtu.be/whSXi-EXbqI?si=uZZHFDj-UXPcZuc_"
+        },
+        "dumbbell_row": {
+            "description": "Dumbbell row melatih punggung tengah dan bisep secara unilateral, bantu seimbangkan kekuatan kiri dan kanan.",
+            "tips": [
+                "Tumpukan satu lutut dan tangan di bangku.",
+                "Tarik dumbbell ke arah pinggul, bukan dada.",
+                "Kencangkan punggung di puncak gerakan.",
+                "Jaga gerakan terkendali saat menurunkan dumbbell."
+            ],
+            "youtube": "https://www.youtube.com/watch?v=pYcpY20QaE8"
+        },
+        "barbell_back_squat": {
+            "description": "Barbell back squat melatih kekuatan tubuh bagian bawah secara menyeluruh — paha, glutes, dan core.",
+            "tips": [
+                "Letakkan bar di punggung atas (bukan leher).",
+                "Jaga dada tegap dan punggung lurus.",
+                "Turun hingga paha sejajar lantai atau lebih rendah.",
+                "Dorong tumit untuk kembali berdiri."
+            ],
+            "youtube": "https://www.youtube.com/watch?v=ultWZbUMPL8"
+        },
+        "dumbbell_squat": {
+            "description": "Dumbbell squat menargetkan otot kaki dan glutes, cocok untuk latihan di rumah.",
+            "tips": [
+                "Pegang dumbbell di samping tubuh.",
+                "Turunkan tubuh seperti squat biasa.",
+                "Jaga lutut sejajar arah jari kaki.",
+                "Dorong tumit untuk berdiri kembali."
+            ],
+            "youtube": "https://www.youtube.com/watch?v=aclHkVaku9U"
+        },
+        "romanian_deadlift": {
+            "description": "Romanian deadlift fokus pada hamstring dan glutes dengan sedikit tekukan lutut.",
+            "tips": [
+                "Pegang barbell di depan paha, lutut sedikit ditekuk.",
+                "Turunkan barbell hingga terasa tarikan di hamstring.",
+                "Jaga punggung netral sepanjang gerakan.",
+                "Dorong pinggul ke depan untuk kembali ke atas."
+            ],
+            "youtube": "https://www.youtube.com/watch?v=2SHsk9AzdjA"
+        },
+        "leg_press": {
+            "description": "Leg press memperkuat paha depan, paha belakang, dan glutes dengan beban berat secara aman.",
+            "tips": [
+                "Atur posisi kaki selebar bahu di platform.",
+                "Turunkan beban perlahan hingga lutut sekitar 90 derajat.",
+                "Dorong beban menggunakan tumit, bukan jari kaki.",
+                "Jangan kunci lutut di puncak gerakan."
+            ],
+            "youtube": "https://www.youtube.com/watch?v=IZxyjW7MPJQ"
+        },
+        "leg_extension": {
+            "description": "Leg extension menargetkan otot paha depan (quadriceps) secara isolasi.",
+            "tips": [
+                "Atur kursi untuk lutut sejajar dengan poros mesin.",
+                "Dorong beban ke atas hingga lutut hampir lurus.",
+                "Tahan sejenak di atas untuk kontraksi penuh.",
+                "Turunkan perlahan tanpa membiarkan beban jatuh."
+            ],
+            "youtube": "https://www.youtube.com/watch?v=YyvSfVjQeL0"
+        },
+        "leg_curl": {
+            "description": "Leg curl memperkuat otot paha belakang (hamstring) dengan gerakan menekuk lutut.",
+            "tips": [
+                "Pastikan lutut sejajar poros mesin.",
+                "Tekuk lutut perlahan hingga mendekati 90 derajat.",
+                "Tahan sejenak lalu turunkan beban terkendali.",
+                "Jangan ayunkan kaki terlalu cepat."
+            ],
+            "youtube": "https://www.youtube.com/watch?v=1Tq3QdYUuHs"
+        },
+        "chest_press": {
+            "description": "Chest press machine melatih otot dada, bahu depan, dan trisep dengan gerakan horizontal.",
+            "tips": [
+                "Atur kursi untuk pegangan sejajar dada tengah.",
+                "Dorong pegangan ke depan sampai tangan hampir lurus.",
+                "Kembali perlahan sambil tetap tegangkan otot dada.",
+                "Jaga bahu tetap stabil dan jangan mengangkat punggung."
+            ],
+            "youtube": "https://www.youtube.com/watch?v=rT7DgCr-3pg"
+        },
 
-        #  
-        # 🧰 BAGIAN ALAT (EQUIPMENT) - TIPS DIPERBARUI
-        #  
-        "dumbbells": {
+
+
+        # BAGIAN EQUIPMENT (TOTAL 31)
+
+        "dumbbell": {
             "description": "Dumbbells (barbel pendek) adalah beban genggam serbaguna untuk melatih berbagai kelompok otot secara unilateral.",
             "tips": [
                 "Pilih beban yang menantang namun memungkinkan Anda mempertahankan bentuk (form) yang benar.",
@@ -127,7 +489,7 @@ def get_media_info():
             ],
             "youtube": "https://youtu.be/GViX8riaHX4?si=VH_qjnS2glBTsFYb"
         },
-        "resistance_bands": {
+        "resistance_band": {
             "description": "Resistance bands (pita resistensi) adalah alat elastis portabel untuk latihan kekuatan, mobilitas, atau rehabilitasi.",
             "tips": [
                 "Pilih tingkat resistensi pita yang sesuai dengan kekuatan dan jenis latihan.",
@@ -136,11 +498,11 @@ def get_media_info():
             ],
             "youtube": "https://youtu.be/55EfZ7RDhf8?si=OG5NnMF5arHg7JMo"
         },
-        "barbells": {
+        "barbell": {
             "description": "Barbells (barbel panjang) adalah alat utama untuk latihan angkat beban majemuk (compound) yang melibatkan banyak otot.",
             "tips": [
                 "Pelajari teknik (form) yang benar untuk setiap angkatan (squat, deadlift, bench press) sebelum menambah beban berat.",
-                "Selalu gunakan penjepit (collar) untuk mengunci piringan beban agar tidak bergeser.",
+                "Selalu gunakan penjepit (collar) untuk mengunci piringan beban untuk tidak bergeser.",
                 "Pertimbangkan menggunakan spotter (pendamping) untuk angkatan berat, terutama bench press."
             ],
             "youtube": "https://youtu.be/67E6-f-mfuc?si=c-ByB5ngbhbq-0cj"
@@ -154,15 +516,6 @@ def get_media_info():
             ],
             "youtube": "https://youtu.be/kOnN-Zh6HHE?si=gPIQ-tA1ybIItK38"
         },
-        "light_dumbbells": {
-            "description": "Dumbbell ringan (biasanya 1-5 kg) digunakan untuk latihan repetisi tinggi, pemanasan, rehabilitasi, atau melatih otot kecil.",
-            "tips": [
-                "Fokus pada kualitas gerakan dan kontraksi otot, bukan hanya mengangkat beban.",
-                "Sangat baik untuk latihan isolasi bahu (rotator cuff) atau lengan.",
-                "Dapat digunakan untuk menambah intensitas pada latihan aerobik atau pilates."
-            ],
-            "youtube": "https://youtu.be/SSQAGz5kDtM?si=vTmdrJdde_Ahva1Q"
-        },
         "light_athletic_shoes": {
             "description": "Sepatu atletik ringan memberikan kenyamanan dan dukungan dasar untuk aktivitas fisik low-impact atau latihan di gym.",
             "tips": [
@@ -172,7 +525,7 @@ def get_media_info():
             ],
             "youtube": "https://youtu.be/12IfWxxMA84?si=vWYuO1-3e9pkxPxM"
         },
-        "ellipticals": {
+        "ellipticals_machine": {
             "description": "Mesin kardio low-impact yang mensimulasikan gerakan berjalan atau berlari tanpa benturan keras pada sendi.",
             "tips": [
                 "Jaga postur tubuh tetap tegak, otot perut sedikit dikencangkan, jangan bersandar pada pegangan.",
@@ -190,16 +543,7 @@ def get_media_info():
             ],
             "youtube": "https://youtu.be/uqs9A0B6s9U?si=qHlEYJaMxuqNTGEM"
         },
-        "treadmills": {
-            "description": "Mesin lari atau jalan di tempat yang memungkinkan kontrol kecepatan dan tanjakan (incline).",
-            "tips": [
-                "Selalu pasang dan gunakan klip pengaman (safety clip) yang terhubung ke pakaian Anda.",
-                "Mulai dengan kecepatan berjalan pelan untuk pemanasan sebelum meningkatkan kecepatan.",
-                "Hindari berpegangan pada pegangan samping saat berlari, ayunkan lengan secara alami."
-            ],
-            "youtube": "https://youtu.be/eGZ_3MbXAnM?si=J-ASXoMUxQrBI9ux"
-        },
-        "treadmill": {
+        "treadmill_machine": {
             "description": "Mesin lari atau jalan di tempat yang memungkinkan kontrol kecepatan dan tanjakan (incline).",
             "tips": [
                 "Selalu pasang dan gunakan klip pengaman (safety clip) yang terhubung ke pakaian Anda.",
@@ -231,13 +575,194 @@ def get_media_info():
             "tips": [
                 "Pilih ketebalan matras sesuai kebutuhan (lebih tebal untuk bantalan, lebih tipis untuk keseimbangan).",
                 "Bersihkan matras secara teratur dengan pembersih khusus atau larutan cuka encer.",
-                "Gulung matras dengan benar setelah digunakan agar tidak mudah rusak."
+                "Gulung matras dengan benar setelah digunakan untuk tidak mudah rusak."
             ],
             "youtube": "https://youtu.be/747YA1EWdyw?si=UKjR29mdtyOq_5m0"
         },
+        "assisted_pull_up_machine": {
+            "description": "Mesin ini membantu lo melakukan pull-up dengan bantuan beban penyeimbang, cocok buat pemula yang belum kuat angkat berat badan penuh.",
+            "tips": [
+                "Atur berat bantuan sesuai kemampuan, makin besar bantuan makin ringan beban yang lo angkat.",
+                "Fokus ke gerakan naik-turun yang terkontrol, jangan ayun badan.",
+                "Turunin badan pelan-pelan biar otot punggung dan bisep kerja maksimal."
+            ],
+            "youtube": "https://youtu.be/wFj808u2HWU?si=W4swi1y9CmZ_ybtJ"
+        },
+        "bench": {
+            "description": "Bangku serbaguna buat latihan beban kayak bench press, dumbbell fly, atau step-up.",
+            "tips": [
+                "Pastikan bangku stabil sebelum mulai latihan.",
+                "Gunakan posisi punggung rata di bangku buat jaga form.",
+                "Bisa kombinasikan dengan barbell, dumbbell, atau resistance band."
+            ],
+            "youtube": "https://youtu.be/SCVCLChPQFY?si=zZzv2W3q4Y8tbYv8"
+        },
+        "box": {
+            "description": "Box plyometric dipakai buat latihan lompatan, meningkatkan kekuatan eksplosif dan koordinasi.",
+            "tips": [
+                "Gunakan sepatu yang grip-nya bagus biar gak selip.",
+                "Mendarat pelan dan lutut agak menekuk buat ngurangin tekanan sendi.",
+                "Mulai dari tinggi box rendah dulu"
+            ],
+            "youtube": "https://youtu.be/ZJrUiIprYVw?si=4CsiokvBOHLxWnmt"
+        },
+        "cable_row_machine": {
+            "description": "Mesin kabel ini melatih punggung tengah dan bisep dengan gerakan tarik horizontal.",
+            "tips": [
+                "Jaga punggung tetap tegak dan jangan terlalu condong ke belakang.",
+                "Tarik pegangan ke arah perut, bukan dada.",
+                "Kembalikan beban perlahan sambil tetap kontrol otot."
+            ],
+            "youtube": "https://youtu.be/GZbfZ033f74?si=2T-SNRT5RVgKMFpP"
+        },
+        "chest_press_machine": {
+            "description": "Mesin untuk melatih otot dada dengan gerakan dorong, alternatif aman dari bench press.",
+            "tips": [
+                "Atur kursi biar pegangan sejajar dengan dada bagian tengah.",
+                "Dorong beban sampai hampir lurus, jangan kunci siku.",
+                "Turunkan perlahan untuk jaga ketegangan otot."
+            ],
+            "youtube": "https://youtu.be/n8TOta_pfr4?si=6opmuOY4WZzyt1WD"
+        },
+        "farmer_walk_handles": {
+            "description": "Pegangan berat untuk latihan 'Farmer’s Walk' — bagus buat kekuatan genggaman, core, dan bahu.",
+            "tips": [
+                "Jaga postur tegak dan bahu ke belakang.",
+                "Langkah pelan tapi stabil, jangan buru-buru.",
+                "Gunakan beban sama di kanan dan kiri biar seimbang."
+            ],
+            "youtube": "https://youtu.be/G-ldvQEChzQ?si=E0cabrxagQxJ2GdT"
+        },
+        "flat_bench": {
+            "description": "Bangku datar untuk latihan dada, bahu, dan trisep seperti bench press atau dumbbell fly.",
+            "tips": [
+                "Posisikan kepala, punggung, dan bokong tetap nempel di bangku.",
+                "Gunakan spotter saat latihan beban berat.",
+                "Jaga pernapasan — buang napas waktu dorong beban."
+            ],
+            "youtube": "https://youtu.be/rT7DgCr-3pg?si=lIJPq_gKZKrSkE2h"
+        },
+        "incline_bench": {
+            "description": "Bangku miring untuk latihan bagian atas dada dan bahu depan.",
+            "tips": [
+                "Atur kemiringan sekitar 30–45 derajat untuk aktivasi optimal otot dada atas.",
+                "Gunakan dumbbell atau barbell sesuai kenyamanan.",
+                "Jangan terlalu miring, nanti bahu yang lebih kerja."
+            ],
+            "youtube": "https://youtu.be/8iPEnn-ltC8?si=zINZC3bWPKk5V3Rc"
+        },
+        "incline_press_machine": {
+            "description": "Mesin untuk latihan dorong pada posisi miring, menargetkan dada bagian atas.",
+            "tips": [
+                "Atur kursi untuk pegangan sejajar dada atas.",
+                "Dorong dengan kontrol tanpa mengunci siku di atas.",
+                "Fokus pada kontraksi dada, bukan dorongan bahu."
+            ],
+            "youtube": "https://youtu.be/whaV86_J6HY?si=MCX327I7-UaMlIdY"
+        },
+        "lat_pull_down_machine": {
+            "description": "Mesin ini melatih otot punggung atas dan bisep dengan gerakan tarik dari atas.",
+            "tips": [
+                "Tarik palang ke bawah sampai dada, bukan di belakang kepala.",
+                "Jaga postur tegak, jangan goyang-goyangin badan.",
+                "Kembalikan palang perlahan ke posisi awal."
+            ],
+            "youtube": "https://youtu.be/CAwf7n6Luuc?si=-0hr8A2UuwgX5WnJ"
+        },
+        "leg_curl_machine": {
+            "description": "Mesin ini menargetkan otot hamstring dengan gerakan tekuk lutut ke belakang.",
+            "tips": [
+                "Sesuaikan bantalan dengan posisi pergelangan kaki.",
+                "Jangan ayun beban, lakukan gerakan perlahan dan kontrol.",
+                "Tahan sebentar di posisi bawah untuk kontraksi maksimal."
+            ],
+            "youtube": "https://youtu.be/1Tq3QdYUuHs?si=ym7dqj4VZyJ9S7Al"
+        },
+        "leg_extension_machine": {
+            "description": "Mesin latihan paha depan (quadriceps) dengan gerakan luruskan lutut.",
+            "tips": [
+                "Posisikan bantalan di atas pergelangan kaki.",
+                "Luruskan kaki perlahan, jangan hentak.",
+                "Turunkan beban pelan-pelan biar otot tetap tegang."
+            ],
+            "youtube": "https://youtu.be/YyvSfVjQeL0?si=ovk7bWn6RZ4f6tt7"
+        },
+        "leg_press_machine": {
+            "description": "Mesin ini melatih otot kaki (paha, bokong, betis) dengan gerakan dorong beban menggunakan kaki.",
+            "tips": [
+                "Jangan kunci lutut di posisi atas.",
+                "Pastikan punggung dan bokong nempel di sandaran.",
+                "Dorong dengan tumit, bukan ujung jari kaki."
+            ],
+            "youtube": "https://youtu.be/IZxyjW7MPJQ?si=-3q8Xx8ghsQF_nOK"
+        },
+        "medicine_ball": {
+            "description": "Bola berat multifungsi buat latihan kekuatan, keseimbangan, dan eksplosif.",
+            "tips": [
+                "Gunakan ukuran bola sesuai latihan (lebih berat untuk kekuatan, ringan untuk kecepatan).",
+                "Jangan lempar bola ke lantai keras kalau bukan slam ball.",
+                "Fokus pada kontrol dan arah lemparan."
+            ],
+            "youtube": "https://youtu.be/D26xO1k6oW0?si=z__1o8q6b8HG12_J"
+        },
+        "plank_setup": {
+            "description": "Setup untuk plank bisa pakai matras atau alat bantu seperti slider atau bola stabilitas untuk variasi latihan core.",
+            "tips": [
+                "Jaga tubuh lurus dari kepala sampai kaki.",
+                "Aktifkan otot perut dan bokong, jangan biarin pinggul turun.",
+                "Tambahkan variasi seperti side plank atau plank dengan gerakan tangan."
+            ],
+            "youtube": "https://youtu.be/BQu26ABuVS0?si=mm6uJScOmpuRjFrO"
+        },
+        "pull_up_bar": {
+            "description": "Batang besi horizontal buat latihan tubuh bagian atas kayak pull-up, chin-up, atau leg raise.",
+            "tips": [
+                "Genggam batang sedikit lebih lebar dari bahu.",
+                "Turun penuh biar rentang gerak maksimal.",
+                "Bisa tambahkan resistance band kalau masih pemula."
+            ],
+            "youtube": "https://youtu.be/eGo4IYlbE5g?si=c9M_p42X4fx6Kp1H"
+        },
+        "seated_row_machine": {
+            "description": "Mirip cable row tapi dengan posisi duduk tegak dan pegangan horizontal, melatih punggung tengah.",
+            "tips": [
+                "Tarik ke arah perut sambil jaga punggung tetap tegak.",
+                "Jangan condong ke belakang waktu narik.",
+                "Kembalikan beban perlahan untuk kontrol otot."
+            ],
+            "youtube": "https://youtu.be/GZbfZ033f74?si=RtsAf0shGoY-Wz_M"
+        },
+        "smith_machine": {
+            "description": "Mesin barbell dengan rel vertikal yang bantu stabilitas gerakan, aman buat latihan squat, press, dan row.",
+            "tips": [
+                "Pastikan pengunci bar bisa digunakan dengan cepat kalau kelelahan.",
+                "Jangan bergantung penuh pada rel — tetap aktifkan otot stabilizer.",
+                "Cocok buat latihan berat tanpa spotter."
+            ],
+            "youtube": "https://youtu.be/DUWK_gKcRCc?si=mS-5SfW8XYbhwsuB"
+        },
+        "squat_rack": {
+            "description": "Alat untuk menopang barbell saat latihan squat, overhead press, atau rack pull.",
+            "tips": [
+                "Atur ketinggian rak sesuai bahu biar aman waktu angkat bar.",
+                "Selalu gunakan safety bar kalau latihan beban berat.",
+                "Pastikan posisi kaki stabil sebelum mulai angkatan."
+            ],
+            "youtube": "https://youtu.be/ultWZbUMPL8?si=nE13KyYXcE6n6u3s"
+        },
+        "strap": {
+            "description": "Tali pengikat (lifting strap) bantu cengkeraman saat angkat beban berat, terutama untuk deadlift.",
+            "tips": [
+                "Gunakan hanya buat latihan berat, jangan ketergantungan.",
+                "Pastikan tali melilit erat di bar sebelum angkat.",
+                "Latih grip strength juga biar tetap kuat tanpa strap."
+            ],
+            "youtube": "https://youtu.be/BEkC01Mn1K0?si=Jd2iLyA3R_fJItyT"
+        },
+
 
         #  
-        # 🥗 BAGIAN DIET (VEGETABLES) - DESKRIPSI & KANDUNGAN DIPERBARUI
+        # BAGIAN DIET (VEGETABLES) 
         #  
         "garlic": {
             "description": "Garlic (bawang putih) kaya antioksidan dan senyawa sulfur aktif yang baik untuk kesehatan jantung dan imunitas.",
