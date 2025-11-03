@@ -1,4 +1,5 @@
 # pages/1_Recommendation.py
+
 import streamlit as st
 import yaml
 from streamlit_authenticator import Authenticate
@@ -35,8 +36,8 @@ st.markdown("""
             --theme-gradient: linear-gradient(to right, var(--theme-blue), var(--theme-purple), var(--theme-pink));
 
             /* Warna Krem Latar */
-            --cream-bg-light: #FAF9F6;  /* Halaman */
-            --cream-bg-dark: #F0EFEA;   /* Sidebar */
+            --cream-bg-light: #FAF9F6;  
+            --cream-bg-dark: #F0EFEA;   
             --dark-text: #333333;       
             --hover-cream: #E0DFD9;     
             
@@ -61,51 +62,50 @@ st.markdown("""
             font-weight: 600;
             border: none;
             transition: all 0.2s ease;
-            height: 45px; /* Set tinggi manual */
-            padding: 8px 0 !important; /* Paksa padding vertikal */
-            line-height: 1.5; /* Jaga teks tetap di tengah */
+            height: 45px; 
+            padding: 8px 0 !important; 
+            line-height: 1.5; 
         }
 
         
-                    [data-testid="stSidebar"] .stButton button:hover {
-                 background: var(--dark-purple-hover); 
-                 transform: translateY(-2px);
-                 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        [data-testid="stSidebar"] .stButton button:hover {
+            background: var(--dark-purple-hover); 
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             }
-        /* --- Kustomisasi Tombol Primary & Secondary --- */
 
-        /* Ini buat ngatur tombol PRIMARY (Tombol "Hapus" kamu) */
+        /* Kustomisasi Tombol Primary & Secondary */
+
+        
         [data-testid="stButton"] button[kind="primary"] {
-            background-color: #FF69B4; /* Ini warna pink dari tema kamu */
+            background-color: #FF69B4; 
             color: white;
             border: 1px solid #FF69B4;
         }
 
         [data-testid="stButton"] button[kind="primary"]:hover {
-            background-color: #D65A98; /* Bikin jadi pink lebih gelap */
+            background-color: #D65A98; 
             border: 1px solid #D65A98;
-            color: white; /* Jaga-jaga biar teks tetep putih */
+            color: white; 
         }
 
         [data-testid="stButton"] button[kind="primary"]:focus {
-            box-shadow: 0 0 0 0.2rem rgba(255, 105, 180, 0.5); /* Bayangan pink */
+            box-shadow: 0 0 0 0.2rem rgba(255, 105, 180, 0.5); 
         }
 
-        /* Ini buat ngatur tombol SECONDARY (Tombol "Favorit" kamu) 
-         Kita pakein warna dari tema cream kamu biar matching
-        */
+        
         .main [data-testid="stButton"] button[kind="secondary"] {
-            background-color: var(--cream-bg-dark); /* Warna sidebar kamu */
-            color: var(--dark-text); /* Warna teks gelap kamu */
-            border: 1px solid #DCDCDC; /* Border abu-abu netral */
+            background-color: var(--cream-bg-dark); 
+            color: var(--dark-text); 
+            border: 1px solid #DCDCDC; 
         }
         .main [data-testid="stButton"] button[kind="secondary"]:hover {
-            background-color: var(--hover-cream); /* Warna hover cream kamu */
+            background-color: var(--hover-cream); 
             border: 1px solid #C0C0C0;
             color: var(--dark-text);
         }
         .main [data-testid="stButton"] button[kind="secondary"]:focus {
-            box-shadow: 0 0 0 0.2rem rgba(224, 223, 217, 0.5); /* Bayangan cream */
+            box-shadow: 0 0 0 0.2rem rgba(224, 223, 217, 0.5); 
         }
         .main [data-testid="stSidebar"] button[kind="secondary"]:hover {
             background-color: var(--dark-purple-hover);
@@ -122,18 +122,18 @@ DATA_FOLDER = os.path.join(ROOT_DIR, "data")
 USER_DATA_FILE = os.path.join(DATA_FOLDER, "user_data.json")
 MODELS_FOLDER = os.path.join(ROOT_DIR, "models")
 
-# pastikan folder data ada
+
 os.makedirs(DATA_FOLDER, exist_ok=True)
 
-# -------------------------
+
 # Utility: load / save user data (saved_recommendations & favorites)
-# -------------------------
+
 def load_user_data():
     if os.path.exists(USER_DATA_FILE):
         try:
             with open(USER_DATA_FILE, "r") as f:
                 data = json.load(f)
-            # apply to session_state but don't overwrite if exists
+            
             if "saved_recommendations" not in st.session_state:
                 st.session_state["saved_recommendations"] = data.get("saved_recommendations", {})
             if "favorites" not in st.session_state:
@@ -157,12 +157,12 @@ def save_user_data():
     except Exception as e:
         print("Error saving user data:", e)
 
-# langsung load user data di awal
+
 load_user_data()
 
-# -------------------------
-# Imports model & helpers (lo sudah punya fungsi-fungsi lama)
-# -------------------------
+
+# Imports model & helpers 
+
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 try:
@@ -175,7 +175,7 @@ except Exception as e:
 
 
 
-# --- fungsi load model/aset (dipertahankan) ---
+# fungsi load model/aset   
 def load_all_models():
     try:
         assets = {}
@@ -195,7 +195,7 @@ def load_all_models():
         st.error(f"Error saat memuat model/aset: {e}")
         st.stop()
 
-# --- fungsi bantu (BMI, dll) ---
+# fungsi bantu (BMI, dll) 
 def calculate_bmi(height_cm, weight_kg):
     if height_cm == 0: return 0
     height_m = height_cm / 100.0
@@ -212,7 +212,7 @@ def get_fitness_goal(level):
     elif level in ["Overweight", "Obese"]: return "Weight Loss"
     return None
 
-# --- model inference functions (dipertahankan) ---
+# model inference functions   
 categorical_cols = ['Sex', 'Level', 'Fitness Goal']
 numeric_cols = ['Age', 'Height', 'Weight', 'BMI']
 
@@ -284,7 +284,7 @@ def cbf_recommendations(fitness_type, hypertension, diabetes, preparation_data, 
 
     return {'Exercises': final_exercise, 'Equipment': final_equipment, 'Diet': final_diet}
 
-# --- Helpers tampilan & media ---
+# Helpers tampilan & media 
 def img_to_base64(path_or_url, size=(250,180)):
     try:
         if isinstance(path_or_url, str) and path_or_url.startswith("http"):
@@ -307,13 +307,13 @@ def clean_items(text):
     cleaned_list = [item.strip().title() for item in text.split('|') if item.strip() and item.strip().lower() not in ["and", "or"]]
     return list(dict.fromkeys(cleaned_list))
 
-# +++ FUNGSI CALLBACK BARU +++
+#  FUNGSI CALLBACK BARU 
 def set_detail_view(item_key):
-    """Callback buat nge-set item apa yang mau diliat detailnya"""
+    """Callback untuk set item apa yang mau diliat detailnya"""
     st.session_state["selected_detail"] = item_key
 
 def add_to_favorites(item):
-    """Callback buat TOGGLE (nambah/hapus) item ke favorit"""
+    """Callback untuk toggle (tambah/hapus) item ke favorit"""
     username = st.session_state.get("username")
     if not username:
         st.toast("Login dulu buat nambahin favorit.", icon="⚠️")
@@ -323,20 +323,21 @@ def add_to_favorites(item):
     st.session_state.setdefault("favorites", {})
     st.session_state["favorites"].setdefault(username, [])
     
-    # --- INI LOGIKA TOGGLE-NYA ---
+    # LOGIKA TOGGLE 
     if item in st.session_state["favorites"][username]:
-        # Kalo UDAH ADA: Hapus item
+        # Kalo udah ada: Hapus item
         st.session_state["favorites"][username].remove(item)
         save_user_data() 
-        # Toast notif sesuai request lo
+        # Toast notif sesuai request
         st.toast(f"{item} dihapus dari favorit.", icon="🗑️") 
     else:
         # Kalo BELUM ADA: Tambah item
         st.session_state["favorites"][username].append(item)
         save_user_data() 
-        # Toast notif sesuai request lo
+        # Toast notif sesuai request
         st.toast(f"{item} ditambahin ke favorit!", icon="💖")
-# +++ END FUNGSI CALLBACK BARU +++
+
+#  END FUNGSI CALLBACK BARU 
 
 def extract_diet_items(category_key, diet_string):
     if not isinstance(diet_string, str): return []
@@ -346,9 +347,9 @@ def extract_diet_items(category_key, diet_string):
         return clean_items(item_string)
     return []
 
-# +++ FUNGSI CARD DIPERBARUI (TANPA <a> tag) +++
+#  FUNGSI CARD DIPERBARUI (TANPA <a> tag) 
 def render_card_html(label, media_dictionary):
-    """Cuma nge-render tampilan card-nya, TANPA link."""
+    """render tampilan card-nya, TANPA link."""
     if not label or not isinstance(label, str):
         return None
     key = label.lower().replace(" ", "_")
@@ -360,7 +361,7 @@ def render_card_html(label, media_dictionary):
     if img64:
         img_html = f'<img src="data:image/png;base64,{img64}" style="width:100%; max-width:240px; height:170px; border-radius:8px; display:block; margin:auto; object-fit: cover;">'
     else:
-        # Kalo ga ada gambar, kasih placeholder biar tingginya sama
+        # Kalo tidak ada gambar, kasih placeholder agar tingginya sama
         img_html = '<div style="width:100%; max-width:240px; height:170px; border-radius:8px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#999;">No Image</div>'
 
     html = f"""
@@ -371,8 +372,8 @@ def render_card_html(label, media_dictionary):
     """
     return html
 
-# +++ FUNGSI RENDER SECTION DIPERBARUI (PAKE st.button dan callback) +++
-# +++ GANTI SEMUA FUNGSI INI +++
+#  FUNGSI RENDER SECTION 
+
 def render_recommendation_section(title, items_list, media_dictionary):
     st.subheader(title)
     if items_list and isinstance(items_list, list):
@@ -380,7 +381,7 @@ def render_recommendation_section(title, items_list, media_dictionary):
         for i, item in enumerate(items_list):
             with cols[i % 2]:
                 if isinstance(item, str) and item:
-                    # 1. Render card statis
+                    # Render card statis
                     html = render_card_html(item, media_dictionary) 
                     if html:
                         st.markdown(html, unsafe_allow_html=True)
@@ -399,43 +400,39 @@ def render_recommendation_section(title, items_list, media_dictionary):
                             use_container_width=True 
                         )
                     
-                    # +++ PERUBAHAN DI SINI +++
-                    # Tombol Favorit di kolom kanan (Sekarang dinamis)
+                    # Tombol Favorit di kolom kanan
                     with col_btn2:
                         user_logged = st.session_state.get("authentication_status", False)
                         if user_logged:
                             username = st.session_state.get("username")
                             
-                            # Cek dulu status favoritnya
+                            # Cek status favoritnya
                             is_favorite = False
                             if username and item in st.session_state.get("favorites", {}).get(username, []):
                                 is_favorite = True
                             
-                            # Ganti teks tombol & style-nya
+                            # Ganti teks tombol & style
                             button_text = "🗑️ Hapus" if is_favorite else "❤️ Favorit"
-                            # 'primary' itu yg ada warnanya (merah), 'secondary' yg abu-abu
                             button_type = "primary" if is_favorite else "secondary" 
 
                             st.button(
                                 button_text,
                                 key=f"fav_btn_{key_safe}",
-                                on_click=add_to_favorites, # Fungsinya tetep sama, tapi logikanya sudah toggle
+                                on_click=add_to_favorites,
                                 args=(item,),
                                 use_container_width=True,
-                                type=button_type # Terapin style dinamis
+                                type=button_type 
                             )
                         else:
                             st.markdown("<div style='text-align: center; padding-top: 5px; height: 38px;'><i style='color:#666; font-size: 0.9em;'>Login untuk ❤️</i></div>", unsafe_allow_html=True)
-                    # +++ AKHIR PERUBAHAN +++
-        
-        st.write("") # spacing
+        st.write("") 
     else:
         st.info(f"Tidak ada rekomendasi spesifik untuk {title.split(':')[0]}.")
 
 
-# -------------------------
+
 # CSS singkat
-# -------------------------
+
 st.markdown("""
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display.swap');
@@ -495,9 +492,9 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# -------------------------
-# Authenticator & Sidebar (mirip file lo)
-# -------------------------
+
+# Authenticator & Sidebar  
+
 CONFIG_PATH = os.path.join(ROOT_DIR, "config.yaml")
 try:
     with open(CONFIG_PATH) as file:
@@ -516,9 +513,9 @@ authenticator = Authenticate(
 make_sidebar(authenticator)
 
 
-# -------------------------
+
 # Main: load assets & render form / results
-# -------------------------
+
 assets = load_all_models()
 knn = assets["knn"]
 le_dict = assets["le_dict"]
@@ -530,13 +527,12 @@ media_dict = assets["media_dict"]
 media_info = assets["media_info"]
 
 
-# +++ LOGIKA DETAIL PAGE DIPERBARUI (Pake session_state) +++
-# Hapus 'params = st.query_params'
+#  LOGIKA DETAIL PAGE 
 
-# Detail page logic (now using session_state)
+# Detail page logic
 if "selected_detail" in st.session_state:
     st.markdown("<h1 class='header-title'>Detail</h1>", unsafe_allow_html=True)
-    item_key = st.session_state["selected_detail"] # Ambil dari session_state
+    item_key = st.session_state["selected_detail"] 
 
     item_title = item_key.replace("_", " ").title()
     st.subheader(item_title)
@@ -562,10 +558,9 @@ if "selected_detail" in st.session_state:
     
     # Tombol kembali yang dimodifikasi
     if st.button("Kembali ke Rekomendasi"):
-        st.session_state.pop("selected_detail", None) # Hapus key dari session_state
+        st.session_state.pop("selected_detail", None) 
         st.rerun()
-    st.stop() # Ini penting, biar form di bawah gak ke-render
-# +++ END LOGIKA DETAIL PAGE +++
+    st.stop() 
 
 
 # Main recommendation form
@@ -626,8 +621,8 @@ if submitted:
                 }
                 st.rerun()
 
-# Render hasil rekomendasi (kalo ada)
-# Render hasil rekomendasi (kalo ada)
+# Render hasil rekomendasi
+
 if st.session_state.get("recommendation_data"):
     data = st.session_state["recommendation_data"]
     best_row = data["best_row"]
@@ -636,11 +631,11 @@ if st.session_state.get("recommendation_data"):
     st.markdown(f"Status Anda: **{data['level']}** (BMI: `{data['bmi']:.2f}`), Dominasi tujuan yang direkomendasikan adalah **{data['goal']}**.")
     st.header("Rekomendasi Untuk Anda 👇")
 
-    # +++ LOGIKA TOMBOL SIMPAN/HAPUS PROFIL +++
+    #  LOGIKA TOMBOL SIMPAN/HAPUS PROFIL 
     if st.session_state.get("authentication_status"):
         username = st.session_state.get("username")
         
-        # 1. Buat summary-nya dulu
+        # Buat summary
         current_rec_timestamp = data.get("timestamp")
         rec_summary = {
             "timestamp": current_rec_timestamp,
@@ -651,11 +646,11 @@ if st.session_state.get("recommendation_data"):
             "best_row": data.get("best_row")
         }
 
-        # 2. Inisialisasi list favorit user
+        # Inisialisasi list favorit user
         st.session_state.setdefault("saved_recommendations", {})
         st.session_state["saved_recommendations"].setdefault(username, [])
         
-        # 3. Cek apakah rekomendasi ini (berdasarkan timestamp) sudah ada
+        # Cek apakah rekomendasi ini (berdasarkan timestamp) sudah ada
         is_saved = False
         existing_recs = st.session_state["saved_recommendations"][username]
         for rec in existing_recs:
@@ -663,13 +658,13 @@ if st.session_state.get("recommendation_data"):
                 is_saved = True
                 break
         
-        # 4. Set teks & style tombol secara dinamis
+        # Set teks & style tombol secara dinamis
         button_text = "🗑️ Hapus Rekomendasi dari Profil" if is_saved else "⭐ Simpan Rekomendasi ke Profil"
         button_type = "primary" if is_saved else "secondary"
 
-        # 5. Render tombol
-        if st.button(button_text, type=button_type, use_container_width=False): # Bikin False biar ga terlalu lebar
-            # 6. Logika Toggle
+        # Render tombol
+        if st.button(button_text, type=button_type, use_container_width=False):
+            # Logika Toggle
             if is_saved:
                 # Hapus
                 new_recs_list = [rec for rec in existing_recs if rec.get("timestamp") != current_rec_timestamp]
@@ -677,40 +672,38 @@ if st.session_state.get("recommendation_data"):
                 save_user_data()
                 st.toast("Rekomendasi dihapus dari profil.", icon="🗑️")
             else:
-                # Tambah
                 st.session_state["saved_recommendations"][username].append(rec_summary)
                 save_user_data()
                 st.toast("Rekomendasi disimpan ke profil!", icon="💾")
             
-            # Rerun biar teks tombolnya update
+            # Rerun agar teks tombolnya update
             st.rerun() 
             
     else:
         st.info("Login dulu biar bisa nyimpen rekomendasi ya 😉")
-    # +++ AKHIR LOGIKA TOMBOL SIMPAN/HAPUS +++
         
 
-    # ==========================
+     
     # 🏋️ Latihan
     exercise_list = clean_items(best_row.get("Exercises", ""))
     render_recommendation_section("🏋️ Latihan", exercise_list, media_dict)
 
-    # ==========================
+     
     # 🧰 Alat
     equipment_list = clean_items(best_row.get("Equipment", ""))
     render_recommendation_section("🧰 Alat", equipment_list, media_dict)
 
-    # ==========================
+     
     # 🥗 Pola Makan
-    # ==========================
+     
 
     st.subheader("🥗 Pola Makan")
 
-    # --- 1. PIE CHART DENGAN 4 KATEGORI & CUSTOM HOVER ---
-    st.markdown("##### Panduan Porsi Ideal 'Isi Piringku'")
+    # PIE CHART DENGAN 4 KATEGORI & CUSTOM HOVER 
+    st.markdown("##### Panduan Porsi Ideal 'Isi Piringku' Per Satu Porsi")
 
     try:
-        # --- Data berdasarkan 4 KATEGORI (Kemenkes) ---
+        # Data berdasarkan 4 KATEGORI (Kemenkes) 
         data_porsi = {
             'Kategori': [
                 'Mineral & Vitamin (Sayur)', 
@@ -718,7 +711,7 @@ if st.session_state.get("recommendation_data"):
                 'Karbohidrat (Pokok)', 
                 'Protein (Lauk Pauk)'
             ],
-            'Persentase': [33.3, 16.7, 33.3, 16.7], # Values for chart slicing
+            'Persentase': [33.3, 16.7, 33.3, 16.7], 
             'Porsi': [
                 '2/3 dari 1/2 Piring', # Porsi Sayur
                 '1/3 dari 1/2 Piring', # Porsi Buah
@@ -728,7 +721,7 @@ if st.session_state.get("recommendation_data"):
         }
         df_porsi = pd.DataFrame(data_porsi)
         
-        # --- Warna solid (4 Kategori) ---
+        # Warna solid (4 Kategori) 
         colors = {
             'Mineral & Vitamin (Sayur)': "#6ADB6A", # Darker Green
             'Mineral & Vitamin (Buah)': "#D16DF8",  # Teal
@@ -743,18 +736,14 @@ if st.session_state.get("recommendation_data"):
                     color='Kategori', 
                     color_discrete_map=colors,
                     hole=0.4,
-                    custom_data=['Porsi'] # --- Masukin data 'Porsi' ke custom_data ---
+                    custom_data=['Porsi']  
                     )
         
-        # --- PERUBAHAN DI SINI ---
         fig.update_traces(
-            textinfo='none', # Ga ada teks di dalem
-            
-            # --- UBAH TAMPILAN HOVER ---
+            textinfo='none',
             hovertemplate="<b>%{label}</b><br>Porsi per Piring: %{customdata[0]}<extra></extra>",
-            
             marker=dict(
-                line=dict(color='#000000', width=1) # Garis tepi hitam
+                line=dict(color='#000000', width=1) 
             )
         )
         
@@ -764,7 +753,7 @@ if st.session_state.get("recommendation_data"):
             legend=dict(
                 orientation="h", # Horizontal legend
                 yanchor="bottom",
-                y=-0.2, # Posisikan legend di bawah chart
+                y=-0.2, 
                 xanchor="center",
                 x=0.5,
                 traceorder='normal',
@@ -787,7 +776,7 @@ if st.session_state.get("recommendation_data"):
     """)
     st.markdown("---")
 
-    # --- 2. Rekomendasi item diet berdasarkan kategori ---
+    # Rekomendasi item diet berdasarkan kategori 
     raw_diet_string = best_row.get("Diet", "")
     if raw_diet_string:
         karbohidrat = extract_diet_items("Karbohidrat", raw_diet_string)
@@ -812,7 +801,7 @@ if st.session_state.get("recommendation_data"):
 
     if st.button("🧼 Reset Data"):
         st.session_state.pop("recommendation_data", None)
-        st.session_state.pop("selected_detail", None)  # biar detail juga ke-reset
+        st.session_state.pop("selected_detail", None)
         st.rerun()
 else:
     st.info("👈 Silakan isi data Anda di atas, lalu klik tombol **'Dapatkan Rekomendasi'** untuk melihat saran latihan, alat, dan asupan yang cocok untuk Anda!")

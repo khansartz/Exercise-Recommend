@@ -1,9 +1,6 @@
 # pages/Profile.py
+
 import streamlit as st
-
-# --- HARUS DI PALING ATAS ---
-
-
 import os
 import yaml
 from PIL import Image
@@ -26,8 +23,8 @@ st.markdown("""
             --theme-gradient: linear-gradient(to right, var(--theme-blue), var(--theme-purple), var(--theme-pink));
 
             /* Warna Krem Latar */
-            --cream-bg-light: #FAF9F6;  /* Halaman */
-            --cream-bg-dark: #F0EFEA;   /* Sidebar */
+            --cream-bg-light: #FAF9F6;  
+            --cream-bg-dark: #F0EFEA;   
             --dark-text: #333333;       
             --hover-cream: #E0DFD9;     
             
@@ -63,9 +60,9 @@ st.markdown("""
             font-weight: 600;
             border: none;
             transition: all 0.2s ease;
-            height: 45px; /* Set tinggi manual */
-            padding: 8px 0 !important; /* Paksa padding vertikal */
-            line-height: 1.5; /* Jaga teks tetap di tengah */
+            height: 45px; 
+            padding: 8px 0 !important; 
+            line-height: 1.5; 
         }
             [data-testid="stSidebar"] .stButton button:hover {
             background: var(--dark-purple-hover); 
@@ -75,16 +72,16 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# --- PATH SETUP ---
+# PATH SETUP 
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 DATA_FOLDER = os.path.join(ROOT_DIR, "data")
 USER_DATA_FILE = os.path.join(DATA_FOLDER, "user_data.json")
 CONFIG_PATH = os.path.join(ROOT_DIR, "config.yaml")
 
-# pastikan folder data ada
+
 os.makedirs(DATA_FOLDER, exist_ok=True)
 
-# --- LOAD CONFIG & AUTH ---
+# LOAD CONFIG & AUTH 
 try:
     with open(CONFIG_PATH) as file:
         config = yaml.load(file, Loader=yaml.SafeLoader)
@@ -101,10 +98,10 @@ authenticator = Authenticate(
 
 make_sidebar(authenticator)
 
-# --- JUDUL HALAMAN ---
+# JUDUL HALAMAN 
 st.markdown("<h1 class='header-title'>👤 Profil Pengguna</h1>", unsafe_allow_html=True)
 
-# --- HELPER FUNGS ---
+# HELPER FUNGS 
 def load_user_data():
     if os.path.exists(USER_DATA_FILE):
         try:
@@ -123,14 +120,7 @@ def save_user_data(data):
     except Exception as e:
         print("Error saving user data:", e)
 
-# --- SIDEBAR ---
-# try:
-#     logo = Image.open(os.path.join(ROOT_DIR, "logo.png"))
-#     st.sidebar.image(logo, width=100)
-# except FileNotFoundError:
-#     st.sidebar.title("🏋️ Exercise App")
-
-# --- AUTH CHECK ---
+# AUTH CHECK 
 if not st.session_state.get("authentication_status"):
     st.error("Login dulu biar bisa liat profil kamu 😎")
     st.info("Kembali ke Home untuk login.")
@@ -138,14 +128,14 @@ if not st.session_state.get("authentication_status"):
         st.switch_page("home.py")
     st.stop()
 
-# --- LOAD USER DATA ---
+# LOAD USER DATA 
 username = st.session_state.get("username")
 name = st.session_state.get("name", username)
 user_data = load_user_data()
 saved_recs = user_data.get("saved_recommendations", {}).get(username, [])
 favorites = user_data.get("favorites", {}).get(username, [])
 
-# --- PROFILE HEADER ---
+# PROFILE HEADER 
 st.markdown(f"""
 <div style='
     background-color: #E8E2F7; 
@@ -163,7 +153,7 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-# --- SECTION: REKOMENDASI DISIMPAN ---
+# SECTION: REKOMENDASI DISIMPAN 
 st.subheader("💾 Rekomendasi yang Kamu Simpan")
 if saved_recs:
     for idx, rec in enumerate(reversed(saved_recs)):
@@ -188,7 +178,7 @@ else:
 
 st.markdown("---")
 
-# --- SECTION: FAVORIT ---
+# SECTION: FAVORIT 
 st.subheader("❤️ Favorit Kamu")
 if favorites:
     cols = st.columns(3)
@@ -206,7 +196,7 @@ else:
 
 st.markdown("---")
 
-# --- SECTION: UBAH PASSWORD ---
+# SECTION: UBAH PASSWORD 
 st.subheader("🔐 Ubah Password")
 st.write("Ganti password kamu di sini biar akun makin aman 🔒")
 
@@ -222,8 +212,3 @@ except Exception as e:
     st.error(f"Terjadi error saat ubah password: {e}")
 
 st.markdown("---")
-
-# --- LOGOUT BUTTON ---
-# if st.button("Logout"):
-#     authenticator.logout("Logout", "main", key="logout_main")
-#     st.rerun()

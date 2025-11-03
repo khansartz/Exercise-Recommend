@@ -2,7 +2,6 @@
 import os
 
 def get_media_dict():
-    # Sesuaikan path folder "media" tempat lo naro gambar/video
     base_path = os.path.join(os.path.dirname(__file__), "media")
 
     return {
@@ -89,7 +88,7 @@ def get_media_dict():
         "aloe_vera_juice": os.path.join(base_path, "aloe_vera_juice.jpg"),
         "cold-pressed_juice": os.path.join(base_path, "cold-pressed_juice.jpg"),
         "green_juice": os.path.join(base_path, "green_juice.jpg"),
-        "kale_juice": os.path.join(base_path, "kale_juice.jpg"), # Placeholder, gak ada di list
+        "kale_juice": os.path.join(base_path, "kale_juice.jpg"), # Placeholder
         "spinach_juice": os.path.join(base_path, "spinach_juice.jpg"), # Placeholder
         "cucumber_juice": os.path.join(base_path, "cucumber_juice.jpg"), # Placeholder
         "celery_juice": os.path.join(base_path, "celery_juice.jpg"), # Placeholder
@@ -126,9 +125,9 @@ def get_media_dict():
 
 def get_media_info():
     return {
-        # =======================
+        #  
         # 💪 BAGIAN LATIHAN (EXERCISES)
-        # =======================
+        #  
         "squats": {
             "description": "Squat adalah latihan fundamental untuk membangun kekuatan kaki, pinggul, dan otot inti (core).",
             "tips": [
@@ -240,9 +239,9 @@ def get_media_info():
             "youtube": "https://youtu.be/y2HJ0Iq6R8A?si=X-3JiXBPB63t8a6U"
         },
 
-        # =======================
+        #  
         # 🧰 BAGIAN ALAT (EQUIPMENT) - TIPS DIPERBARUI
-        # =======================
+        #  
         "dumbbells": {
             "description": "Dumbbells (barbel pendek) adalah beban genggam serbaguna untuk melatih berbagai kelompok otot secara unilateral.",
             "tips": [
@@ -361,9 +360,9 @@ def get_media_info():
             "youtube": "https://youtu.be/747YA1EWdyw?si=UKjR29mdtyOq_5m0"
         },
 
-        # =======================
+        #  
         # 🥗 BAGIAN DIET (VEGETABLES) - DESKRIPSI & KANDUNGAN DIPERBARUI
-        # =======================
+        #  
         "garlic": {
             "description": "Garlic (bawang putih) kaya antioksidan dan senyawa sulfur aktif yang baik untuk kesehatan jantung dan imunitas.",
             "kandungan": ["Allicin (senyawa sulfur aktif, antioksidan, antibakteri).", "Mangan.", "Vitamin B6.", "Vitamin C.", "Selenium."],
@@ -461,9 +460,9 @@ def get_media_info():
         },
 
 
-        # =======================
+        #  
         # 🍗 BAGIAN DIET (PROTEIN) - KANDUNGAN DIPERBARUI
-        # =======================
+        #  
         "red_meats": {
             "description": "Red meats (daging merah) sumber protein hewani tinggi zat besi heme, baik untuk cegah anemia namun konsumsi secukupnya.",
             "kandungan": ["Protein lengkap.", "Zat besi heme (mudah diserap).", "Vitamin B12.", "Zinc."],
@@ -581,9 +580,9 @@ def get_media_info():
         },
 
 
-        # =======================
+        #  
         # 🥤 BAGIAN DIET (JUICE) - KANDUNGAN DIPERBARUI
-        # =======================
+        #  
 
         "fruit_juice": {
             "description": "Fruit juice (jus buah) secara umum merupakan sumber vitamin, mineral, dan gula alami (fruktosa) yang cepat diserap tubuh.",
@@ -658,7 +657,7 @@ def get_media_info():
 
 
 
-        # ======================= TUMPENG GIZI =======================
+        #   TUMPENG GIZI  
         "nasi": {
             "description": "Nasi merupakan sumber utama karbohidrat yang memberi energi untuk aktivitas harian. Pilih nasi putih atau nasi merah sesuai kebutuhan.",
             "kandungan": ["Karbohidrat kompleks.", "Sedikit protein.", "Vitamin B kompleks.", "Mineral seperti magnesium dan fosfor."],

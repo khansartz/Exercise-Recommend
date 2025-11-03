@@ -8,17 +8,15 @@ from streamlit_option_menu import option_menu
 import time
 import os
 
-# --- PAGE CONFIG ---
+# PAGE CONFIG 
 from navigation import make_sidebar, hide_default_sidebar
 
 st.set_page_config(page_title="About", page_icon="ℹ️", layout="wide")
 
 hide_default_sidebar()
 
- 
 
-
-# --- CSS (Copy-paste dari Home.py) ---
+# CSS 
 st.markdown("""
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
@@ -31,8 +29,8 @@ st.markdown("""
             --theme-gradient: linear-gradient(to right, var(--theme-blue), var(--theme-purple), var(--theme-pink));
 
             /* Warna Krem Latar */
-            --cream-bg-light: #FAF9F6;  /* Halaman */
-            --cream-bg-dark: #F0EFEA;   /* Sidebar */
+            --cream-bg-light: #FAF9F6;  
+            --cream-bg-dark: #F0EFEA;   
             --dark-text: #333333;       
             --hover-cream: #E0DFD9;     
             
@@ -44,7 +42,7 @@ st.markdown("""
             --dark-purple-hover: #4A2E7E; /* Hover tombol logout */
         }
 
-        /* --- HALAMAN UTAMA & JUDUL GRADASI --- */
+        /* HALAMAN UTAMA & JUDUL GRADASI */
         /*.stApp {
             background: var(--cream-bg-light); 
         }*/
@@ -62,7 +60,7 @@ st.markdown("""
             text-fill-color: transparent;
         }
 
-        /* --- SIDEBAR --- */
+        /* SIDEBAR */
         [data-testid="stSidebar"] {
           /* background-color: var(--cream-bg-dark);*/ 
             border-right: 1px solid #DCDCDC; 
@@ -71,7 +69,7 @@ st.markdown("""
              color: var(--dark-text); 
         }
         
-        /* --- TULISAN "Menu Bar" (Lebih subtle) --- */
+        /* TULISAN "Menu Bar" */
         [data-testid="stSidebar"] .option-menu-container h2 {
             color: #999; /* Lebih abu-abu/muda */
             font-size: 0.8rem; /* Lebih kecil */
@@ -83,7 +81,7 @@ st.markdown("""
             margin-bottom: 0.5rem;
         }
         
-        /* --- STYLING NAVIGASI --- */
+        /* STYLING NAVIGASI */
         [data-testid="stSidebar"] .nav-link {
             font-size: 1rem;
             color: #555 !important; 
@@ -119,7 +117,7 @@ st.markdown("""
             color: var(--soft-purple-text) !important; 
         }
 
-        /* --- LOGOUT BUTTON (FIXED) --- */
+        /* LOGOUT BUTTON (FIXED) */
         [data-testid="stSidebar"] .stButton {
             position: flex;
             bottom: 20px;
@@ -134,9 +132,9 @@ st.markdown("""
             font-weight: 600;
             border: none;
             transition: all 0.2s ease;
-            height: 45px; /* Set tinggi manual */
-            padding: 8px 0 !important; /* Paksa padding vertikal */
-            line-height: 1.5; /* Jaga teks tetap di tengah */
+            height: 45px; 
+            padding: 8px 0 !important; 
+            line-height: 1.5; 
         }
         [data-testid="stSidebar"] .stButton button:hover {
              background: var(--dark-purple-hover); 
@@ -173,9 +171,9 @@ st.markdown("""
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 CONFIG_PATH = os.path.join(ROOT_DIR, 'config.yaml')
 
-# --- AUTHENTICATOR (Buat Ulang Setiap Kali) ---
+# AUTHENTICATOR
 try:
-    with open(CONFIG_PATH) as file: # Buka file pake path absolut
+    with open(CONFIG_PATH) as file:  
         config = yaml.load(file, Loader=yaml.SafeLoader)
 except FileNotFoundError:
     st.error(f"FATAL ERROR: config.yaml tidak ditemukan di {CONFIG_PATH}. Harap login dari Halaman Utama.")
@@ -184,7 +182,7 @@ except Exception as e:
     st.error(f"Error loading config: {e}")
     st.stop()
 
-# Inisialisasi ulang authenticator di SETIAP rerun
+# Inisialisasi ulang authenticator di setiap rerun
 authenticator = Authenticate(
     config["credentials"],
     config["cookie"]["name"],
@@ -194,15 +192,12 @@ authenticator = Authenticate(
 
 make_sidebar(authenticator)
 
-# --- KONTEN HALAMAN ABOUT (DIPERBARUI) ---
-
-# --- HEADER DENGAN LOGO ---
-
+# KONTEN HALAMAN ABOUT 
 
 st.markdown("<h1 class='header-title'>🖥️ Tentang Aplikasi Ini</h1>", unsafe_allow_html=True)
 
 
-# --- INTRO SECTION (BAHASA "AKU-KAMU") ---
+# INTRO SECTION 
 st.markdown("""
 <div style='font-size:17px; line-height:1.8;'>
     Selamat Datang! 👋 <br>
@@ -214,7 +209,7 @@ st.markdown("""
 
 st.markdown("---")
 
-# --- FEATURE GRID / VISI MISI (DISESUAIKAN DENGAN FITUR ASLI) ---
+# FEATURE GRID / VISI MISI 
 st.subheader("🎯 Apa Tujuan Aplikasi Ini?")
 col1, col2, col3 = st.columns(3)
 
@@ -232,14 +227,14 @@ with col3:
 
 st.markdown("---")
 
-# --- LAYOUT BARU (2 KOLOM: PENGEMBANG & TEKNOLOGI) ---
+# LAYOUT BARU 2 KOLOM
 st.subheader("👨‍💻 Tentang Perancang & Teknologi di Baliknya")
 col_dev, col_tech = st.columns(2)
 
-# --- KIRI: TENTANG PENGEMBANG (KATA "AKU" DIUBAH JADI "PERANCANG") ---
+# KIRI: TENTANG PENGEMBANG 
 with col_dev:
     st.markdown("#### **Perancang**")
-    col_img, col_text = st.columns([1, 2]) # Kolom internal buat foto & teks
+    col_img, col_text = st.columns([1, 2]) # Kolom internal untuk foto & teks
     
     with col_img:
         try:
@@ -265,9 +260,9 @@ with col_dev:
         <br>
         <a href='mailto:khansamaritzaar@gmail.com' style='color: var(--soft-purple-text); font-weight:600;'>📩 khansamaritzaar@gmail.com</a>
     </div>
-    """, unsafe_allow_html=True) # Catatan: Aku tetep pake "aku" di sini biar personal, tapi "perancang" di judul
+    """, unsafe_allow_html=True) 
 
-# --- KANAN: TEKNOLOGI (DIUBAH SESUAI REQUEST) ---
+# KANAN: TEKNOLOGI
 with col_tech:
     st.markdown("#### **Teknologi**")
     st.markdown("""
@@ -286,7 +281,7 @@ with col_tech:
 
 st.markdown("---")
 
-# --- FUN FACT / QUOTE SECTION (TETAP SAMA) ---
+# FUN FACT / QUOTE SECTION
 st.markdown("""
 <div style="
     background: var(--theme-gradient);

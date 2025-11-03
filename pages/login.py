@@ -19,8 +19,8 @@ st.markdown("""
             --theme-gradient: linear-gradient(to right, var(--theme-blue), var(--theme-purple), var(--theme-pink));
 
             /* Warna Krem Latar */
-            --cream-bg-light: #FAF9F6;  /* Halaman */
-            --cream-bg-dark: #F0EFEA;   /* Sidebar */
+            --cream-bg-light: #FAF9F6;  
+            --cream-bg-dark: #F0EFEA;   
             --dark-text: #333333;       
             --hover-cream: #E0DFD9;     
             
@@ -45,9 +45,9 @@ st.markdown("""
             font-weight: 600;
             border: none;
             transition: all 0.2s ease;
-            height: 45px; /* Set tinggi manual */
-            padding: 8px 0 !important; /* Paksa padding vertikal */
-            line-height: 1.5; /* Jaga teks tetap di tengah */
+            height: 45px; 
+            padding: 8px 0 !important; 
+            line-height: 1.5; 
         }
             
             [data-testid="stSidebar"] button[kind="secondary"] {

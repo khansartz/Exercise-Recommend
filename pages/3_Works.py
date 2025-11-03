@@ -9,7 +9,7 @@ import time
 import os
 import textwrap
 
-# --- PAGE CONFIG ---
+# PAGE CONFIG 
 from navigation import make_sidebar, hide_default_sidebar
 
 st.set_page_config(page_title="How it works", page_icon="✨", layout="wide")
@@ -18,9 +18,7 @@ st.set_page_config(page_title="How it works", page_icon="✨", layout="wide")
 hide_default_sidebar()
 
 
-
-
-# --- CSS (PENAMBAHAN CSS BARU) ---
+# CSS 
 st.markdown("""
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
@@ -33,8 +31,8 @@ st.markdown("""
             --theme-gradient: linear-gradient(to right, var(--theme-blue), var(--theme-purple), var(--theme-pink));
 
             /* Warna Krem Latar */
-            --cream-bg-light: #FAF9F6;  /* Halaman */
-            --cream-bg-dark: #F0EFEA;   /* Sidebar */
+            --cream-bg-light: #FAF9F6;  
+            --cream-bg-dark: #F0EFEA;   
             --dark-text: #333333;       
             --hover-cream: #E0DFD9;     
             
@@ -80,7 +78,7 @@ st.markdown("""
             font-weight: 600;
             border: none;
             transition: all 0.2s ease;
-            height: 45px; /* Set tinggi manual */
+            height: 45px; 
             padding: 8px 0 !important;
             line-height: 1.5; 
         }
@@ -170,13 +168,12 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# Dapatkan path ke folder root (satu level di atas folder 'pages')
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 CONFIG_PATH = os.path.join(ROOT_DIR, 'config.yaml')
 
-# --- AUTHENTICATOR (Buat Ulang Setiap Kali) ---
+# AUTHENTICATOR 
 try:
-    with open(CONFIG_PATH) as file: # Buka file pake path absolut
+    with open(CONFIG_PATH) as file: 
         config = yaml.load(file, Loader=yaml.SafeLoader)
 except FileNotFoundError:
     st.error(f"FATAL ERROR: config.yaml tidak ditemukan di {CONFIG_PATH}. Harap login dari Halaman Utama.")
@@ -185,7 +182,7 @@ except Exception as e:
     st.error(f"Error loading config: {e}")
     st.stop()
 
-# Inisialisasi ulang authenticator di SETIAP rerun
+# Inisialisasi ulang authenticator di setiap rerun
 authenticator = Authenticate(
     config["credentials"],
     config["cookie"]["name"],
@@ -195,7 +192,7 @@ authenticator = Authenticate(
 
 make_sidebar(authenticator)
 
-# --- KONTEN HALAMAN 'HOW IT WORKS' ---
+# KONTEN HALAMAN 'HOW IT WORKS' 
 
 st.markdown("<h1 class='header-title'>✨ Gimana Cara Kerjanya?</h1>", unsafe_allow_html=True)
 
@@ -207,7 +204,7 @@ Jawabannya: Ini bukan sihir, tapi teknologi! 🤖 Aplikasi ini menggunakan <b>du
 </p>
 """, unsafe_allow_html=True)
 
-# --- GAMBAR FLOWCHART ---
+# GAMBAR FLOWCHART 
 st.image("media/flowchart.png",
          caption="Alur kerja sistem")
 
@@ -215,7 +212,7 @@ st.markdown("<hr class='step-divider'>", unsafe_allow_html=True)
 
 st.subheader("Proses di Balik Layar")
 
-# --- LANGKAH 1 ---
+# LANGKAH 1 
 st.markdown("""
 <div class="step-card">
     <h3><span>1</span>Langkah 1: Kamu Memberi Kami "Bahan Baku"</h3>
@@ -242,7 +239,7 @@ with col1_2:
 
 st.markdown("<hr class='step-divider'>", unsafe_allow_html=True)
 
-# --- LANGKAH 2 (LAYOUT DIBALIK) ---
+# LANGKAH 2
 st.markdown("""
 <div class="step-card">
     <h3><span>2</span>Langkah 2: Asisten Pertama Menemukan "Grup" Kamu</h3>
@@ -268,7 +265,7 @@ with col2_2:
 
 st.markdown("<hr class='step-divider'>", unsafe_allow_html=True)
 
-# --- LANGKAH 3 ---
+# LANGKAH 3 
 st.markdown("""
 <div class="step-card">
     <h3><span>3</span>Langkah 3: Asisten Kedua Memilihkan "Menu"</h3>
@@ -294,7 +291,7 @@ with col3_2:
 
 st.markdown("<hr class='step-divider'>", unsafe_allow_html=True)
 
-# --- LANGKAH 4 (LAYOUT DIBALIK) ---
+# LANGKAH 4 
 st.markdown("""
 <div class="step-card">
     <h3><span>4</span>Langkah 4: Voila! Rencana Personal Kamu Siap</h3>
@@ -319,7 +316,7 @@ with col4_2:
     """, unsafe_allow_html=True)
 
 
-# --- KOTAK VALIDASI (DIREVISI TOTAL) ---
+# KOTAK VALIDASI
 
 st.markdown(textwrap.dedent("""
     <div class="validation-box">
@@ -352,7 +349,7 @@ st.markdown(textwrap.dedent("""
     """), unsafe_allow_html=True)
 
 
-# --- LINK GITHUB (TAMBAHAN BARU) ---
+# LINK GITHUB
 st.markdown("<hr class='step-divider'>", unsafe_allow_html=True)
 st.subheader("Masih Penasaran?")
 st.markdown("""
