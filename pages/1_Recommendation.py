@@ -549,10 +549,47 @@ if "selected_detail" in st.session_state:
         for tip in info["tips"]: st.write(f"- {tip}")
     if "kandungan" in info:
         st.subheader("🔬 Kandungan Baik")
-        for k in info["kandungan"]: st.write(f"- {k}")
+        for k in info["kandungan"]: 
+            st.write(f"- {k}")
+    if "info_porsi" in info:
+        st.subheader("🍽️ Saran Penyajian & Porsi")
+        
+        porsi_info = info["info_porsi"]
+        
+        if "saran_penyajian" in porsi_info:
+            st.markdown(f"- {porsi_info['saran_penyajian']}")
+        
+        if "recommendation_data" in st.session_state and "goal" in st.session_state["recommendation_data"]:
+            
+            user_goal_english = st.session_state["recommendation_data"]["goal"] 
+            
+            goal_translator_map = {
+                "Weight Gain": "Naikin Berat Badan",
+                "Weight Loss": "Turunin Berat Badan"
+            }
+            
+            if user_goal_english in goal_translator_map:
+                user_goal_indonesian = goal_translator_map[user_goal_english]
+            
+                if "porsi" in porsi_info and user_goal_indonesian in porsi_info["porsi"]:
+                    porsi_spesifik = porsi_info["porsi"][user_goal_indonesian]
+                    st.markdown(f"- {porsi_spesifik}")
+                else:
+                    st.write(f"- Info porsi spesifik untuk '{user_goal_indonesian}' belum tersedia.")
+            
+            else:
+                st.write("- Gagal mendeteksi tujuan Anda untuk info porsi spesifik.")
+                
+        else:
+            st.warning("Info porsi spesifik akan tampil setelah kamu mendapatkan rekomendasi.")
+            if "porsi" in porsi_info:
+                st.write("**Opsi Porsi (Umum):**")
+                for goal, porsi_text in porsi_info["porsi"].items():
+                    st.markdown(f"  - **{goal}:** {porsi_text.replace('**Porsi Rekomendasi:** ', '')}")
     if "youtube" in info:
         st.subheader("📺 Video Panduan")
         st.video(info["youtube"])
+
     if not info:
         st.info(f"Belum ada info detail untuk item: `{item_key}`")
     
@@ -628,7 +665,18 @@ if st.session_state.get("recommendation_data"):
     best_row = data["best_row"]
 
     st.success(f"Rekomendasi tipe latihan: **{data['pred_label']}**", icon="✅")
-    st.markdown(f"Status Anda: **{data['level']}** (BMI: `{data['bmi']:.2f}`), Dominasi tujuan yang direkomendasikan adalah **{data['goal']}**.")
+    original_goal = data.get('goal', 'N/A') 
+
+    goal_display_map = {
+        "Weight Gain": "Menambah massa otot (Weight Gain)",
+        "Weight Loss": "Menurunkan berat badan (Weight Loss)"
+    }
+    
+    display_goal = goal_display_map.get(original_goal, original_goal)
+    
+    # Pake variabel 'display_goal' yang baru 
+    st.markdown(f"Status Anda: **{data['level']}** (BMI: `{data['bmi']:.2f}`), Rekomendasi tipe Latihan yang dominan adalah **{display_goal}**.")
+    
     st.header("Rekomendasi Untuk Anda 👇")
 
     #  LOGIKA TOMBOL SIMPAN/HAPUS PROFIL 
@@ -695,8 +743,6 @@ if st.session_state.get("recommendation_data"):
 
      
     # 🥗 Pola Makan
-     
-
     st.subheader("🥗 Pola Makan")
 
     # PIE CHART DENGAN 4 KATEGORI & CUSTOM HOVER 
@@ -784,12 +830,12 @@ if st.session_state.get("recommendation_data"):
         protein = extract_diet_items("Protein", raw_diet_string)
 
         if karbohidrat:
-            render_recommendation_section("🍚 Sumber Karbohidrat (3-4 porsi/hari):", karbohidrat, media_dict)
+            render_recommendation_section("🍚 Sumber Karbohidrat", karbohidrat, media_dict)
         if mineral_serat:
-            render_recommendation_section("🥦 Sumber Mineral & Vitamin (Sayur 3-4 porsi/hari || Buah 2-3 porsi/hari):", mineral_serat, media_dict)
+            render_recommendation_section("🥦 Sumber Mineral & Vitamin", mineral_serat, media_dict)
         if protein:
-            render_recommendation_section("🍗 Sumber Protein (Total 2-4 porsi/hari):", protein, media_dict)
-
+            render_recommendation_section("🍗 Sumber Protein", protein, media_dict)
+        
         st.markdown("---")
         st.subheader("⚠️ Catatan Penting:")
         if data["diabetes"] == "Yes":

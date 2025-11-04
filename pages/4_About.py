@@ -162,12 +162,16 @@ st.markdown("""
         color: #333;
         line-height: 1.7;
     }
+    .profile-pic img {
+    border-radius: 50% !important;  
+    object-fit: cover !important;  
+    width: 150px !important;   
+    height: 150px !important;  
+    }   
 
     </style>
 """, unsafe_allow_html=True)
 
-
-# Dapatkan path ke folder root (satu level di atas folder 'pages')
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 CONFIG_PATH = os.path.join(ROOT_DIR, 'config.yaml')
 
@@ -238,7 +242,7 @@ with col_dev:
     
     with col_img:
         try:
-            dev_img = Image.open(os.path.join(ROOT_DIR, "profile.jpg"))
+            dev_img = Image.open(os.path.join(ROOT_DIR, "media\profile_dev.jpg"))
             st.image(dev_img, width=150)
         except FileNotFoundError:
             st.image("https://cdn-icons-png.flaticon.com/512/3135/3135715.png", width=150)

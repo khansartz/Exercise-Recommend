@@ -203,18 +203,15 @@ st.write("Ganti password kamu di sini biar akun makin aman 🔒")
 
 try:
     if authenticator.reset_password(username, location="main"):
-        # 1. Tampilkan notifikasi dulu
+
         st.success("Password berhasil diubah! Menyimpan konfigurasi...")
         st.info("Silakan login kembali dengan password baru kamu...")
 
-        # 2. Simpan config (ini udah bener)
         with open(CONFIG_PATH, "w") as file:
             yaml.dump(config, file, default_flow_style=False)
 
-        # 3. KASIH JEDA WAKTU (misal 3 detik)
-        time.sleep(3) # <-- INI BAGIAN PENTINGNYA
+        time.sleep(3)  
 
-        # 4. Baru logout dan rerun
         authenticator.logout("Logout", "main", key="logout_after_reset")
         st.rerun()
 

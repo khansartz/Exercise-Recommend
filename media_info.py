@@ -1059,119 +1059,305 @@ def get_media_info():
 
 
         #   TUMPENG GIZI  
+# --- CONTOH PENERAPAN ---
+
         "nasi": {
             "description": "Nasi merupakan sumber utama karbohidrat yang memberi energi untuk aktivitas harian. Pilih nasi putih atau nasi merah sesuai kebutuhan.",
             "kandungan": ["Karbohidrat kompleks.", "Sedikit protein.", "Vitamin B kompleks.", "Mineral seperti magnesium dan fosfor."],
+            "info_porsi": {
+                "saran_penyajian": "Dikukus. Sebaiknya pilih nasi merah karena tinggi serat dan membuat kenyang lebih lama.",
+                "porsi": {
+                    "Turunin Berat Badan": "**Porsi Rekomendasi:** 1 centong (sekitar 100g) per makan. Utamakan nasi merah.",
+                    "Jaga Berat Badan": "**Porsi Rekomendasi:** 1-2 centong (100-200g) per makan, sesuaikan dengan aktivitas.",
+                    "Naikin Berat Badan": "**Porsi Rekomendasi:** 2-3 centong (200-300g) per makan, atau lebih, untuk memenuhi surplus kalori."
+                }
+            },
             "youtube_d": "https://youtu.be/3mhJ2pKcW4E?si=Q4XpuQ7PYOZpt7Mf"
         },
         "kentang": {
             "description": "Kentang mengandung karbohidrat kompleks dan serat. Cocok sebagai pengganti nasi untuk variasi sumber energi.",
             "kandungan": ["Karbohidrat kompleks.", "Serat pangan.", "Vitamin C.", "Kalium.", "Sedikit protein."],
+            "info_porsi": {
+                "saran_penyajian": "Cara terbaik adalah direbus, dipanggang (roasted), atau dikukus. Hindari digoreng (deep fry) seperti french fries.",
+                "porsi": {
+                    "Turunin Berat Badan": "**Porsi Rekomendasi:** 1-2 buah ukuran sedang (150-200g) per sajian.",
+                    "Jaga Berat Badan": "**Porsi Rekomendasi:** 2 buah ukuran sedang (200-250g) per sajian.",
+                    "Naikin Berat Badan": "**Porsi Rekomendasi:** 3-4 buah ukuran sedang (300-400g) per sajian."
+                }
+            },
             "youtube_d": "https://youtu.be/FnDrU2EJZqk?si=9XhaY4Btw3_Tvl0S"
         },
         "roti_gandum": {
             "description": "Roti gandum mengandung serat lebih tinggi daripada roti putih, membantu pencernaan dan menjaga rasa kenyang lebih lama.",
             "kandungan": ["Karbohidrat kompleks.", "Serat pangan.", "Vitamin B kompleks.", "Zat besi.", "Magnesium."],
+            "info_porsi": {
+                "saran_penyajian": "Pilih yang 100% gandum utuh (whole wheat), bukan hanya berwarna cokelat. Cocok untuk sarapan atau camilan.",
+                "porsi": {
+                    "Turunin Berat Badan": "**Porsi Rekomendasi:** 2 lembar (sekitar 60g) per sajian.",
+                    "Jaga Berat Badan": "**Porsi Rekomendasi:** 2-3 lembar (60-90g) per sajian.",
+                    "Naikin Berat Badan": "**Porsi Rekomendasi:** 3-4 lembar (90-120g) per sajian. Bisa ditambahkan selai kacang alami."
+                }
+            },
             "youtube_d": "https://youtu.be/Q7T0EECQj5M?si=6e5gIK7oAXyPNAgq"
         },
         "jagung": {
             "description": "Jagung kaya akan serat dan antioksidan alami seperti lutein yang baik untuk kesehatan mata.",
             "kandungan": ["Karbohidrat.", "Serat.", "Vitamin B1 (tiamin).", "Asam folat.", "Lutein & zeaxanthin."],
+            "info_porsi": {
+                "saran_penyajian": "Direbus atau dibakar. Bisa dijadikan camilan sehat atau pengganti nasi sesekali.",
+                "porsi": {
+                    "Turunin Berat Badan": "**Porsi Rekomendasi:** 1 buah tongkol sedang (150g) per sajian.",
+                    "Jaga Berat Badan": "**Porsi Rekomendasi:** 1-2 buah tongkol sedang (150-300g) per sajian.",
+                    "Naikin Berat Badan": "**Porsi Rekomendasi:** 2-3 buah tongkol sedang (300-450g) per sajian."
+                }
+            },
             "youtube_d": "https://youtu.be/cKMB9B-hxM8?si=Qv-Zd5FUpKgfC6L0"
         },
         "singkong": {
             "description": "Singkong merupakan sumber energi dari pati alami, sering dijadikan alternatif nasi atau bahan camilan.",
             "kandungan": ["Karbohidrat.", "Serat.", "Vitamin C.", "Kalsium.", "Fosfor."],
+            "info_porsi": {
+                "saran_penyajian": "Direbus atau dikukus. Hindari olahan singkong yang digoreng atau diberi gula berlebih (seperti getuk/kolak).",
+                "porsi": {
+                    "Turunin Berat Badan": "**Porsi Rekomendasi:** 1 potong sedang (100g) per sajian.",
+                    "Jaga Berat Badan": "**Porsi Rekomendasi:** 1-2 potong sedang (100-200g) per sajian.",
+                    "Naikin Berat Badan": "**Porsi Rekomendasi:** 2-3 potong sedang (200-300g) per sajian."
+                }
+            },
             "youtube_d": "https://youtu.be/ZBOPP4oGEZc?si=gCDZ7xknXqK08M6v"
         },
         "ubi": {
             "description": "Ubi kaya akan beta-karoten dan serat, membantu menjaga sistem imun dan pencernaan.",
             "kandungan": ["Karbohidrat kompleks.", "Beta-karoten (pro-vitamin A).", "Serat.", "Vitamin C.", "Kalium."],
+            "info_porsi": {
+                "saran_penyajian": "Dipanggang, dikukus, atau direbus. Ubi adalah sumber karbohidrat lepas lambat yang bagus untuk energi tahan lama.",
+                "porsi": {
+                    "Turunin Berat Badan": "**Porsi Rekomendasi:** 1 buah sedang (150g) per sajian.",
+                    "Jaga Berat Badan": "**Porsi Rekomendasi:** 1-2 buah sedang (150-300g) per sajian.",
+                    "Naikin Berat Badan": "**Porsi Rekomendasi:** 2 buah besar (300-400g) per sajian."
+                }
+            },
             "youtube_d": "https://youtu.be/E7mQ0KhQ9x0?si=w0tTtAYFpiw2vbtL"
         },
         "bayam": {
             "description": "Bayam mengandung zat besi dan folat tinggi, baik untuk pembentukan sel darah merah dan daya tahan tubuh.",
             "kandungan": ["Zat besi.", "Asam folat.", "Vitamin A.", "Vitamin C.", "Magnesium."],
+            "info_porsi": {
+                "saran_penyajian": "Ditumis sebentar, direbus (jangan terlalu lama agar nutrisi tidak hilang), atau dijadikan smoothie.",
+                "porsi": {
+                    "Turunin Berat Badan": "**Porsi Rekomendasi:** 1-2 mangkuk matang (100-200g) per hari.",
+                    "Jaga Berat Badan": "**Porsi Rekomendasi:** 1-2 mangkuk matang (100-200g) per hari.",
+                    "Naikin Berat Badan": "**Porsi Rekomendasi:** Minimal 1 mangkuk matang (100g) per hari. Fokus sayuran untuk vitamin, bukan kalori."
+                }
+            },
             "youtube_d": "https://youtu.be/BScJml7UwZc?si=Kc2EQM8W6b7wSdfm"
         },
         "kangkung": {
             "description": "Kangkung kaya serat dan vitamin A, membantu menjaga kesehatan mata serta sistem pencernaan.",
             "kandungan": ["Serat.", "Vitamin A.", "Vitamin C.", "Zat besi.", "Kalsium."],
+            "info_porsi": {
+                "saran_penyajian": "Ditumis dengan sedikit minyak dan bawang putih. Masak dengan cepat agar tetap renyah.",
+                "porsi": {
+                    "Turunin Berat Badan": "**Porsi Rekomendasi:** 1 mangkuk matang (100g) per hari.",
+                    "Jaga Berat Badan": "**Porsi Rekomendasi:** 1 mangkuk matang (100g) per hari.",
+                    "Naikin Berat Badan": "**Porsi Rekomendasi:** Minimal 1 mangkuk matang (100g) per hari."
+                }
+            },
             "youtube_d": "https://youtu.be/ZozjkkpMfWc?si=at9d7bJpK0QbzVgX"
         },
         "wortel": {
             "description": "Wortel dikenal dengan kandungan beta-karotennya yang mendukung kesehatan mata dan kulit.",
             "kandungan": ["Beta-karoten.", "Vitamin A.", "Vitamin K.", "Serat.", "Kalium."],
+            "info_porsi": {
+                "saran_penyajian": "Dimakan mentah sebagai camilan, dikukus, ditumis, atau dijadikan campuran sup dan jus.",
+                "porsi": {
+                    "Turunin Berat Badan": "**Porsi Rekomendasi:** 1-2 buah sedang (100-150g) per hari.",
+                    "Jaga Berat Badan": "**Porsi Rekomendasi:** 1-2 buah sedang (100-150g) per hari.",
+                    "Naikin Berat Badan": "**Porsi Rekomendasi:** Minimal 1 buah sedang (100g) per hari."
+                }
+            },
             "youtube_d": "https://youtu.be/XDLGmZ4sSCM?si=HqfUlmABMy0SbWl2"
         },
         "tomat": {
             "description": "Tomat mengandung likopen, antioksidan kuat yang mendukung kesehatan jantung dan kulit.",
             "kandungan": ["Likopen.", "Vitamin C.", "Vitamin A.", "Kalium.", "Asam folat."],
+            "info_porsi": {
+                "saran_penyajian": "Dimakan mentah (dalam salad), dijadikan jus, atau dimasak sebagai bahan dasar saus.",
+                "porsi": {
+                    "Turunin Berat Badan": "**Porsi Rekomendasi:** 1-2 buah sedang (150-200g) per hari.",
+                    "Jaga Berat Badan": "**Porsi Rekomendasi:** 1-2 buah sedang (150-200g) per hari.",
+                    "Naikin Berat Badan": "**Porsi Rekomendasi:** Minimal 1 buah sedang (150g) per hari."
+                }
+            },
             "youtube_d": "https://youtu.be/jRzLoflPvs8?si=FTh-jfPz6KZ-Pz7R"
         },
         "brokoli": {
             "description": "Brokoli kaya akan serat, vitamin C, dan senyawa antioksidan yang membantu melawan radikal bebas.",
             "kandungan": ["Vitamin C.", "Vitamin K.", "Serat.", "Asam folat.", "Kalsium."],
+            "info_porsi": {
+                "saran_penyajian": "Cara terbaik adalah dikukus (3-5 menit) agar nutrisinya terjaga. Bisa juga ditumis ringan.",
+                "porsi": {
+                    "Turunin Berat Badan": "**Porsi Rekomendasi:** 1 mangkuk (sekitar 100g) per hari.",
+                    "Jaga Berat Badan": "**Porsi Rekomendasi:** 1 mangkuk (100g) per hari.",
+                    "Naikin Berat Badan": "**Porsi Rekomendasi:** Minimal 1 mangkuk (100g) per hari."
+                }
+            },
             "youtube_d": "https://youtu.be/iknF4VrKeIY?si=1YQq0PZ6lWUzq3ve"
         },
         "jeruk": {
             "description": "Jeruk tinggi vitamin C yang membantu meningkatkan daya tahan tubuh dan menjaga kesehatan kulit.",
             "kandungan": ["Vitamin C.", "Serat.", "Asam folat.", "Antioksidan.", "Air tinggi."],
+            "info_porsi": {
+                "saran_penyajian": "Makan langsung buahnya, jangan hanya dijus. Serat dalam buah utuh membantu mengontrol gula darah.",
+                "porsi": {
+                    "Turunin Berat Badan": "**Porsi Rekomendasi:** 1-2 buah (150-200g) per hari.",
+                    "Jaga Berat Badan": "**Porsi Rekomendasi:** 1-2 buah (150-200g) per hari.",
+                    "Naikin Berat Badan": "**Porsi Rekomendasi:** 2 buah (200g) per hari."
+                }
+            },
             "youtube_d": "https://youtu.be/r8_T6qfU3VU?si=aHDZqLdt4phvCZup"
         },
         "apel": {
             "description": "Apel kaya serat dan antioksidan, membantu menurunkan kolesterol dan menjaga pencernaan.",
             "kandungan": ["Serat (pektin).", "Vitamin C.", "Kalium.", "Antioksidan polifenol."],
+            "info_porsi": {
+                "saran_penyajian": "Makan beserta kulitnya (setelah dicuci bersih) untuk mendapatkan kandungan serat dan antioksidan maksimal.",
+                "porsi": {
+                    "Turunin Berat Badan": "**Porsi Rekomendasi:** 1 buah sedang (150g) per hari.",
+                    "Jaga Berat Badan": "**Porsi Rekomendasi:** 1-2 buah sedang (150-300g) per hari.",
+                    "Naikin Berat Badan": "**Porsi Rekomendasi:** 2 buah sedang (300g) per hari."
+                }
+            },
             "youtube_d": "https://youtu.be/JlHMoRYkq6s?si=MTghk1Ah7iPQ8FqR"
         },
         "pisang": {
             "description": "Pisang mengandung kalium tinggi yang membantu menjaga tekanan darah dan energi tubuh.",
             "kandungan": ["Kalium.", "Vitamin B6.", "Serat.", "Karbohidrat alami."],
+            "info_porsi": {
+                "saran_penyajian": "Sangat baik dikonsumsi sebagai camilan sebelum atau sesudah olahraga untuk mengisi energi.",
+                "porsi": {
+                    "Turunin Berat Badan": "**Porsi Rekomendasi:** 1 buah sedang (100g) per hari.",
+                    "Jaga Berat Badan": "**Porsi Rekomendasi:** 1-2 buah sedang (100-200g) per hari.",
+                    "Naikin Berat Badan": "**Porsi Rekomendasi:** 2-3 buah sedang (200-300g) per hari. Cocok untuk campuran smoothie penambah berat badan."
+                }
+            },
             "youtube_d": "https://youtu.be/97zU4vT8Uw4?si=l-YwQ0e9NgW5KH8J"
         },
         "pepaya": {
             "description": "Pepaya kaya vitamin C dan enzim papain yang membantu melancarkan pencernaan.",
             "kandungan": ["Vitamin C.", "Vitamin A.", "Serat.", "Papain (enzim pencernaan)."],
+            "info_porsi": {
+                "saran_penyajian": "Dimakan langsung saat matang. Sangat baik untuk dikonsumsi di pagi hari.",
+                "porsi": {
+                    "Turunin Berat Badan": "**Porsi Rekomendasi:** 1 potong sedang (150g) per hari.",
+                    "Jaga Berat Badan": "**Porsi Rekomendasi:** 1-2 potong sedang (150-300g) per hari.",
+                    "Naikin Berat Badan": "**Porsi Rekomendasi:** 2 potong sedang (300g) per hari."
+                }
+            },
             "youtube_d": "https://youtu.be/gQUHMiSt1vM?si=bsMUP7S_Rv7fny0a"
         },
         "tahu": {
             "description": "Tahu adalah sumber protein nabati yang rendah lemak dan kaya kalsium, cocok untuk diet sehat.",
             "kandungan": ["Protein nabati.", "Kalsium.", "Zat besi.", "Magnesium.", "Isoflavon."],
+            "info_porsi": {
+                "saran_penyajian": "Dikukus (untuk tahu sutra), ditumis, atau dipanggang. Hindari digoreng (deep fry) karena menyerap banyak minyak.",
+                "porsi": {
+                    "Turunin Berat Badan": "**Porsi Rekomendasi:** 1-2 potong besar (100-200g) per hari.",
+                    "Jaga Berat Badan": "**Porsi Rekomendasi:** 2 potong besar (200g) per hari.",
+                    "Naikin Berat Badan": "**Porsi Rekomendasi:** 3-4 potong besar (300-400g) per hari, sebagai sumber protein nabati."
+                }
+            },
             "youtube_d": "https://youtu.be/TZOSblNBptE?si=YQEPD3IuEjsGjCHy"
         },
         "tempe": {
             "description": "Tempe kaya protein dan probiotik alami hasil fermentasi, baik untuk kesehatan usus.",
             "kandungan": ["Protein nabati.", "Vitamin B12 alami.", "Serat.", "Zat besi.", "Probiotik."],
+            "info_porsi": {
+                "saran_penyajian": "Dikukus, dipanggang, atau dibacem (dengan sedikit gula). Hindari digoreng kering.",
+                "porsi": {
+                    "Turunin Berat Badan": "**Porsi Rekomendasi:** 1-2 potong sedang (50-100g) per hari.",
+                    "Jaga Berat Badan": "**Porsi Rekomendasi:** 2 potong sedang (100g) per hari.",
+                    "Naikin Berat Badan": "**Porsi Rekomendasi:** 3-4 potong sedang (150-200g) per hari."
+                }
+            },
             "youtube_d": "https://youtu.be/ktBzYJ-Bq1U?si=bb_f9YRtB7bMHPBv"
         },
         "kacang-kacangan": {
             "description": "Kacang-kacangan merupakan sumber protein nabati dan lemak sehat yang baik untuk jantung.",
             "kandungan": ["Protein nabati.", "Lemak tak jenuh.", "Serat.", "Vitamin E.", "Magnesium."],
+            "info_porsi": {
+                "saran_penyajian": "Pilih yang dipanggang (bukan digoreng asin). Contoh: Almond, edamame rebus, atau selai kacang alami (tanpa tambahan gula).",
+                "porsi": {
+                    "Turunin Berat Badan": "**Porsi Rekomendasi:** 1 genggam kecil (20-30g) per hari sebagai camilan.",
+                    "Jaga Berat Badan": "**Porsi Rekomendasi:** 1 genggam (30-40g) per hari.",
+                    "Naikin Berat Badan": "**Porsi Rekomendasi:** 2 genggam (60-80g) per hari, atau 2 sdm selai kacang sebagai tambahan kalori."
+                }
+            },
             "youtube_d": "https://youtu.be/5u2eC0e62aY?si=5qC0PGv8X8XHf2Vu"
         },
         "ikan": {
             "description": "Ikan mengandung protein tinggi dan omega-3 yang mendukung fungsi otak serta kesehatan jantung.",
             "kandungan": ["Protein hewani.", "Asam lemak omega-3.", "Vitamin D.", "Selenium."],
+            "info_porsi": {
+                "saran_penyajian": "Dikukus, dipanggang, atau dibuat sup. Pilih ikan seperti kembung, salmon, tuna, atau tongkol.",
+                "porsi": {
+                    "Turunin Berat Badan": "**Porsi Rekomendasi:** 1 potong sedang (100g) per hari.",
+                    "Jaga Berat Badan": "**Porsi Rekomendasi:** 1-2 potong sedang (100-200g) per hari.",
+                    "Naikin Berat Badan": "**Porsi Rekomendasi:** 2 potong sedang (200g) per hari."
+                }
+            },
             "youtube_d": "https://youtu.be/cP-E1yVWe1A?si=4xYiLt0_TQIDnBbm"
         },
         "ayam_tanpa_kulit": {
             "description": "Ayam tanpa kulit merupakan sumber protein hewani rendah lemak yang baik untuk pembentukan otot.",
             "kandungan": ["Protein hewani.", "Vitamin B3 (niasin).", "Selenium.", "Fosfor."],
+            "info_porsi": {
+                "saran_penyajian": "Bagian dada adalah pilihan terbaik. Dipanggang, direbus (untuk sup/salad), atau ditumis.",
+                "porsi": {
+                    "Turunin Berat Badan": "**Porsi Rekomendasi:** 1 potong seukuran telapak tangan (100g) per hari.",
+                    "Jaga Berat Badan": "**Porsi Rekomendasi:** 1-2 potong (100-200g) per hari.",
+                    "Naikin Berat Badan": "**Porsi Rekomendasi:** 2-3 potong (200-300g) per hari untuk memaksimalkan asupan protein."
+                }
+            },
             "youtube_d": "https://youtu.be/Gy30dU61EYk?si=Ch-rEtmHV4dYARje"
         },
         "telur": {
             "description": "Telur kaya protein dan kolin, membantu pembentukan sel serta fungsi otak.",
             "kandungan": ["Protein tinggi.", "Kolin.", "Vitamin D.", "Zat besi.", "Lemak sehat."],
+            "info_porsi": {
+                "saran_penyajian": "Cara terbaik adalah direbus. Bisa juga diceplok atau didadar dengan sedikit minyak (gunakan wajan anti lengket).",
+                "porsi": {
+                    "Turunin Berat Badan": "**Porsi Rekomendasi:** 1-2 butir utuh per hari. Bisa ditambahkan putih telurnya saja jika ingin protein lebih.",
+                    "Jaga Berat Badan": "**Porsi Rekomendasi:** 2-3 butir utuh per hari.",
+                    "Naikin Berat Badan": "**Porsi Rekomendasi:** 3-5 butir per hari. Kombinasikan telur utuh dengan putih telurnya."
+                }
+            },
             "youtube_d": "https://youtu.be/Bmo5vQ_3bhE?si=U0yhyUIrZ2lu-X2S"
         },
         "daging_tanpa_lemak": {
             "description": "Daging tanpa lemak menyediakan protein berkualitas tinggi dengan kandungan zat besi heme yang mudah diserap tubuh.",
             "kandungan": ["Protein hewani.", "Zat besi heme.", "Vitamin B12.", "Zink."],
+            "info_porsi": {
+                "saran_penyajian": "Pilih bagian sirloin atau tenderloin yang lemaknya sedikit. Dipanggang atau ditumis.",
+                "porsi": {
+                    "Turunin Berat Badan": "**Porsi Rekomendasi:** 1 potong (75-100g) per hari.",
+                    "Jaga Berat Badan": "**Porsi Rekomendasi:** 1-2 potong (100-150g) per hari.",
+                    "Naikin Berat Badan": "**Porsi Rekomendasi:** 2 potong (150-200g) per hari."
+                }
+            },
             "youtube_d": "https://youtu.be/QFjUetQJcAM?si=t-mEKNpW5JXKKnaP"
         },
         "susu_rendah_lemak": {
             "description": "Susu rendah lemak tetap kaya kalsium dan protein, baik untuk menjaga kepadatan tulang tanpa menambah lemak jenuh.",
             "kandungan": ["Kalsium.", "Protein.", "Vitamin D.", "Vitamin B12.", "Rendah lemak jenuh."],
+            "info_porsi": {
+                "saran_penyajian": "Diminum langsung atau digunakan sebagai bahan dasar smoothie protein.",
+                "porsi": {
+                    "Turunin Berat Badan": "**Porsi Rekomendasi:** 1 gelas (250ml) per hari.",
+                    "Jaga Berat Badan": "**Porsi Rekomendasi:** 1-2 gelas (250-500ml) per hari.",
+                    "Naikin Berat Badan": "**Porsi Rekomendasi:** 2-3 gelas (500-750ml) per hari. Bisa dipertimbangkan susu full cream jika butuh kalori ekstra."
+                }
+            },
             "youtube_d": "https://youtu.be/kWJ8QKQPljs?si=9ZKjvIbdGLlUvZqA"
         }
     }
