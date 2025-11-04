@@ -675,9 +675,9 @@ if st.session_state.get("recommendation_data"):
     display_goal = goal_display_map.get(original_goal, original_goal)
     
     # Pake variabel 'display_goal' yang baru 
-    st.markdown(f"Status Anda: **{data['level']}** (BMI: `{data['bmi']:.2f}`), Rekomendasi tipe latihan yang dominan adalah **{display_goal}**.")
+    st.markdown(f"Status Kamu: **{data['level']}** (BMI: `{data['bmi']:.2f}`), Rekomendasi tipe latihan yang dominan adalah **{display_goal}**.")
     
-    st.header("Rekomendasi Untuk Anda 👇")
+    st.header("Rekomendasi Untuk Kamu 👇")
 
     #  LOGIKA TOMBOL SIMPAN/HAPUS PROFIL 
     if st.session_state.get("authentication_status"):
@@ -850,7 +850,7 @@ if st.session_state.get("recommendation_data"):
         st.session_state.pop("selected_detail", None)
         st.rerun()
 else:
-    st.info("👈 Silakan isi data Anda di atas, lalu klik tombol **'Dapatkan Rekomendasi'** untuk melihat saran latihan, alat, dan asupan yang cocok untuk Anda!")
+    st.info("👈 Silakan isi data di atas, lalu klik tombol **'Dapatkan Rekomendasi'** untuk melihat saran latihan, alat, dan asupan yang cocok!")
 
 
 st.markdown("---")
