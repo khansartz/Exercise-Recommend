@@ -1,4 +1,4 @@
-#  Exercise Recommendation App 💪 <img src="logo.jpg" width="30"/>
+#  Exercise Recommendation App 💪 <img src="media\logo.png" width="30"/>
 
 Sistem rekomendasi kebugaran cerdas yang memberikan saran latihan, alat, dan diet personal berdasarkan data pengguna menggunakan Machine Learning.
 
@@ -35,18 +35,24 @@ Exercise Recommendation App adalah aplikasi web yang dibangun dengan Streamlit u
 │   ├── label_encoders.pkl
 │   ├── target_encoder.pkl
 │   ├── scaler.pkl
-│   ├── preparation_data.pkl # Database rekomendasi (sudah dibersihkan)
+│   ├── tfidf_vectorizer.pkl
+│   └── preparation_data.pkl # Database rekomendasi (sudah dibersihkan)
 ├── media/              # Folder berisi gambar untuk rekomendasi
 │   ├── squats.jpg
 │   ├── dumbbells.jpg
 │   └── ... (gambar lainnya) ...
+├── pages/  
+│   ├── 1_Recommendation.py
+│   ├── 2_Profile.py
+│   ├── 3_Works.py
+│   ├── 4_About.py
+│   └── login.py
 ├── .gitignore          
-├── app.py              # Kode utama aplikasi Streamlit
+├── home.py              # Kode utama aplikasi Streamlit
 ├── models.ipynb        # Notebook Google Colab untuk training model
 ├── media.py            # Script Python untuk mapping nama item ke path gambar
-├── media_info.py       # Script Python berisi detail (deskripsi, tips, youtube)
+├── media_info.py       # Script Python berisi detail
 ├── requirements.txt    # Daftar library Python yang dibutuhkan
-├── logo.jpg            # File logo aplikasi
 └── README.md    
 ```
 ---
