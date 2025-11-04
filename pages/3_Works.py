@@ -280,7 +280,7 @@ with col3_1:
         <ul>
             <li><b>Analoginya:</b> Kalo tadi resepsionis, yang ini adalah <b>Personal Trainer</b>-nya.</li>
             <li><b>Tugasnya:</b> Dia ngambil Tipe Kebutuhan kamu (dari Langkah 2) DAN data riwayat kesehatanmu.</li>
-            <li>Dia lalu "menyaring" (<i>filtering</i>) ratusan database rencana latihan, alat, dan diet buat nemuin satu set yang paling cocok dan aman.</li>
+            <li>Dia lalu "menyaring" (<i>filtering</i>) ratusan database rencana latihan, alat, dan asupan buat nemuin satu set yang paling cocok dan aman.</li>
         </ul>
     </div>
     """, unsafe_allow_html=True)
@@ -310,7 +310,7 @@ with col4_2:
         <ul>
             <li>Rekomendasi Latihan (Squats, Push-up, dll.)</li>
             <li>Rekomendasi Alat (Dumbbell, Matras, dll.)</li>
-            <li>Panduan Diet (Karbohidrat, Protein, dll.)</li>
+            <li>Panduan Asupan (Karbohidrat, Protein, dll.)</li>
         </ul>
     </div>
     """, unsafe_allow_html=True)
@@ -339,11 +339,11 @@ st.markdown(textwrap.dedent("""
         <p>
             Sebagai bukti kalo proses validasi ini beneran dilakukan, ini ada cerita kecil:
             <br><br>
-            Awalnya perancang sudah bikin sistem rekomendasi makanan yang super spesifik dan kompleks. Tapi, setelah divalidasi, <b>Ahli Gizi</b> kami memberikan </b>insight</b> penting: "Ini terlalu rumit. Daripada ngasih rekomendasi spesifik yang belum tentu cocok, jauh lebih aman dan efektif kalo kita pake panduan <b>'Isi Piringku' dari Kemenkes</b>."
+            Awalnya perancang sudah bikin sistem rekomendasi makanan yang super spesifik dan kompleks. Tapi, setelah divalidasi, <b>Ahli Gizi</b> memberikan </b>insight</b> penting: "Ini terlalu rumit. Daripada kasih rekomendasi spesifik yang belum tentu cocok, jauh lebih aman dan efektif kalo kita pake panduan <b>'Isi Piringku' dari Kemenkes</b>."
             <br><br>
             <b>Dan kami setuju.</b>
             <br>
-            Makanya, rekomendasi asupan di aplikasi ini sengaja bersifat general (makanan apa yang bagus, dan apa yang harus dihindari penderita hipertensi atau diabetes). Ini adalah pilihan sadar untuk ngasih kamu rekomendasi yang <b>Aman, Terbukti, dan Tervalidasi Kemenkes.</b>
+            Makanya, rekomendasi asupan di aplikasi ini sengaja bersifat general (makanan apa yang bagus, dan apa yang harus dihindari penderita hipertensi atau diabetes). Ini adalah pilihan sadar untuk memberikan kamu rekomendasi yang <b>Aman, Terbukti, dan Tervalidasi Kemenkes.</b>
         </p>
     </div>
     """), unsafe_allow_html=True)
