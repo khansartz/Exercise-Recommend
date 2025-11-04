@@ -675,7 +675,7 @@ if st.session_state.get("recommendation_data"):
     display_goal = goal_display_map.get(original_goal, original_goal)
     
     # Pake variabel 'display_goal' yang baru 
-    st.markdown(f"Status Anda: **{data['level']}** (BMI: `{data['bmi']:.2f}`), Rekomendasi tipe Latihan yang dominan adalah **{display_goal}**.")
+    st.markdown(f"Status Anda: **{data['level']}** (BMI: `{data['bmi']:.2f}`), Rekomendasi tipe latihan yang dominan adalah **{display_goal}**.")
     
     st.header("Rekomendasi Untuk Anda 👇")
 
