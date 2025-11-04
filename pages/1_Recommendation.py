@@ -728,7 +728,7 @@ if st.session_state.get("recommendation_data"):
             st.rerun() 
             
     else:
-        st.info("Login dulu biar bisa nyimpen rekomendasi ya 😉")
+        st.info("Login dulu agar bisa simpan rekomendasi ya 😉")
         
 
      
