@@ -1,4 +1,4 @@
-#  Exercise Recommendation App 💪 <img src="media\logo.png" width="30"/>
+#  Exercise Recommendation App 💪 <img src="logo.png" width="30"/>
 
 Sistem rekomendasi kebugaran cerdas yang memberikan saran latihan, alat, dan diet personal berdasarkan data pengguna menggunakan Machine Learning.
 

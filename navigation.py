@@ -7,7 +7,7 @@ from streamlit.runtime.scriptrunner import get_script_run_ctx
 def make_sidebar(authenticator=None):
     with st.sidebar:
         try:
-            st.image("media\logo.png", width=200)
+            st.image("logo.png", width=200)
         except Exception:
             st.title("🏋️ Exercise Recommendation App")
 
