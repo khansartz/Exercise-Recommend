@@ -53,6 +53,14 @@ credentials:
       password: $2b$12$yzqzF.HmLk8wScg5EZc3fu4Dk7xy/4dVI2z2dyK1bVVL7xleGGUsO
       password_hint: Test@12345
       roles: null
+    test123:
+      email: testingg@gmail.com
+      first_name: testt
+      last_name: ting
+      logged_in: false
+      password: $2b$12$EQlpa5OAzceX.u6oLanQ3.FKL7TVrraTYe8DIhXkJoM6uljxmYnxK
+      password_hint: Test@1234
+      roles: null
     testlagi:
       email: testlagi@gmail.com
       first_name: testlagi

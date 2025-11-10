@@ -386,7 +386,24 @@ def render_recommendation_section(title, items_list, media_dictionary):
                     if html:
                         st.markdown(html, unsafe_allow_html=True)
                     
-                    key_safe = item.lower().replace(" ", "_")
+                    # --- FIX DIMULAI DI SINI ---
+                    
+                    # 1. Bikin prefix unik dari title section-nya
+                    # Misal: "🧰 Alat" -> "alat"
+                    # "🏋️ Latihan" -> "latihan"
+                    try:
+                        section_prefix = title.split(" ")[1].lower()
+                    except IndexError:
+                        # Fallback kalo title-nya aneh (misal cuma 1 kata)
+                        section_prefix = title.lower().replace(" ", "_")
+                    
+                    # 2. Bikin key item-nya
+                    key_safe_item = item.lower().replace(" ", "_")
+                    
+                    # 3. Gabungin jadi key yang 100% unik
+                    unique_key_base = f"{section_prefix}_{key_safe_item}"
+                    
+                    # --- FIX SELESAI ---
                     
                     col_btn1, col_btn2 = st.columns([1, 1]) 
 
@@ -394,9 +411,9 @@ def render_recommendation_section(title, items_list, media_dictionary):
                     with col_btn1:
                         st.button(
                             "Lihat Detail", 
-                            key=f"detail_btn_{key_safe}",
+                            key=f"detail_btn_{unique_key_base}", # <-- PAKE KEY UNIK
                             on_click=set_detail_view,     
-                            args=(key_safe,),
+                            args=(key_safe_item,), # <-- INI TETAP PAKE KEY ITEM
                             use_container_width=True 
                         )
                     
@@ -417,7 +434,7 @@ def render_recommendation_section(title, items_list, media_dictionary):
 
                             st.button(
                                 button_text,
-                                key=f"fav_btn_{key_safe}",
+                                key=f"fav_btn_{unique_key_base}", # <-- PAKE KEY UNIK
                                 on_click=add_to_favorites,
                                 args=(item,),
                                 use_container_width=True,
@@ -428,8 +445,6 @@ def render_recommendation_section(title, items_list, media_dictionary):
         st.write("") 
     else:
         st.info(f"Tidak ada rekomendasi spesifik untuk {title.split(':')[0]}.")
-
-
 
 # CSS singkat
 
