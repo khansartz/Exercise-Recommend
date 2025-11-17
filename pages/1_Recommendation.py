@@ -212,12 +212,19 @@ def get_fitness_goal(level):
     elif level in ["Overweight", "Obese"]: return "Weight Loss"
     return None
 
+def get_age_group(age):
+    if 18 <= age <= 25: return "18-25"
+    elif 26 <= age <= 35: return "26-35"
+    elif 36 <= age <= 45: return "36-45"
+    elif 46 <= age <= 55: return "46-55"
+    else: return "56+"
+
 # model inference functions   
-categorical_cols = ['Sex', 'Level', 'Fitness Goal']
+categorical_cols = ['Sex', 'Level', 'Fitness Goal', 'Age Group']
 numeric_cols = ['Age', 'Height', 'Weight', 'BMI']
 
 def knn_predict_fitness(user_input_dict, le_dict, scaler, knn_model, le_target):
-    ordered_cols = ['Sex', 'Age', 'Height', 'Weight', 'BMI', 'Level', 'Fitness Goal']
+    ordered_cols = ['Sex', 'Age', 'Height', 'Weight', 'BMI', 'Level', 'Fitness Goal', 'Age Group']
     new_user = pd.DataFrame([user_input_dict])
     try:
         for col in categorical_cols:
@@ -232,44 +239,88 @@ def knn_predict_fitness(user_input_dict, le_dict, scaler, knn_model, le_target):
 
 from sklearn.metrics.pairwise import cosine_similarity
 
-def cbf_recommendations(fitness_type, hypertension, diabetes, preparation_data, tfidf_vectorizer, top_n=5):
+def cbf_recommendations(fitness_type, hypertension, diabetes, level, goal, sex, age_group, preparation_data, tfidf_vectorizer, top_n=5):
+    
     hypertension_clean = str(hypertension).strip().title()
     diabetes_clean = str(diabetes).strip().title()
+    level_clean = str(level).strip().title()
+    goal_clean = str(goal).strip().title()
+    sex_clean = str(sex).strip().title()
+    age_group_clean = str(age_group).strip()
+    
+    print(f"\nMencari filter spesifik...")
+    
+    # Base query (Kondisi Kesehatan + Tipe Fitness)
+    base_query = (preparation_data['Fitness Type'] == fitness_type) & \
+                 (preparation_data['Hypertension'].str.strip().str.title() == hypertension_clean) & \
+                 (preparation_data['Diabetes'].str.strip().str.title() == diabetes_clean)
 
+    # 1. Coba Paling Spesifik (Lengkap)
+    print(f"   - Mencoba: Age Group, Level, Goal, Sex...")
     filtered_df = preparation_data[
-        (preparation_data['Fitness Type'] == fitness_type) & 
-        (preparation_data['Hypertension'].str.strip().str.title() == hypertension_clean) &
-        (preparation_data['Diabetes'].str.strip().str.title() == diabetes_clean)
+        base_query &
+        (preparation_data['Age Group'].str.strip() == age_group_clean) &
+        (preparation_data['Level'].str.strip().str.title() == level_clean) &
+        (preparation_data['Fitness Goal'].str.strip().str.title() == goal_clean) &
+        (preparation_data['Sex'].str.strip().str.title() == sex_clean)
     ].copy()
 
+    # 2. Fallback: Buang 'Age Group'
     if filtered_df.empty:
-        filtered_df = preparation_data[preparation_data['Fitness Type'] == fitness_type].copy()
-        if filtered_df.empty: return {"Error": f"Tidak ada data untuk Tipe Fitness: {fitness_type}."}
+        print(f"   - Gagal. Fallback: Mencoba tanpa 'Age Group'...")
+        filtered_df = preparation_data[
+            base_query &
+            (preparation_data['Level'].str.strip().str.title() == level_clean) &
+            (preparation_data['Fitness Goal'].str.strip().str.title() == goal_clean) &
+            (preparation_data['Sex'].str.strip().str.title() == sex_clean)
+        ].copy()
 
+    # 3. Fallback: Buang 'Sex'
+    if filtered_df.empty:
+        print(f"   - Gagal. Fallback: Mencoba tanpa 'Sex' & 'Age Group'...")
+        filtered_df = preparation_data[
+            base_query &
+            (preparation_data['Level'].str.strip().str.title() == level_clean) &
+            (preparation_data['Fitness Goal'].str.strip().str.title() == goal_clean)
+        ].copy()
+
+    # 4. Fallback: Buang 'Level' & 'Goal' (Hanya kondisi kesehatan)
+    if filtered_df.empty:
+        print(f"   - Gagal. Fallback: Mencoba tanpa 'Level' & 'Goal'...")
+        filtered_df = preparation_data[base_query].copy()
+
+    # Fallback: Cuma 'Fitness Type' (Last resort)
+    if filtered_df.empty:
+        print(f"   - Gagal. Fallback: Mencoba HANYA 'Fitness Type'...")
+        filtered_df = preparation_data[preparation_data['Fitness Type'] == fitness_type].copy()
+        if filtered_df.empty: 
+            return {"Error": f"Tidak ada data untuk Tipe Fitness: {fitness_type}."}
+    
+    # --- Sisa Logika (HITUNG ULANG, BUKAN LOAD) ---
     current_top_n = min(top_n, len(filtered_df))
-    if current_top_n == 0: return {"Error": "Tidak ada data cocok sama sekali."}
+    if current_top_n == 0: 
+        return {"Error": "Tidak ada data cocok sama sekali."}
 
     if 'content' not in filtered_df.columns:
-        filtered_df['content'] = (
-            filtered_df['Exercises'].fillna('') + ' ' +
-            filtered_df['Equipment'].fillna('') + ' ' +
-            filtered_df['Diet'].fillna('')
-        ).str.strip()
+        return {"Error": "Kolom 'content' tidak ditemukan."}
 
     filtered_content = filtered_df['content'].fillna('')
     try:
+        # 1. HITUNG ULANG TF-IDF
         tfidf_matrix_filtered = tfidf_vectorizer.transform(filtered_content)
     except Exception as tf_err:
         return {"Error": f"Gagal transform TF-IDF: {tf_err}"}
 
     try:
+        # 2. HITUNG ULANG COSINE SIM
         if tfidf_matrix_filtered.shape[0] > 1:
             cosine_sim_filtered = cosine_similarity(tfidf_matrix_filtered)
         else:
-            cosine_sim_filtered = np.array([[1.0]])
+            cosine_sim_filtered = np.array([[1.0]]) # Kalo cuma 1 hasil
     except Exception as cs_err:
         return {"Error": f"Gagal hitung Cosine Sim: {cs_err}"}
 
+    # 3. VOTING (Sama kayak sebelumnya)
     avg_sim_scores = cosine_sim_filtered.mean(axis=1)
     sim_scores_series = pd.Series(avg_sim_scores, index=filtered_df.index)
     top_n_indices = sim_scores_series.nlargest(current_top_n).index.tolist()
@@ -640,9 +691,10 @@ if submitted:
         bmi = calculate_bmi(height_cm, weight)
         level = get_bmi_level(bmi)
         goal = get_fitness_goal(level)
+        age_group = get_age_group(age)
 
         knn_input = {"Sex": sex, "Age": age, "Height": height_cm,
-                     "Weight": weight, "BMI": bmi, "Level": level, "Fitness Goal": goal}
+                     "Weight": weight, "BMI": bmi, "Level": level, "Fitness Goal": goal, "Age Group": age_group}
 
         pred_label = knn_predict_fitness(knn_input, le_dict, scaler, knn, le_target)
 
@@ -653,14 +705,18 @@ if submitted:
                 fitness_type=pred_label,
                 hypertension=hypertension,
                 diabetes=diabetes,
+                level=level,              
+                goal=goal,            
+                sex=sex,
+                age_group=age_group,           
                 preparation_data=preparation,
-                tfidf_vectorizer=tf,
+                tfidf_vectorizer=tf,       
                 top_n=5
             )
+
             if "Error" in cbf_result:
                 st.error(f"Rekomendasi CBF Gagal: {cbf_result['Error']}")
             else:
-                # simpan ke session_state recommendation_data
                 st.session_state["recommendation_data"] = {
                     "pred_label": pred_label,
                     "level": level,
@@ -669,7 +725,8 @@ if submitted:
                     "best_row": cbf_result,
                     "hypertension": hypertension,
                     "diabetes": diabetes,
-                    "timestamp": time.time()
+                    "timestamp": time.time(),
+                    "age_group": age_group
                 }
                 st.rerun()
 

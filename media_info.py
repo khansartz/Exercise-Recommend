@@ -315,7 +315,7 @@ def get_media_info():
             ],
             "youtube": "https://youtu.be/fiUzT-s93sg?si=QKBWnjFPJsIzRzkD"
         },
-        "assisted_pull_up": {
+        "assisted_pull-up": {
             "description": "Assisted pull-up membantu lo bangun kekuatan punggung dan lengan sebelum bisa pull-up penuh.",
             "tips": [
                 "Gunakan resistance band atau mesin dengan beban bantuan yang sesuai.",
@@ -325,7 +325,7 @@ def get_media_info():
             ],
             "youtube": "https://youtu.be/vKpqOpjJt18?si=lk750ekndmulQtM4"
         },
-        "assisted_lat_pull_down": {
+        "assisted_lat_pull-down": {
             "description": "Assisted lat pull-down menargetkan otot punggung atas (latissimus dorsi) dengan bantuan beban yang lebih ringan.",
             "tips": [
                 "Pegang palang selebar bahu atau sedikit lebih lebar.",
@@ -335,7 +335,7 @@ def get_media_info():
             ],
             "youtube": "https://youtu.be/VWwhqJ5slis?si=i5a2vq47vmtKqG_3"
         },
-        "lat_pull_down": {
+        "lat_pull-down": {
             "description": "Lat pull-down memperkuat otot punggung atas, terutama latissimus dorsi.",
             "tips": [
                 "Pegang palang lebih lebar dari bahu.",
@@ -345,7 +345,7 @@ def get_media_info():
             ],
             "youtube": "https://www.youtube.com/watch?v=CAwf7n6Luuc"
         },
-        "pull_up": {
+        "pull-up": {
             "description": "Pull-up melatih punggung, bahu, dan bisep, menggunakan berat badan sendiri.",
             "tips": [
                 "Pegang palang selebar bahu atau sedikit lebih lebar.",
@@ -614,6 +614,15 @@ def get_media_info():
                 "Kembalikan beban perlahan sambil tetap kontrol otot."
             ],
             "youtube": "https://youtu.be/GZbfZ033f74?si=2T-SNRT5RVgKMFpP"
+        },
+        "cable_row": {
+            "description": "Cable row melatih punggung tengah dan bisep dengan gerakan tarik horizontal menggunakan mesin kabel.",
+            "tips": [
+                "Jaga punggung tetap tegak dan jangan terlalu condong ke belakang.",
+                "Tarik pegangan ke arah perut, bukan dada.",
+                "Kembalikan beban perlahan sambil tetap kontrol otot."
+            ],
+            "youtube": "https://youtu.be/q7Fn27BfIHU?si=BAjtBgYlc1rMnPbl"
         },
         "chest_press_machine": {
             "description": "Mesin untuk melatih otot dada dengan gerakan dorong, alternatif aman dari bench press.",
