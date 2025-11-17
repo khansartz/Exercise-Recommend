@@ -209,7 +209,7 @@ with col2:
 
 with col3:
     st.markdown("### 💾 Simpan Rencana Kamu")
-    st.write("Nemu *workout plan* yang kamu suka? Simpen ke Profile. Favoritin *exercise* atau makanan spesifik agar gampang di-cek lagi nanti.")
+    st.write("Nemu *workout plan* yang kamu suka? Simpan ke Profile. Favoritin *exercise* atau makanan spesifik agar gampang di-cek lagi nanti.")
 
 st.markdown("---")
 

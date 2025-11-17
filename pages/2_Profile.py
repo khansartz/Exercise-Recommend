@@ -175,7 +175,7 @@ if saved_recs:
                 save_user_data(user_data)
                 st.rerun()
 else:
-    st.info("Belum ada rekomendasi yang kamu simpen 😅")
+    st.info("Belum ada rekomendasi yang kamu simpan 😅")
 
 st.markdown("---")
 

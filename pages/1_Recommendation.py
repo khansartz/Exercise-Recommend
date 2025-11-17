@@ -386,7 +386,7 @@ def add_to_favorites(item):
         st.session_state["favorites"][username].append(item)
         save_user_data() 
         # Toast notif sesuai request
-        st.toast(f"{item} ditambahin ke favorit!", icon="💖")
+        st.toast(f"{item} ditambahkan ke favorit!", icon="💖")
 
 #  END FUNGSI CALLBACK BARU 
 
