@@ -242,7 +242,7 @@ with col_dev:
     
     with col_img:
         try:
-            dev_img = Image.open(os.path.join(ROOT_DIR, "media\profile_dev.jpg"))
+            dev_img = Image.open(os.path.join(ROOT_DIR, "media/profile_dev.jpg"))
             st.image(dev_img, width=150)
         except FileNotFoundError:
             st.image("https://cdn-icons-png.flaticon.com/512/3135/3135715.png", width=150)

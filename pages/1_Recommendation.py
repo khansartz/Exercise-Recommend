@@ -296,7 +296,6 @@ def cbf_recommendations(fitness_type, hypertension, diabetes, level, goal, sex, 
         if filtered_df.empty: 
             return {"Error": f"Tidak ada data untuk Tipe Fitness: {fitness_type}."}
     
-    # --- Sisa Logika (HITUNG ULANG, BUKAN LOAD) ---
     current_top_n = min(top_n, len(filtered_df))
     if current_top_n == 0: 
         return {"Error": "Tidak ada data cocok sama sekali."}
@@ -376,7 +375,7 @@ def add_to_favorites(item):
     
     # LOGIKA TOGGLE 
     if item in st.session_state["favorites"][username]:
-        # Kalo udah ada: Hapus item
+        # Kalo sudah ada: Hapus item
         st.session_state["favorites"][username].remove(item)
         save_user_data() 
         # Toast notif sesuai request
@@ -400,7 +399,6 @@ def extract_diet_items(category_key, diet_string):
 
 #  FUNGSI CARD DIPERBARUI (TANPA <a> tag) 
 def render_card_html(label, media_dictionary):
-    """render tampilan card-nya, TANPA link."""
     if not label or not isinstance(label, str):
         return None
     key = label.lower().replace(" ", "_")
@@ -436,25 +434,21 @@ def render_recommendation_section(title, items_list, media_dictionary):
                     html = render_card_html(item, media_dictionary) 
                     if html:
                         st.markdown(html, unsafe_allow_html=True)
-                    
-                    # --- FIX DIMULAI DI SINI ---
-                    
-                    # 1. Bikin prefix unik dari title section-nya
-                    # Misal: "🧰 Alat" -> "alat"
+        
+                    # 1. Buat prefix unik dari title section-nya
                     # "🏋️ Latihan" -> "latihan"
                     try:
                         section_prefix = title.split(" ")[1].lower()
                     except IndexError:
-                        # Fallback kalo title-nya aneh (misal cuma 1 kata)
+                        # Fallback kalo title aneh (misal cuma 1 kata)
                         section_prefix = title.lower().replace(" ", "_")
                     
-                    # 2. Bikin key item-nya
+                    # 2. Buat key item
                     key_safe_item = item.lower().replace(" ", "_")
                     
-                    # 3. Gabungin jadi key yang 100% unik
+                    # 3. Gabung jadi key yang 100% unik
                     unique_key_base = f"{section_prefix}_{key_safe_item}"
                     
-                    # --- FIX SELESAI ---
                     
                     col_btn1, col_btn2 = st.columns([1, 1]) 
 
@@ -462,9 +456,9 @@ def render_recommendation_section(title, items_list, media_dictionary):
                     with col_btn1:
                         st.button(
                             "Lihat Detail", 
-                            key=f"detail_btn_{unique_key_base}", # <-- PAKE KEY UNIK
+                            key=f"detail_btn_{unique_key_base}",
                             on_click=set_detail_view,     
-                            args=(key_safe_item,), # <-- INI TETAP PAKE KEY ITEM
+                            args=(key_safe_item,), 
                             use_container_width=True 
                         )
                     
@@ -485,7 +479,7 @@ def render_recommendation_section(title, items_list, media_dictionary):
 
                             st.button(
                                 button_text,
-                                key=f"fav_btn_{unique_key_base}", # <-- PAKE KEY UNIK
+                                key=f"fav_btn_{unique_key_base}", 
                                 on_click=add_to_favorites,
                                 args=(item,),
                                 use_container_width=True,
