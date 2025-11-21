@@ -140,7 +140,6 @@ st.markdown("""
             margin-top: 2rem;
         }
         
-        /* Beda warna dikit buat evaluasi biar fresh */
         .evaluation-box {
             background: #F0F4FF; /* Biru muda banget */
             border: 2px solid var(--theme-blue);
@@ -352,7 +351,7 @@ st.markdown(textwrap.dedent("""
         <p>
             Sebagai bukti kalo proses validasi ini beneran dilakukan, ini ada cerita kecil:
             <br><br>
-            Awalnya perancang sudah bikin sistem rekomendasi makanan yang super spesifik dan kompleks. Tapi, setelah divalidasi, <b>Ahli Gizi</b> memberikan </b>insight</b> penting: "Ini terlalu rumit. Daripada kasih rekomendasi spesifik yang belum tentu cocok, jauh lebih aman dan efektif kalo kita pake panduan <b>'Isi Piringku' dari Kemenkes</b>."
+            Awalnya perancang sudah bikin sistem rekomendasi makanan yang super spesifik dan kompleks. Tapi, setelah divalidasi, <b>Ahli Gizi</b> memberikan </b>insight</b> penting: "Ini terlalu rumit. Daripada kasih rekomendasi spesifik yang belum tentu cocok, jauh lebih aman dan efektif kalo kita pakai panduan <b>'Isi Piringku' dari Kemenkes</b>."
             <br><br>
             <b>Dan kami setuju.</b>
             <br>
@@ -369,8 +368,8 @@ st.markdown("""
 <div class="evaluation-box">
     <h3>📊 Bukti Kinerja Model (Hasil Evaluasi)</h3>
     <p>
-        Biar kamu makin yakin, sistem ini udah diuji coba secara teknis menggunakan metrik evaluasi standar <i>Data Science</i>. 
-        Berikut adalah hasil performa dari model yang kita gunakan:
+        Sistem ini sudah diuji coba secara teknis menggunakan metrik evaluasi standar <i>Data Science</i>. 
+        Berikut adalah hasil performa dari model yang digunakan:
     </p>
 """, unsafe_allow_html=True)
  
