@@ -378,8 +378,8 @@ col_eval1, col_eval2 = st.columns(2)
 with col_eval1:
     st.markdown("#### 1. Akurasi Klasifikasi (KNN)")
     st.write("Seberapa tepat model menebak 'Tipe Fitness' (Kardio/Otot) kamu?")
-    st.metric(label="Akurasi Model KNN", value="100%", delta="Sangat Akurat")
-    st.caption("*Diuji pada 20% data testing (2918 sampel). Hasil Akurasi 100% menunjukkan bahwa data latih dan data testing memiliki pola yang sangat konsisten.")
+    st.metric(label="Akurasi Model KNN", value="0.9524", delta="Akurat")
+    st.caption("*Diuji pada 20% data testing (2918 sampel). Hasil Akurasi 95% menunjukkan bahwa data latih dan data testing memiliki pola yang sangat konsisten.")
 
 with col_eval2:
     st.markdown("#### 2. Relevansi Rekomendasi (CBF)")
