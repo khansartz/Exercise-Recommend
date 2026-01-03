@@ -48,11 +48,12 @@ Exercise Recommendation App adalah aplikasi web yang dibangun dengan Streamlit u
 │   ├── 4_About.py
 │   └── login.py
 ├── .gitignore          
-├── home.py              # Kode utama aplikasi Streamlit
+├── home.py             # Kode utama aplikasi Streamlit
 ├── models.ipynb        # Notebook Google Colab untuk training model
 ├── media.py            # Script Python untuk mapping nama item ke path gambar
 ├── media_info.py       # Script Python berisi detail
 ├── requirements.txt    # Daftar library Python yang dibutuhkan
+├── Manual Book.pdf     # Buku panduan pemakaian website
 └── README.md    
 ```
 ---
@@ -94,7 +95,7 @@ Exercise Recommendation App adalah aplikasi web yang dibangun dengan Streamlit u
 * **Scikit-learn:** Untuk model KNN, preprocessing (LabelEncoder, StandardScaler).
 * **Joblib:** Untuk menyimpan dan memuat model machine learning (`.pkl`).
 * **Pillow:** Untuk pemrosesan gambar.
-* **Requests:** Untuk mengambil gambar dari URL (jika ada).
+* **Requests:** Untuk mengambil gambar dari URL.
 
 ---
 
